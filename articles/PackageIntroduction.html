@@ -83,8 +83,12 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">dataCleaner</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">dataCleaner</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/printr/">printr</a></span><span class="op">)</span></code></pre></div>
+<pre><code>## Registered S3 method overwritten by 'printr':
+##   method                from     
+##   knit_print.data.frame rmarkdown</code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"20190101"</span>, <span class="st">"20190305"</span>, <span class="st">"20201012"</span><span class="op">)</span>,
   numeric_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span>,
@@ -92,31 +96,85 @@
 <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sample_table</span>
 
 <span class="va">sample_table</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   date     numeric_val char_val
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
-## 1 20190101           1 ""      
-## 2 20190305          NA "val "  
-## 3 20201012           5 "-"</code></pre>
+<table class="table">
+<thead><tr class="header">
+<th align="left">date</th>
+<th align="right">numeric_val</th>
+<th align="left">char_val</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">20190101</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">20190305</td>
+<td align="right">NA</td>
+<td align="left">val</td>
+</tr>
+<tr class="odd">
+<td align="left">20201012</td>
+<td align="right">5</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
   <span class="va">clean_frame</span> </code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   DATE       CHAR_VAL NUMERIC_VAL
-##   &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;      
-## 1 2019-01-01 &lt;NA&gt;     1          
-## 2 2019-03-05 val      &lt;NA&gt;       
-## 3 2020-10-12 &lt;NA&gt;     5</code></pre>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<table class="table">
+<thead><tr class="header">
+<th align="left">DATE</th>
+<th align="left">CHAR_VAL</th>
+<th align="left">NUMERIC_VAL</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">2019-01-01</td>
+<td align="left">NA</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">2019-03-05</td>
+<td align="left">val</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">2020-10-12</td>
+<td align="left">NA</td>
+<td align="left">5</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/fill_na.html">fill_na</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   date     numeric_val char_val
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
-## 1 20190101           1 ""      
-## 2 20190305           0 "val "  
-## 3 20201012           5 "-"</code></pre>
-  </div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">date</th>
+<th align="right">numeric_val</th>
+<th align="left">char_val</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">20190101</td>
+<td align="right">1</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">20190305</td>
+<td align="right">0</td>
+<td align="left">val</td>
+</tr>
+<tr class="odd">
+<td align="left">20201012</td>
+<td align="right">5</td>
+<td align="left">-</td>
+</tr>
+</tbody>
+</table>
+</div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
