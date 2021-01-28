@@ -25,3 +25,5 @@ Suggests:
     rmarkdown,
     printr
 VignetteBuilder: knitr
+URL: https://github.com/Harrison4192/dataCleaner
+BugReports: https://github.com/Harrison4192/dataCleaner/issues
