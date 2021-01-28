@@ -9,3 +9,4 @@
 auto_setwd <- function(){
   rstudioapi::getSourceEditorContext()$path %>% normalizePath %>% dirname %>% setwd
 }
+

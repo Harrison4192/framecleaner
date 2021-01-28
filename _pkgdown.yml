@@ -1,0 +1,48 @@
+template:
+  params:
+    bootswatch: cerulean
+
+development:
+  mode: auto
+
+reference:
+- title: Use these functions with a tidyselect specification
+  contents:
+  - '`fill_na`'
+  - '`remove_whitespace`'
+  - '`set_dates`'
+  - '`set_na`'
+- title: Only argument is a data frame
+  contents:
+  - '`clean_frame`'
+  - '`relocate_all`'
+- title: Takes no arguments
+  contents:
+  - '`auto_setwd`'
+articles:
+- title: All vignettes
+  desc: null
+  contents: '`PackageIntroduction`'
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    articles:
+      text: Articles
+      menu:
+      - text: PackageIntroduction
+        href: articles/PackageIntroduction.html
+
