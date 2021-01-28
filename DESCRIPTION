@@ -1,11 +1,10 @@
 Package: dataCleaner
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Clean Data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Harrison Tietze
+Maintainer: Harrison Tietze <Harrison4192@gmail.com>
+Description: Functions for handling common issues in raw data sets
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -25,5 +24,5 @@ Suggests:
     rmarkdown,
     printr
 VignetteBuilder: knitr
-URL: https://github.com/Harrison4192/dataCleaner
+URL: https://github.com/Harrison4192/dataCleaner, https://harrison4192.github.io/dataCleaner/
 BugReports: https://github.com/Harrison4192/dataCleaner/issues

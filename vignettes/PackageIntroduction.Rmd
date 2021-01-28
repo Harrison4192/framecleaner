@@ -8,7 +8,7 @@ vignette: >
 ---
 
 
-```{r setup}
+```{r message=F, warning=F}
 library(dataCleaner)
 library(printr)
 ```

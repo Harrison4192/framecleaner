@@ -6,3 +6,5 @@
 ^pkgdown$
 ^\.github$
 ^/Users/Harrison/Desktop/packages/dataCleaner/_pkgdown\.yml$
+^build_package\.R$
+^README\.Rmd$
