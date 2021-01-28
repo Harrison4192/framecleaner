@@ -1,0 +1,34 @@
+---
+title: "PackageIntroduction"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{PackageIntroduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r setup}
+library(dataCleaner)
+```
+
+```{r}
+tibble::tibble(
+  date = c("20190101", "20190305", "20201012"),
+  numeric_val = c(1, NA, 5),
+  char_val = c("", "val ", "-")
+) -> sample_table
+
+sample_table
+```
+
+```{r}
+sample_table %>% 
+  clean_frame 
+```
+
+```{r}
+sample_table %>% 
+  fill_na(where(is.numeric))
+```
+
