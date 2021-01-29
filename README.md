@@ -6,12 +6,13 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/Harrison4192/dataCleaner/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/dataCleaner/actions)
-[![Launch
-binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Harrison4192/dataCleaner/main)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/dataCleaner)](https://CRAN.R-project.org/package=dataCleaner)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/dataCleaner?color=blue)](https://cran.r-project.org/package=dataCleaner)
+[![](https://img.shields.io/github/languages/code-size/Harrison4192/dataCleaner.svg)](https://github.com/Harrison4192/dataCleaner)
+[![](https://img.shields.io/github/last-commit/Harrison4192/dataCleaner.svg)](https://github.com/Harrison4192/dataCleaner/commits/master)
 <!-- badges: end -->
 
 The goal of dataCleaner is to provide functions for cleaning common
