@@ -17,9 +17,32 @@ use_build_ignore(file_name)
 
 
 
+# begin pkgdown -----------------------------------------------------------
+
+usethis::use_pkgdown()
+
+# create yaml -------------------------------------------------------------
+
+ymlthis::pkgdown_template() %>%
+  ymlthis::use_pkgdown_yml()
+
 # usethis: add packages ---------------------------------------------------
 
+usethis::use_pipe()
+
 usethis::use_package("rstudioapi")
+usethis::use_package("dplyr")
+usethis::use_package("stringr")
+usethis::use_package("tidyselect")
+usethis::use_package("purrr")
+usethis::use_package("janitor")
+usethis::use_package("tibble")
+usethis::use_package("rlang")
+usethis::use_package("lubridate")
+
+usethis::use_package("badger", type = "Suggests")
+
+
 
 # edit R profile ----------------------------------------------------------
 
@@ -32,6 +55,8 @@ edit_r_profile()
 
 use_readme_rmd()
 use_news_md()
+use_mit_license()
+
 
 
 # add badges to readme ----------------------------------------------------
@@ -47,7 +72,6 @@ use_github_actions_badge()
 
 # gh_token_help()
 create_github_token()
-# 83d6a6ee846f45acbde2cfbbaa5771ecf87aaaa6
 gitcreds_set()
 gitcreds_get()
 set_github_pat()
@@ -68,13 +92,14 @@ usethis::use_github_action("render-rmarkdown")
 usethis::use_github_action("pkgdown")
 usethis::use_github_actions()
 usethis::use_github_links()
-
-
+usethis::use_github_pages()
 
 # build and check ---------------------------------------------------------
 
+document()
 build_readme()
 build_site()
 check()
 preview_site()
+
 

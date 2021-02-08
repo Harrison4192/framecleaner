@@ -23,7 +23,8 @@ RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
-    printr
+    printr,
+    badger
 VignetteBuilder: knitr
 URL: https://github.com/Harrison4192/dataCleaner, https://harrison4192.github.io/dataCleaner/
 BugReports: https://github.com/Harrison4192/dataCleaner/issues

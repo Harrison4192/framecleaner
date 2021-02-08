@@ -11,6 +11,7 @@ vignette: >
 ```{r message=F, warning=F}
 library(dataCleaner)
 library(printr)
+library(dplyr)
 ```
 
 ```{r}
@@ -31,5 +32,42 @@ sample_table %>%
 ```{r}
 sample_table %>% 
   fill_na(where(is.numeric))
+```
+## Pivot summary
+
+Transpose a tibble of summary statistics in tidy format. 
+
+Can transpose 1 row numerical summaries by default.
+
+```{r}
+iris %>% 
+  summarize(across(where(is.numeric), mean), .groups = "drop") %>% 
+  pivot_summary()
+```
+
+A grouped summary can be transposed by providing the name of the group column.
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  summarize(across(where(is.numeric), mean), .groups = "drop") %>% 
+  pivot_summary(Species)
+```
+Supports transposing numerical summaries with multiple groups using tidyselect. 
+
+```{r}
+
+iris %>%
+  mutate(Species1 = sample(Species)) %>%
+  group_by(Species, Species1) %>%
+  summarize(across(where(is.numeric), mean), .groups = "drop") -> multigroup_summary
+ 
+multigroup_summary
+```
+Group names are concatenated and pivoted.
+
+```{r}
+multigroup_summary %>% 
+   pivot_summary(matches("Spec")) 
 ```
 

@@ -1,22 +1,24 @@
 template:
   params:
     bootswatch: cerulean
+    ganalytics: G-QFF8SWQGRN
 
 development:
   mode: auto
 
 reference:
-- title: Use these functions with a tidyselect specification
+- title: Use a tidyselect specification to modify columns in your data frame
   contents:
   - '`fill_na`'
   - '`remove_whitespace`'
   - '`set_dates`'
   - '`set_na`'
-- title: Only argument is a data frame
+  - '`pivot_summary`'
+  - '`relocate_all`'
+- title: Clean Frame: wrapper function combining multiple dataCleaner operations
   contents:
   - '`clean_frame`'
-  - '`relocate_all`'
-- title: Takes no arguments
+- title: Functions to aid workflow
   contents:
   - '`auto_setwd`'
 articles:
