@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Set NAs — set_na • frameCleaneR</title>
+<title>Pivot Summary — pivot_summary • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Set NAs — set_na" />
-<meta property="og:description" content="Set elements to NA values using tidyselect specification.
-Don't use this function on columns of different modes at once." />
+<meta property="og:title" content="Pivot Summary — pivot_summary" />
+<meta property="og:description" content="Wrapper around base r `t()` that returns a tibble.
+Transposes a data frame, intended for use on the output of a  dplyr::summarize operation" />
 
 
 
@@ -134,38 +134,39 @@ Don't use this function on columns of different modes at once." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Set NAs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/set_na.R'><code>R/set_na.R</code></a></small>
-    <div class="hidden name"><code>set_na.Rd</code></div>
+    <h1>Pivot Summary</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/pivot_summary.R'><code>R/pivot_summary.R</code></a></small>
+    <div class="hidden name"><code>pivot_summary.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Set elements to NA values using tidyselect specification.
-Don't use this function on columns of different modes at once.</p>
+    <p>Wrapper around base r `t()` that returns a tibble.
+Transposes a data frame, intended for use on the output of a  dplyr::summarize operation</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_na</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, vec <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"-"</span>, <span class='st'>""</span>, <span class='st'>" "</span>, <span class='st'>"null"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>pivot_summary</span><span class='op'>(</span><span class='va'>sumr</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>data frame</p></td>
+      <th>sumr</th>
+      <td><p>A tibble</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>tidyselect specification</p></td>
-    </tr>
-    <tr>
-      <th>vec</th>
-      <td><p>vector of elements to replace with NA</p></td>
+      <td><p>an optional tidyselect specification</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>a tibble</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>for an ungrouped summarize, ... argument can be left empty
+for a grouped summarize, use column names or tidyselect to pivot the group names. Multiple groups
+will be concatenaed before pivoting.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

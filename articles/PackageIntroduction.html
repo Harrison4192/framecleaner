@@ -5,18 +5,24 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PackageIntroduction • dataCleaner</title>
+<title>PackageIntroduction • frameCleaneR</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="PackageIntroduction">
-<meta property="og:description" content="dataCleaner">
+<meta property="og:description" content="frameCleaneR">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-S8LT8TQV81"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S8LT8TQV81');
+</script>
 </head>
 <body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
@@ -30,7 +36,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">dataCleaner</a>
+        <a class="navbar-link" href="../index.html">frameCleaneR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -64,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/Harrison4192/dataCleaner/">
+  <a href="https://github.com/Harrison4192/frameCleaneR/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -85,7 +91,7 @@
       <h1 data-toc-skip>PackageIntroduction</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/Harrison4192/dataCleaner/blob/master/vignettes/PackageIntroduction.Rmd"><code>vignettes/PackageIntroduction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Harrison4192/frameCleaneR/blob/master/vignettes/PackageIntroduction.Rmd"><code>vignettes/PackageIntroduction.Rmd</code></a></small>
       <div class="hidden name"><code>PackageIntroduction.Rmd</code></div>
 
     </div>
@@ -93,8 +99,9 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Harrison4192/dataCleaner">dataCleaner</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/printr/">printr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Harrison4192/frameCleaneR">frameCleaneR</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yihui.org/printr/">printr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"20190101"</span>, <span class="st">"20190305"</span>, <span class="st">"20201012"</span><span class="op">)</span>,
@@ -181,11 +188,259 @@
 </tr>
 </tbody>
 </table>
+<div id="pivot-summary" class="section level2">
+<h2 class="hasAnchor">
+<a href="#pivot-summary" class="anchor"></a>Pivot summary</h2>
+<p>Transpose a tibble of summary statistics in tidy format.</p>
+<p>Can transpose 1 row numerical summaries by default.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">column</th>
+<th align="right">V1</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Petal.Length</td>
+<td align="right">3.758000</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Width</td>
+<td align="right">1.199333</td>
+</tr>
+<tr class="odd">
+<td align="left">Sepal.Length</td>
+<td align="right">5.843333</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Width</td>
+<td align="right">3.057333</td>
+</tr>
+</tbody>
+</table>
+<p>A grouped summary can be transposed by providing the name of the group column.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">column</th>
+<th align="right">setosa</th>
+<th align="right">versicolor</th>
+<th align="right">virginica</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Petal.Length</td>
+<td align="right">1.462</td>
+<td align="right">4.260</td>
+<td align="right">5.552</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Width</td>
+<td align="right">0.246</td>
+<td align="right">1.326</td>
+<td align="right">2.026</td>
+</tr>
+<tr class="odd">
+<td align="left">Sepal.Length</td>
+<td align="right">5.006</td>
+<td align="right">5.936</td>
+<td align="right">6.588</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Width</td>
+<td align="right">3.428</td>
+<td align="right">2.770</td>
+<td align="right">2.974</td>
+</tr>
+</tbody>
+</table>
+<p>Supports transposing numerical summaries with multiple groups using tidyselect.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Species1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span>, <span class="va">Species1</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">multigroup_summary</span>
+ 
+<span class="va">multigroup_summary</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Species</th>
+<th align="left">Species1</th>
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">setosa</td>
+<td align="left">setosa</td>
+<td align="right">5.035294</td>
+<td align="right">3.505882</td>
+<td align="right">1.470588</td>
+<td align="right">0.2352941</td>
+</tr>
+<tr class="even">
+<td align="left">setosa</td>
+<td align="left">versicolor</td>
+<td align="right">5.020000</td>
+<td align="right">3.400000</td>
+<td align="right">1.486667</td>
+<td align="right">0.3000000</td>
+</tr>
+<tr class="odd">
+<td align="left">setosa</td>
+<td align="left">virginica</td>
+<td align="right">4.966667</td>
+<td align="right">3.377778</td>
+<td align="right">1.433333</td>
+<td align="right">0.2111111</td>
+</tr>
+<tr class="even">
+<td align="left">versicolor</td>
+<td align="left">setosa</td>
+<td align="right">5.963158</td>
+<td align="right">2.784210</td>
+<td align="right">4.273684</td>
+<td align="right">1.3157895</td>
+</tr>
+<tr class="odd">
+<td align="left">versicolor</td>
+<td align="left">versicolor</td>
+<td align="right">5.811765</td>
+<td align="right">2.729412</td>
+<td align="right">4.170588</td>
+<td align="right">1.3058824</td>
+</tr>
+<tr class="even">
+<td align="left">versicolor</td>
+<td align="left">virginica</td>
+<td align="right">6.050000</td>
+<td align="right">2.800000</td>
+<td align="right">4.350000</td>
+<td align="right">1.3642857</td>
+</tr>
+<tr class="odd">
+<td align="left">virginica</td>
+<td align="left">setosa</td>
+<td align="right">6.628571</td>
+<td align="right">2.978571</td>
+<td align="right">5.571429</td>
+<td align="right">1.9857143</td>
+</tr>
+<tr class="even">
+<td align="left">virginica</td>
+<td align="left">versicolor</td>
+<td align="right">6.366667</td>
+<td align="right">2.922222</td>
+<td align="right">5.338889</td>
+<td align="right">2.0333333</td>
+</tr>
+<tr class="odd">
+<td align="left">virginica</td>
+<td align="left">virginica</td>
+<td align="right">6.777778</td>
+<td align="right">3.022222</td>
+<td align="right">5.750000</td>
+<td align="right">2.0500000</td>
+</tr>
+</tbody>
+</table>
+<p>Group names are concatenated and pivoted.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">multigroup_summary</span> <span class="op">%&gt;%</span> 
+   <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"Spec"</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<table class="table">
+<colgroup>
+<col width="7%">
+<col width="7%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="12%">
+<col width="11%">
+<col width="9%">
+<col width="11%">
+<col width="11%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">column</th>
+<th align="right">setosa_setosa</th>
+<th align="right">setosa_versicolor</th>
+<th align="right">setosa_virginica</th>
+<th align="right">versicolor_setosa</th>
+<th align="right">versicolor_versicolor</th>
+<th align="right">versicolor_virginica</th>
+<th align="right">virginica_setosa</th>
+<th align="right">virginica_versicolor</th>
+<th align="right">virginica_virginica</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Petal.Length</td>
+<td align="right">1.4705880</td>
+<td align="right">1.486667</td>
+<td align="right">1.4333330</td>
+<td align="right">4.273684</td>
+<td align="right">4.170588</td>
+<td align="right">4.350000</td>
+<td align="right">5.571429</td>
+<td align="right">5.338889</td>
+<td align="right">5.750000</td>
+</tr>
+<tr class="even">
+<td align="left">Petal.Width</td>
+<td align="right">0.2352941</td>
+<td align="right">0.300000</td>
+<td align="right">0.2111111</td>
+<td align="right">1.315789</td>
+<td align="right">1.305882</td>
+<td align="right">1.364286</td>
+<td align="right">1.985714</td>
+<td align="right">2.033333</td>
+<td align="right">2.050000</td>
+</tr>
+<tr class="odd">
+<td align="left">Sepal.Length</td>
+<td align="right">5.0352940</td>
+<td align="right">5.020000</td>
+<td align="right">4.9666670</td>
+<td align="right">5.963158</td>
+<td align="right">5.811765</td>
+<td align="right">6.050000</td>
+<td align="right">6.628571</td>
+<td align="right">6.366667</td>
+<td align="right">6.777778</td>
+</tr>
+<tr class="even">
+<td align="left">Sepal.Width</td>
+<td align="right">3.5058820</td>
+<td align="right">3.400000</td>
+<td align="right">3.3777780</td>
+<td align="right">2.784211</td>
+<td align="right">2.729412</td>
+<td align="right">2.800000</td>
+<td align="right">2.978571</td>
+<td align="right">2.922222</td>
+<td align="right">3.022222</td>
+</tr>
+</tbody>
+</table>
 </div>
+  </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

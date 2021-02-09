@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relocate All — relocate_all • dataCleaner</title>
+<title>Relocate All — relocate_all • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Relocate All — relocate_all" />
-<meta property="og:description" content="Arranges columns alphabetically and then by type" />
+<meta property="og:description" content="Arranges columns alphabetically and then by type
+The user can supply a tidyselect argument to further specify relocations" />
 
 
 
@@ -54,6 +55,16 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S8LT8TQV81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S8LT8TQV81');
+</script>
 
 
   </head>
@@ -71,7 +82,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">dataCleaner</a>
+        <a class="navbar-link" href="../index.html">frameCleaneR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -105,7 +116,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/Harrison4192/dataCleaner/">
+  <a href="https://github.com/Harrison4192/frameCleaneR/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -124,15 +135,16 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Relocate All</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/dataCleaner/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
     <div class="hidden name"><code>relocate_all.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Arranges columns alphabetically and then by type</p>
+    <p>Arranges columns alphabetically and then by type
+The user can supply a tidyselect argument to further specify relocations</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +152,10 @@
     <tr>
       <th>.data</th>
       <td><p>data frame</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>a tidyselect specification</p></td>
     </tr>
     </table>
 
