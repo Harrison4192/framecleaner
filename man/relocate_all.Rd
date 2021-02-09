@@ -4,14 +4,17 @@
 \alias{relocate_all}
 \title{Relocate All}
 \usage{
-relocate_all(.data)
+relocate_all(.data, ...)
 }
 \arguments{
 \item{.data}{data frame}
+
+\item{...}{a tidyselect specification}
 }
 \value{
 data frame
 }
 \description{
 Arranges columns alphabetically and then by type
+The user can supply a tidyselect argument to further specify relocations
 }

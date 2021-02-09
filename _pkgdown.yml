@@ -1,7 +1,7 @@
 template:
   params:
     bootswatch: cerulean
-    ganalytics: G-QFF8SWQGRN
+    ganalytics: G-S8LT8TQV81
 
 development:
   mode: auto
@@ -15,7 +15,7 @@ reference:
   - '`set_na`'
   - '`pivot_summary`'
   - '`relocate_all`'
-- title: Clean Frame: wrapper function combining multiple dataCleaner operations
+- title: Clean Frame: wrapper function combining multiple frameCleaneR operations
   contents:
   - '`clean_frame`'
 - title: Functions to aid workflow

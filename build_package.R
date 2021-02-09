@@ -6,7 +6,7 @@
 library(pacman)
 p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
        ymlthis, magrittr, fs, covr, gitcreds, credentials,
-       badger, hexSticker, gh)
+       badger, hexSticker, gh, xfun)
 
 
 # add this file to .Rbuildignore ------------------------------------------
@@ -64,9 +64,9 @@ use_mit_license()
 use_lifecycle_badge("experimental")
 use_cran_badge()
 use_github_actions_badge()
-# `r badger::badge_cran_download("dataCleaner", "grand-total", "blue")`
-# `r badger::badge_code_size("Harrison4192/dataCleaner")`
-# `r badger::badge_last_commit("Harrison4192/dataCleaner")`
+# `r badger::badge_cran_download("frameCleaneR", "grand-total", "blue")`
+# `r badger::badge_code_size("Harrison4192/frameCleaneR")`
+# `r badger::badge_last_commit("Harrison4192/frameCleaneR")`
 
 # set github token --------------------------------------------------------
 

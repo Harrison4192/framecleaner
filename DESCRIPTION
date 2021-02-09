@@ -1,4 +1,4 @@
-Package: dataCleaner
+Package: frameCleaneR
 Type: Package
 Title: Clean Data
 Version: 0.1.0
@@ -26,5 +26,5 @@ Suggests:
     printr,
     badger
 VignetteBuilder: knitr
-URL: https://github.com/Harrison4192/dataCleaner, https://harrison4192.github.io/dataCleaner/
-BugReports: https://github.com/Harrison4192/dataCleaner/issues
+URL: https://github.com/Harrison4192/frameCleaneR, https://harrison4192.github.io/frameCleaneR/
+BugReports: https://github.com/Harrison4192/frameCleaneR/issues

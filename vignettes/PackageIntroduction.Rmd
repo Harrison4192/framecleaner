@@ -9,7 +9,7 @@ vignette: >
 
 
 ```{r message=F, warning=F}
-library(dataCleaner)
+library(frameCleaneR)
 library(printr)
 library(dplyr)
 ```

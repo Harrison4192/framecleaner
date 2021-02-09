@@ -13,30 +13,30 @@ knitr::opts_chunk$set(
 )
 ```
 
-# dataCleaner
+# frameCleaneR
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/Harrison4192/dataCleaner/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/dataCleaner/actions)
+[![R-CMD-check](https://github.com/Harrison4192/frameCleaneR/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/frameCleaneR/actions)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/dataCleaner)](https://CRAN.R-project.org/package=dataCleaner)
-`r badger::badge_cran_download("dataCleaner", "grand-total", "blue")`
-`r badger::badge_code_size("Harrison4192/dataCleaner")`
-`r badger::badge_last_commit("Harrison4192/dataCleaner")`
+[![CRAN status](https://www.r-pkg.org/badges/version/frameCleaneR)](https://CRAN.R-project.org/package=frameCleaneR)
+`r badger::badge_cran_download("frameCleaneR", "grand-total", "blue")`
+`r badger::badge_code_size("Harrison4192/frameCleaneR")`
+`r badger::badge_last_commit("Harrison4192/frameCleaneR")`
 <!-- badges: end -->
 
-The goal of dataCleaner is to provide functions for cleaning common irregularities in raw data sets.
+The goal of frameCleaneR is to provide functions for cleaning common irregularities in raw data sets.
 
 ## Installation
 
-You can install the released version of dataCleaner from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of frameCleaneR from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("dataCleaner")
+install.packages("frameCleaneR")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Harrison4192/dataCleaner")
+devtools::install_github("Harrison4192/frameCleaneR")
 ```

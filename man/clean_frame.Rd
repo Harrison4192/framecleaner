@@ -13,5 +13,5 @@ clean_frame(.data)
 data frame
 }
 \description{
-Uses the functions of dataCleaner and other operations to apply cleaning operations to a data frame
+Uses the functions of frameCleaneR and other operations to apply cleaning operations to a data frame
 }

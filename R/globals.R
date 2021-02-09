@@ -1,2 +1,2 @@
-utils::globalVariables(".", package = "dataCleaner")
-utils::globalVariables("where", package = "dataCleaner")
+utils::globalVariables(".", package = "frameCleaneR")
+utils::globalVariables("where", package = "frameCleaneR")
