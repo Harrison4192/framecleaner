@@ -18,7 +18,8 @@ Imports:
     lubridate,
     magrittr,
     tibble,
-    rstudioapi
+    rstudioapi,
+    tidyr
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

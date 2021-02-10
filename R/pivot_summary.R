@@ -15,12 +15,14 @@
 
 pivot_summary <- function(sumr, ...){
 
+  column <- rowname <- NULL
+
   if (!missing(..1)) {
     sumr %>%
-      tidyr::unite(col = "column", ..., remove = T) -> sumr1
+      tidyr::unite(col = "column", ..., remove = T) %>% dplyr::relocate(column) -> sumr1
 
     sumr1 %>%
-      select(-column) %>% as.matrix() %>% mode -> output_mode
+      dplyr::select(-1) %>% as.matrix() %>% mode -> output_mode
 
   }
   else{
@@ -38,7 +40,7 @@ pivot_summary <- function(sumr, ...){
   if (!missing(..1)) {
     sumr2 %>%
       janitor::row_to_names(row_number = 1) %>%
-      dplyr::mutate(dplyr::across(-column, ~as(., output_mode)))-> sumr3
+      dplyr::mutate(dplyr::across(-1, ~as(., output_mode)))-> sumr3
   }
   else{
     sumr2 -> sumr3
