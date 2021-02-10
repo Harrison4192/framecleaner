@@ -25,7 +25,7 @@ reference:
 articles:
 - title: All vignettes
   desc: null
-  contents: '`PackageIntroduction`'
+  contents: '`cleanYourFrame`'
 navbar:
   structure:
     left:
@@ -57,6 +57,6 @@ navbar:
     articles:
       text: Articles
       menu:
-      - text: PackageIntroduction
-        href: articles/PackageIntroduction.html
+      - text: cleanYourFrame
+        href: articles/cleanYourFrame.html
 

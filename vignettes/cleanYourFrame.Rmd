@@ -1,0 +1,158 @@
+---
+title: "cleanYourFrame"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cleanYourFrame}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r message=F, warning=F}
+library(frameCleaneR)
+library(printr)
+library(dplyr)
+```
+
+Data imported from excel and csv in business situations can have messy characteristics and data formats. This package provides functions to tidy your data frame using the power of `tidyselect`.
+
+**create sample data**
+
+```{r}
+tibble::tibble(
+  date = c("20190101", "20190305", "20201012"),
+  numeric_val = c(1, NA, 5),
+  char_val = c("", "    val ", "-")
+) -> sample_table
+
+sample_table
+```
+
+# set nas
+
+Data occasionally has different ways to represent NA values. `set_na` checks as default `c("-", "", " ", "null")` but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using `dlookr::diagnose`
+
+```{r}
+sample_table %>% 
+  set_na(everything())
+```
+
+# remove whitespace
+
+remove whitespace from the ends of character variables that may be otherwise undetectable by inspection.
+
+```{r}
+sample_table %>% 
+  remove_whitespace(where(is.character))
+```
+
+# set dates
+
+automatically convert character columns that should be dates.
+
+```{r}
+sample_table %>% 
+  set_dates(everything())
+```
+# relocate all
+
+relocates an unorganized dataframe using heuristics such as putting character and date columns first, and organizing by alphabetical order. 
+
+```{r}
+sample_table %>% 
+  relocate_all()
+```
+
+
+# clean frame
+
+Wrapper function to apply all cleaning operations to a data frame using sensible defaults. I encourage you to build your own `clean_frame` function to suit your needs. 
+
+```{r}
+sample_table %>% 
+  clean_frame()
+```
+
+# fill nas
+
+use tidyselect to fill NAs with a single value
+
+```{r}
+sample_table %>% 
+  fill_na(where(is.numeric))
+```
+# Pivot summary
+
+Transpose a tibble of summary statistics in tidy format. Convenient function for transposing the output of dplyr"s `group_by` and `summarize` operation.
+
+## 0 groups
+
+Transpose a 1 row numerical summary:
+
+**wide format**
+
+```{r}
+iris %>% 
+  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr0
+
+sumr0
+```
+
+**long format**
+
+```{r}
+
+sumr0 %>% 
+  pivot_summary()
+
+```
+
+## 1 group
+
+A grouped summary can be transposed by providing the name of the group column.
+
+**long format**
+
+```{r}
+iris %>% 
+  group_by(Species) %>% 
+  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr1
+
+sumr1
+```
+**wide format**
+
+```{r}
+
+sumr1 %>% 
+  pivot_summary(Species)
+```
+
+
+## 2 groups
+
+Supports transposing numerical summaries with multiple groups using tidyselect. 
+
+**long format**
+
+
+```{r}
+
+iris %>%
+  mutate(Species1 = sample(Species)) %>%
+  group_by(Species, Species1) %>% 
+  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr2
+ 
+sumr2
+```
+
+
+Group names are concatenated and pivoted.
+
+**wide format**
+
+```{r}
+sumr2 %>% 
+   pivot_summary(matches("Spec")) 
+```
+

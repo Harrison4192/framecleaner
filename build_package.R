@@ -102,5 +102,5 @@ build_readme()
 build_site()
 check()
 preview_site()
-
+build_vignettes()
 
