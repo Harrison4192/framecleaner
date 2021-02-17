@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relocate All — relocate_all • frameCleaneR</title>
+<title>set date — set_date • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Relocate All — relocate_all" />
-<meta property="og:description" content="Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations" />
+<meta property="og:title" content="set date — set_date" />
+<meta property="og:description" content="set dates manually or automatically" />
 
 
 
@@ -137,34 +136,45 @@ The user can supply a tidyselect argument to further specify relocations" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Relocate All</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
-    <div class="hidden name"><code>relocate_all.Rd</code></div>
+    <h1>set date</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/setters.R'><code>R/setters.R</code></a></small>
+    <div class="hidden name"><code>set_date.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations</p>
+    <p>set dates manually or automatically</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>set_date</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, date_fn <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='va'><a href='http://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.data</th>
-      <td><p>data frame</p></td>
+      <td><p>dataframe</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>a tidyselect specification</p></td>
+      <td><p>tidyselect</p></td>
+    </tr>
+    <tr>
+      <th>date_fn</th>
+      <td><p>a function to convert to a date object</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>tibble</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>note: can be called without any ... arguments and instead automatically determines which character columns
+are actually dates, then proceeds to set them. It checks for the date specified in date_fn and also <code><a href='http://lubridate.tidyverse.org/reference/ymd_hms.html'>lubridate::ymd_hms</a></code>.
+On auto detect mode, it sets ymd_hms output to ymd dates instead of datetimes with hms. This is because of the common occurence
+of trying to extract a ymd date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
+supply the appropriate [lubridate](https://lubridate.tidyverse.org/reference/index.html) function.</p>
+<p>Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

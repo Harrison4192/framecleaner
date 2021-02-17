@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relocate All — relocate_all • frameCleaneR</title>
+<title>pad auto — pad_auto • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Relocate All — relocate_all" />
-<meta property="og:description" content="Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations" />
+<meta property="og:title" content="pad auto — pad_auto" />
+<meta property="og:description" content="Automatically pads elements of a column to the largest sized element. Useful when an integer code with
+leading zeros is read in as an integer and needs to be fixed." />
 
 
 
@@ -137,28 +137,36 @@ The user can supply a tidyselect argument to further specify relocations" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Relocate All</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
-    <div class="hidden name"><code>relocate_all.Rd</code></div>
+    <h1>pad auto</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/pad_cols.R'><code>R/pad_cols.R</code></a></small>
+    <div class="hidden name"><code>pad_auto.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations</p>
+    <p>Automatically pads elements of a column to the largest sized element. Useful when an integer code with
+leading zeros is read in as an integer and needs to be fixed.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>pad_auto</span><span class='op'>(</span><span class='va'>mdb</span>, <span class='va'>...</span>, side <span class='op'>=</span> <span class='st'>"left"</span>, pad <span class='op'>=</span> <span class='st'>"0"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
+      <th>mdb</th>
       <td><p>data frame</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>a tidyselect specification</p></td>
+      <td><p>tidyselect specification</p></td>
+    </tr>
+    <tr>
+      <th>side</th>
+      <td><p>str_pad side</p></td>
+    </tr>
+    <tr>
+      <th>pad</th>
+      <td><p>str_pad pad</p></td>
     </tr>
     </table>
 
