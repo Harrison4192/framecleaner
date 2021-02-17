@@ -18,4 +18,5 @@ data frame
 }
 \description{
 use tidyselect to fill NA values
+Default behavior is to fill all numeric cols with 0.
 }

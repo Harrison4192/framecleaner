@@ -23,7 +23,8 @@ Imports:
     magrittr,
     tibble,
     rstudioapi,
-    tidyr
+    tidyr,
+    forcats
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

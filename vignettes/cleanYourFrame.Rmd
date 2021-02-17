@@ -34,7 +34,7 @@ Data occasionally has different ways to represent NA values. `set_na` checks as 
 
 ```{r}
 sample_table %>% 
-  set_na(everything())
+  make_na()
 ```
 
 # remove whitespace
@@ -43,7 +43,7 @@ remove whitespace from the ends of character variables that may be otherwise und
 
 ```{r}
 sample_table %>% 
-  remove_whitespace(where(is.character))
+  remove_whitespace()
 ```
 
 # set dates
@@ -52,7 +52,7 @@ automatically convert character columns that should be dates.
 
 ```{r}
 sample_table %>% 
-  set_dates(everything())
+  set_date()
 ```
 # relocate all
 
@@ -79,7 +79,7 @@ use tidyselect to fill NAs with a single value
 
 ```{r}
 sample_table %>% 
-  fill_na(where(is.numeric))
+  fill_na()
 ```
 # Pivot summary
 
@@ -111,7 +111,7 @@ sumr0 %>%
 
 A grouped summary can be transposed by providing the name of the group column.
 
-**long format**
+**wide format**
 
 ```{r}
 iris %>% 
@@ -120,7 +120,7 @@ iris %>%
 
 sumr1
 ```
-**wide format**
+**long format**
 
 ```{r}
 

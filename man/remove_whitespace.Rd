@@ -9,7 +9,7 @@ remove_whitespace(.data, ...)
 \arguments{
 \item{.data}{data frame}
 
-\item{...}{tidyselect specification}
+\item{...}{tidyselect specification (default selection:  all character columns)}
 }
 \value{
 data frame

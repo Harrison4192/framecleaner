@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>cleanYourFrame • frameCleaneR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/darkly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -145,7 +145,7 @@
 <p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code><a href="https://rdrr.io/pkg/dlookr/man/diagnose.data.frame.html">dlookr::diagnose</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/set_na.html">set_na</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="../reference/make_na.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">date</th>
@@ -177,7 +177,7 @@
 <p>remove whitespace from the ends of character variables that may be otherwise undetectable by inspection.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/remove_whitespace.html">remove_whitespace</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="../reference/remove_whitespace.html">remove_whitespace</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">date</th>
@@ -209,27 +209,27 @@
 <p>automatically convert character columns that should be dates.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/set_dates.html">set_dates</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="../reference/set_date.html">set_date</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">date</th>
-<th align="left">numeric_val</th>
+<th align="right">numeric_val</th>
 <th align="left">char_val</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">2019-01-01</td>
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">2019-03-05</td>
-<td align="left">NA</td>
+<td align="right">NA</td>
 <td align="left">val</td>
 </tr>
 <tr class="odd">
 <td align="left">2020-10-12</td>
-<td align="left">5</td>
+<td align="right">5</td>
 <td align="left">-</td>
 </tr>
 </tbody>
@@ -276,25 +276,25 @@
   <span class="fu"><a href="../reference/clean_frame.html">clean_frame</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
-<th align="left">DATE</th>
 <th align="left">CHAR_VAL</th>
+<th align="left">DATE</th>
 <th align="left">NUMERIC_VAL</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">NA</td>
 <td align="left">2019-01-01</td>
 <td align="left">NA</td>
-<td align="left">1</td>
 </tr>
 <tr class="even">
+<td align="left">NA</td>
 <td align="left">2019-03-05</td>
-<td align="left">val</td>
 <td align="left">NA</td>
 </tr>
 <tr class="odd">
+<td align="left">NA</td>
 <td align="left">2020-10-12</td>
 <td align="left">NA</td>
-<td align="left">5</td>
 </tr>
 </tbody>
 </table>
@@ -305,7 +305,7 @@
 <p>use tidyselect to fill NAs with a single value</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/fill_na.html">fill_na</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="../reference/fill_na.html">fill_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">date</th>
@@ -392,7 +392,7 @@
 <h2 class="hasAnchor">
 <a href="#group" class="anchor"></a>1 group</h2>
 <p>A grouped summary can be transposed by providing the name of the group column.</p>
-<p><strong>long format</strong></p>
+<p><strong>wide format</strong></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -431,7 +431,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>wide format</strong></p>
+<p><strong>long format</strong></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sumr1</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span></code></pre></div>
@@ -495,74 +495,74 @@
 <tr class="odd">
 <td align="left">setosa</td>
 <td align="left">setosa</td>
-<td align="right">5.058823</td>
-<td align="right">3.464706</td>
-<td align="right">1.482353</td>
-<td align="right">0.2647059</td>
-</tr>
-<tr class="even">
-<td align="left">setosa</td>
-<td align="left">versicolor</td>
-<td align="right">5.047619</td>
-<td align="right">3.452381</td>
-<td align="right">1.495238</td>
-<td align="right">0.2380952</td>
-</tr>
-<tr class="odd">
-<td align="left">setosa</td>
-<td align="left">virginica</td>
-<td align="right">4.858333</td>
-<td align="right">3.333333</td>
-<td align="right">1.375000</td>
+<td align="right">4.966667</td>
+<td align="right">3.388889</td>
+<td align="right">1.455556</td>
 <td align="right">0.2333333</td>
 </tr>
 <tr class="even">
+<td align="left">setosa</td>
+<td align="left">versicolor</td>
+<td align="right">5.016667</td>
+<td align="right">3.411111</td>
+<td align="right">1.466667</td>
+<td align="right">0.2555556</td>
+</tr>
+<tr class="odd">
+<td align="left">setosa</td>
+<td align="left">virginica</td>
+<td align="right">5.042857</td>
+<td align="right">3.500000</td>
+<td align="right">1.464286</td>
+<td align="right">0.2500000</td>
+</tr>
+<tr class="even">
 <td align="left">versicolor</td>
 <td align="left">setosa</td>
-<td align="right">6.006667</td>
-<td align="right">2.766667</td>
-<td align="right">4.326667</td>
-<td align="right">1.3266667</td>
+<td align="right">5.885000</td>
+<td align="right">2.760000</td>
+<td align="right">4.175000</td>
+<td align="right">1.2950000</td>
 </tr>
 <tr class="odd">
 <td align="left">versicolor</td>
 <td align="left">versicolor</td>
-<td align="right">5.900000</td>
-<td align="right">2.880000</td>
-<td align="right">4.320000</td>
-<td align="right">1.3800000</td>
+<td align="right">5.942105</td>
+<td align="right">2.773684</td>
+<td align="right">4.294737</td>
+<td align="right">1.3421053</td>
 </tr>
 <tr class="even">
 <td align="left">versicolor</td>
 <td align="left">virginica</td>
-<td align="right">5.910000</td>
-<td align="right">2.690000</td>
-<td align="right">4.165000</td>
-<td align="right">1.2850000</td>
+<td align="right">6.018182</td>
+<td align="right">2.781818</td>
+<td align="right">4.354546</td>
+<td align="right">1.3545455</td>
 </tr>
 <tr class="odd">
 <td align="left">virginica</td>
 <td align="left">setosa</td>
-<td align="right">6.544444</td>
-<td align="right">2.916667</td>
-<td align="right">5.533333</td>
-<td align="right">2.0055556</td>
+<td align="right">6.658333</td>
+<td align="right">3.008333</td>
+<td align="right">5.558333</td>
+<td align="right">2.0750000</td>
 </tr>
 <tr class="even">
 <td align="left">virginica</td>
 <td align="left">versicolor</td>
-<td align="right">6.707143</td>
-<td align="right">3.142857</td>
-<td align="right">5.721429</td>
-<td align="right">2.1071429</td>
+<td align="right">6.761539</td>
+<td align="right">3.061539</td>
+<td align="right">5.715385</td>
+<td align="right">2.1615385</td>
 </tr>
 <tr class="odd">
 <td align="left">virginica</td>
 <td align="left">virginica</td>
-<td align="right">6.538889</td>
-<td align="right">2.900000</td>
-<td align="right">5.438889</td>
-<td align="right">1.9833333</td>
+<td align="right">6.464000</td>
+<td align="right">2.912000</td>
+<td align="right">5.464000</td>
+<td align="right">1.9320000</td>
 </tr>
 </tbody>
 </table>
@@ -599,51 +599,51 @@
 <tbody>
 <tr class="odd">
 <td align="left">Petal.Length</td>
-<td align="right">1.4823530</td>
-<td align="right">1.4952380</td>
-<td align="right">1.3750000</td>
-<td align="right">4.326667</td>
-<td align="right">4.32</td>
-<td align="right">4.165</td>
-<td align="right">5.533333</td>
-<td align="right">5.721429</td>
-<td align="right">5.438889</td>
+<td align="right">1.4555560</td>
+<td align="right">1.4666670</td>
+<td align="right">1.464286</td>
+<td align="right">4.175</td>
+<td align="right">4.294737</td>
+<td align="right">4.354545</td>
+<td align="right">5.558333</td>
+<td align="right">5.715385</td>
+<td align="right">5.464</td>
 </tr>
 <tr class="even">
 <td align="left">Petal.Width</td>
-<td align="right">0.2647059</td>
-<td align="right">0.2380952</td>
 <td align="right">0.2333333</td>
-<td align="right">1.326667</td>
-<td align="right">1.38</td>
-<td align="right">1.285</td>
-<td align="right">2.005556</td>
-<td align="right">2.107143</td>
-<td align="right">1.983333</td>
+<td align="right">0.2555556</td>
+<td align="right">0.250000</td>
+<td align="right">1.295</td>
+<td align="right">1.342105</td>
+<td align="right">1.354545</td>
+<td align="right">2.075000</td>
+<td align="right">2.161538</td>
+<td align="right">1.932</td>
 </tr>
 <tr class="odd">
 <td align="left">Sepal.Length</td>
-<td align="right">5.0588240</td>
-<td align="right">5.0476190</td>
-<td align="right">4.8583330</td>
-<td align="right">6.006667</td>
-<td align="right">5.90</td>
-<td align="right">5.910</td>
-<td align="right">6.544444</td>
-<td align="right">6.707143</td>
-<td align="right">6.538889</td>
+<td align="right">4.9666670</td>
+<td align="right">5.0166670</td>
+<td align="right">5.042857</td>
+<td align="right">5.885</td>
+<td align="right">5.942105</td>
+<td align="right">6.018182</td>
+<td align="right">6.658333</td>
+<td align="right">6.761538</td>
+<td align="right">6.464</td>
 </tr>
 <tr class="even">
 <td align="left">Sepal.Width</td>
-<td align="right">3.4647060</td>
-<td align="right">3.4523810</td>
-<td align="right">3.3333330</td>
-<td align="right">2.766667</td>
-<td align="right">2.88</td>
-<td align="right">2.690</td>
-<td align="right">2.916667</td>
-<td align="right">3.142857</td>
-<td align="right">2.900000</td>
+<td align="right">3.3888890</td>
+<td align="right">3.4111110</td>
+<td align="right">3.500000</td>
+<td align="right">2.760</td>
+<td align="right">2.773684</td>
+<td align="right">2.781818</td>
+<td align="right">3.008333</td>
+<td align="right">3.061538</td>
+<td align="right">2.912</td>
 </tr>
 </tbody>
 </table>

@@ -1,4 +1,4 @@
-
+xfun::gsub_dir(pattern = "packageIntroduction", replacement = "cleanYourFrame")
 # load developer libraries ------------------------------------------------
 
 
@@ -40,6 +40,8 @@ usethis::use_package("janitor")
 usethis::use_package("tibble")
 usethis::use_package("rlang")
 usethis::use_package("lubridate")
+usethis::use_package("forcats")
+
 
 usethis::use_package("badger", type = "Suggests")
 
@@ -103,4 +105,5 @@ build_site()
 check()
 preview_site()
 build_vignettes()
+
 

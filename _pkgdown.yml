@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: cerulean
+    bootswatch: darkly
     ganalytics: G-S8LT8TQV81
 
 development:
@@ -9,12 +9,24 @@ development:
 reference:
 - title: Use a tidyselect specification to modify columns in your data frame
   contents:
-  - '`fill_na`'
   - '`remove_whitespace`'
-  - '`set_dates`'
-  - '`set_na`'
   - '`pivot_summary`'
   - '`relocate_all`'
+- title: Fill or make NA values
+  contents:
+  - matches("na")
+- title: Pad columns
+  contents:
+  - matches("pad")
+- title: type setters with automated coercion
+  desc: Mutate wrappers to automatically change data types using tidyselect.
+  contents:
+  - '`set_date`'
+  - '`set_chr`'
+  - '`set_dbl`'
+  - '`set_int`'
+  - '`set_lgl`'
+  - '`set_fct`'
 - title: Clean Frame is a wrapper function combining multiple frameCleaneR operations
   contents:
   - '`clean_frame`'
