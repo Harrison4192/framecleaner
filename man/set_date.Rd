@@ -20,11 +20,11 @@ tibble
 set dates manually or automatically
 }
 \details{
-note: can be called without any ... arguments and instead automatically determines which character columns
-are actually dates, then proceeds to set them. It checks for the date specified in date_fn and also \code{lubridate::ymd_hms}.
-On auto detect mode, it sets ymd_hms output to ymd dates instead of datetimes with hms. This is because of the common occurence
-of trying to extract a ymd date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
-supply the appropriate [lubridate](https://lubridate.tidyverse.org/reference/index.html) function.
+note: can be called without any `...` arguments and instead automatically determines which character columns
+are actually dates, then proceeds to set them. It checks for the date specified in `date_fn` and also \code{lubridate::ymd_hms}.
+On auto detect mode, it sets `ymd_hms` output to ymd dates instead of datetimes with hms. This is because of the common occurence
+of trying to extract a `ymd` date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
+supply the appropriate lubridate function.
 
 Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.
 }

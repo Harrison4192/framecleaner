@@ -10,7 +10,6 @@ reference:
 - title: Use a tidyselect specification to modify columns in your data frame
   contents:
   - '`remove_whitespace`'
-  - '`pivot_summary`'
   - '`relocate_all`'
 - title: Fill or make NA values
   contents:
@@ -30,10 +29,12 @@ reference:
 - title: Clean Frame is a wrapper function combining multiple frameCleaneR operations
   contents:
   - '`clean_frame`'
-- title: Functions to aid workflow
+- title: Misc utilites
   contents:
   - '`auto_setwd`'
-
+  - '`vroom_jp`'
+  - '`is_integerish_character`'
+  - '`pivot_summary`'
 articles:
 - title: All vignettes
   desc: null

@@ -9,7 +9,7 @@
 #'
 #' @examples
 #' is_integerish_character(as.character(1:10))
-#' is_integerish_character(as.character(1:5) %>% c(letters([1:5])))
+#' is_integerish_character(as.character(1:5) %>% c(letters[1:5]))
 #' is_integerish_character(1:10)
 is_integerish_character <- function(x) {
   x %>% setdiff(NA) -> x1
@@ -22,4 +22,28 @@ is_integerish_character <- function(x) {
 
 
 
+
+#' auto setwd
+#'
+#' Call from a saved R script. Automatically sets your working directory to the directory that you saved the current
+#' R script in. Takes no arguments.
+#'
+#' @export
+auto_setwd <- function(){
+  rstudioapi::getSourceEditorContext()$path %>% normalizePath %>% dirname %>% setwd
+}
+
+
+#' vroom jp
+#'
+#' wrapper around vroom specifically to read in japanese csv files encoded in shift-jis
+#'
+#' @param path filepath
+#'
+#' @return a tibble
+#' @export
+#'
+vroom_jp <- function(path){
+  vroom::vroom(path, locale = vroom::locale(encoding = "shift-jis"))
+}
 

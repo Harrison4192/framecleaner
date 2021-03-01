@@ -30,7 +30,7 @@ pivot_summary <- function(sumr, ...){
   }
 
   sumr1 %>%
-    t %>%
+    t() %>%
     as.data.frame() %>%
     tibble::rownames_to_column() %>%
     tibble::as_tibble() %>%

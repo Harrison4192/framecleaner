@@ -24,7 +24,8 @@ Imports:
     tibble,
     rstudioapi,
     tidyr,
-    forcats
+    forcats,
+    vroom
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

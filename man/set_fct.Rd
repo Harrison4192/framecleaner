@@ -19,5 +19,5 @@ tibble
 \description{
 allows option to manually set the first level of the factor, for consistency with
 yardstick which automatically considers the first level
-as the "positive class" when evaluation classification.
+as the "positive class" when evaluating classification.
 }

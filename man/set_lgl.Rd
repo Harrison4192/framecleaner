@@ -11,10 +11,10 @@ set_lgl(.data, ..., true_level = 1)
 
 \item{...}{tidyselect}
 
-\item{true_level}{specify the value to set as TRUE}
+\item{true_level}{specify the value to set as TRUE. Default value is 1 for seamless conversion between logicals and integers.}
 }
 \value{
-tibble
+dataframe
 }
 \description{
 note: for non-binary data, all values other than the true_level will be set to false

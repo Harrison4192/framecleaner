@@ -9,11 +9,11 @@ set_int(.data, ...)
 \arguments{
 \item{.data}{dataframe}
 
-\item{...}{tidyselect (default selection: doubles that are \code{rlang::integerish})}
+\item{...}{tidyselect. default selection is integerish doubles or integerish characters}
 }
 \value{
 tibble
 }
 \description{
-notes: converts characters to factors and then coerces to integer.
+set integer
 }

@@ -43,7 +43,7 @@ usethis::use_package("janitor")
 usethis::use_package("tibble")
 usethis::use_package("rlang")
 usethis::use_package("lubridate")
-usethis::use_package("forcats")
+usethis::use_package("vroom")
 
 
 usethis::use_package("badger", type = "Suggests")
@@ -105,7 +105,7 @@ usethis::use_github_pages()
 document()
 build_readme()
 build_site()
-check()
+devtools::check()
 preview_site()
 build_vignettes()
 
