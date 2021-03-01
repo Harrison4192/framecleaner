@@ -13,10 +13,10 @@ clean_frame <- function(.data){
     .data %>%
       janitor::remove_empty(which = c("rows", "cols")) %>%
       janitor::clean_names(., case = "all_caps", ascii = F) %>%
-      dplyr::mutate(dplyr::across(where(rlang::is_integerish), as.integer)) %>%
-      frameCleaneR::set_date(tidyselect::everything()) %>%
-      frameCleaneR::remove_whitespace(where(is.character)) %>%
-      frameCleaneR::make_na(where(is.character)) %>%
+      set_int() %>%
+      frameCleaneR::set_date() %>%
+      frameCleaneR::remove_whitespace() %>%
+      frameCleaneR::make_na() %>%
       frameCleaneR::relocate_all(.)
 
 
