@@ -21,9 +21,9 @@ set_chr <- function(.data, ...){
 #'
 #' @param .data dataframe
 #' @param ... tidyselect
-#' @param true_level specify the value to set as TRUE
+#' @param true_level specify the value to set as TRUE. Default value is 1 for seamless conversion between logicals and integers.
 #'
-#' @return tibble
+#' @return dataframe
 #' @export
 set_lgl <- function(.data, ..., true_level = 1){
 
@@ -55,10 +55,10 @@ set_dbl <- function(.data, ...){
 
 #' set integer
 #'
-#' notes: converts characters to factors and then coerces to integer.
+#'
 #'
 #' @param .data dataframe
-#' @param ... tidyselect (default selection: doubles that are \code{rlang::integerish})
+#' @param ... tidyselect. default selection is integerish doubles or integerish characters
 #'
 #' @return tibble
 #' @export
@@ -67,19 +67,14 @@ set_int <- function(.data, ...){
   if(missing(...)) {
 
     .data %>%
-      dplyr::select(where(rlang::is_integerish))  %>% names() -> nms
+      dplyr::select(where(rlang::is_integerish) | where(is_integerish_character))  %>% names() -> nms
 
   } else {
 
     .data %>%
       dplyr::select(...)  %>% names() -> nms  }
 
-
   .data %>%
-    dplyr::select(...)  %>% dplyr::select(where(is.character) | where(lubridate::is.Date)) %>% names -> nms_chr
-
-  .data %>%
-    set_fct(tidyselect::any_of(nms_chr)) %>%
     dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as.integer))
 }
 
@@ -163,7 +158,7 @@ set_date <- function(.data, ..., date_fn = lubridate::ymd){
 #'
 #' allows option to manually set the first level of the factor, for consistency with
 #' yardstick which automatically considers the first level
-#' as the "positive class" when evaluation classification.
+#' as the "positive class" when evaluating classification.
 #'
 #'
 #' @param .data dataframe

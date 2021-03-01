@@ -8,6 +8,9 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
        ymlthis, magrittr, fs, covr, gitcreds, credentials,
        badger, hexSticker, gh, xfun)
 
+# create functions --------------------------------------------------------
+
+usethis::use_r("utilities")
 
 # add this file to .Rbuildignore ------------------------------------------
 
