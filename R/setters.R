@@ -75,7 +75,7 @@ set_int <- function(.data, ...){
       dplyr::select(...)  %>% names() -> nms  }
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as.integer))
+    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as_integer16_or_64))
 }
 
 
