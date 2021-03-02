@@ -16,9 +16,6 @@ clean_frame <- function(.data){
       set_int() %>%
       set_date() %>%
       remove_whitespace() %>%
-      make_na() %>%
-      relocate_all(.)
-
-
+      make_na()
   })
 }
