@@ -14,7 +14,7 @@
 is_integerish_character <- function(x) {
   purrr::possibly(as.double, otherwise = "error") -> safe_dbl
   x %>% setdiff(NA) -> x1
-  suppressWarnings({x1 %>% as.double() -> x2})
+  suppressWarnings({x1 %>% safe_dbl() -> x2})
   if(is.character(x) & rlang::is_integerish(x2)){
   !anyNA(x2)} else{
     FALSE
