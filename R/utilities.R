@@ -12,6 +12,7 @@
 #' is_integerish_character(as.character(1:5) %>% c(letters[1:5]))
 #' is_integerish_character(1:10)
 is_integerish_character <- function(x) {
+  purrr::possibly(as.double, otherwise = "error") -> safe_dbl
   x %>% setdiff(NA) -> x1
   suppressWarnings({x1 %>% as.double() -> x2})
   if(is.character(x) & rlang::is_integerish(x2)){
