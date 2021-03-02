@@ -43,7 +43,7 @@ usethis::use_package("janitor")
 usethis::use_package("tibble")
 usethis::use_package("rlang")
 usethis::use_package("lubridate")
-usethis::use_package("vroom")
+usethis::use_package("bit64")
 
 
 usethis::use_package("badger", type = "Suggests")
