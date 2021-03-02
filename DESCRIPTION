@@ -26,7 +26,8 @@ Imports:
     tidyr,
     forcats,
     vroom,
-    bit64
+    bit64,
+    rio
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

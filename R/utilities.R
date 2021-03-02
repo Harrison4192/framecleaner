@@ -30,7 +30,8 @@ is_integerish_character <- function(x) {
 #' @return int or int64
 #' @keywords internal
 as_integer16_or_64 <- function(x){
-  if(anyNA(as.integer(x))){bit64::as.integer64(x)} else{ as.integer(x)}
+  if(anyNA(as.integer(x)))
+    {bit64::as.integer64(x)} else{ as.integer(x)}
   }
 
 
@@ -61,3 +62,14 @@ vroom_jp <- function(path){
   vroom::vroom(path, locale = vroom::locale(encoding = "shift-jis"))
 }
 
+#' import tibble
+#'
+#' wrapper around [rio::import()] to return a tibble instead of a data.table
+#'
+#' @param path filepath
+#'
+#' @return a tibble
+#' @export
+#'
+import_tibble <- function(path, ...){
+  rio::import(path, setclass = "tibble", ...)}
