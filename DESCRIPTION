@@ -25,7 +25,8 @@ Imports:
     rstudioapi,
     tidyr,
     forcats,
-    vroom
+    vroom,
+    bit64
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

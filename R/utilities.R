@@ -21,6 +21,19 @@ is_integerish_character <- function(x) {
   }
 }
 
+#' as_integer16_or_64
+#'
+#' coerce to integer. if too large, coerces to 64-bit integer
+#'
+#' @param x integerish vec
+#'
+#' @return int or int64
+#' @keywords internal
+as_integer16_or_64 <- function(x){
+  if(anyNA(as.integer(x))){bit64::as.integer64(x)} else{ as.integer(x)}
+  }
+
+
 
 
 
