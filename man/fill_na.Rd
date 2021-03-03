@@ -4,7 +4,7 @@
 \alias{fill_na}
 \title{Fill NAs}
 \usage{
-fill_na(mdb, ..., fill = 0)
+fill_na(mdb, ..., fill = 0L)
 }
 \arguments{
 \item{mdb}{data frame}
@@ -18,5 +18,5 @@ data frame
 }
 \description{
 use tidyselect to fill NA values
-Default behavior is to fill all numeric cols with 0.
+Default behavior is to fill all integer or double columns cols with 0, preserving their types.
 }
