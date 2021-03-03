@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fill NAs — fill_na • frameCleaneR</title>
+<title>as_integer16_or_64 — as_integer16_or_64 • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Fill NAs — fill_na" />
-<meta property="og:description" content="use tidyselect to fill NA values
-Default behavior is to fill all integer or double columns cols with 0, preserving their types." />
+<meta property="og:title" content="as_integer16_or_64 — as_integer16_or_64" />
+<meta property="og:description" content="coerce to integer. if too large, coerces to 64-bit integer" />
 
 
 
@@ -137,38 +136,29 @@ Default behavior is to fill all integer or double columns cols with 0, preservin
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fill NAs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/fill_na.R'><code>R/fill_na.R</code></a></small>
-    <div class="hidden name"><code>fill_na.Rd</code></div>
+    <h1>as_integer16_or_64</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/utilities.R'><code>R/utilities.R</code></a></small>
+    <div class="hidden name"><code>as_integer16_or_64.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>use tidyselect to fill NA values
-Default behavior is to fill all integer or double columns cols with 0, preserving their types.</p>
+    <p>coerce to integer. if too large, coerces to 64-bit integer</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fill_na</span><span class='op'>(</span><span class='va'>mdb</span>, <span class='va'>...</span>, fill <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>as_integer16_or_64</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>mdb</th>
-      <td><p>data frame</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>tidyselect specification of columns</p></td>
-    </tr>
-    <tr>
-      <th>fill</th>
-      <td><p>value to fill NAs</p></td>
+      <th>x</th>
+      <td><p>integerish vec</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>int or int64</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
