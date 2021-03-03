@@ -32,7 +32,6 @@ reference:
 - title: Misc utilites
   contents:
   - '`auto_setwd`'
-  - '`vroom_jp`'
   - '`import_tibble`'
   - '`is_integerish_character`'
   - '`pivot_summary`'

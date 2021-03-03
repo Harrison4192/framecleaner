@@ -30,7 +30,9 @@ is_integerish_character <- function(x) {
 #' @return int or int64
 #' @keywords internal
 as_integer16_or_64 <- function(x){
-  if(anyNA(as.integer(x)))
+
+  x %>% setdiff(NA) -> x1
+  if(anyNA(as.integer(x1)))
     {bit64::as.integer64(x)} else{ as.integer(x)}
   }
 
@@ -49,22 +51,12 @@ auto_setwd <- function(){
 }
 
 
-#' vroom jp
-#'
-#' wrapper around vroom specifically to read in japanese csv files encoded in shift-jis
-#'
-#' @param path filepath
-#'
-#' @return a tibble
-#' @export
-#'
-vroom_jp <- function(path){
-  vroom::vroom(path, locale = vroom::locale(encoding = "shift-jis"))
-}
 
 #' import tibble
 #'
 #' wrapper around [rio::import()] to return a tibble instead of a data.table
+#' This is the official file reader of TidyConsultant because of it's speed, accurate
+#' parsing of filetypes, int64 support, and intelligent language parsing.
 #'
 #' @param path filepath
 #'
