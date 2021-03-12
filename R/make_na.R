@@ -14,9 +14,9 @@
 make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
 
   .data %>%
-    select_otherwise(..., where(is.character)) -> nms
+    select_otherwise(..., where(is.character)) -> col_indx
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(db_names), ~ifelse(. %in% vec, NA, .)))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .)))
 }
 
