@@ -13,13 +13,8 @@
 
 make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
 
-  if (missing(..1)) {
-    .data %>%
-      dplyr::select(where(is.character)) %>% names() -> db_names
-  } else {
-    .data %>%
-      dplyr::select(...) %>% names() -> db_names
-  }
+  .data %>%
+    select_otherwise(..., where(is.character)) -> nms
 
   .data %>%
     dplyr::mutate(dplyr::across(tidyselect::any_of(db_names), ~ifelse(. %in% vec, NA, .)))

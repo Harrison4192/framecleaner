@@ -13,17 +13,18 @@
 #' @export
 pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 
-  cols <- rlang::syms(names(dplyr::select(mdb, ...)))
+  mdb %>%
+    select_otherwise(..., otherwise = where(is_integerish_character) | where(bit64::is.integer64)) -> col_indx
 
-  for(i in cols){
+  for(i in col_indx){
 
     mdb %>%
-      dplyr::pull(!!i) %>%
+      dplyr::pull(i) %>%
       stringr::str_length() %>%
       max -> wth
 
     mdb %>%
-      pad_col(!!i, width = wth, side = side, pad = pad) -> mdb
+      pad_col(any_of(i), width = wth, side = side, pad = pad) -> mdb
   }
 
   mdb
@@ -41,7 +42,7 @@ pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 #'
 #' @return data frame
 #' @export
-pad_col <- function(mdb, col, width, pad = "0", side = "left"){
+pad_col <- function(mdb, ..., width, pad = "0", side = "left"){
 
   mdb %>%
-    dplyr::mutate({{col}} := as.character({{col}}) %>% stringr::str_pad(width = width, side = side, pad = pad))}
+    dplyr::mutate(dplyr::across(...,  .fns =  ~stringr::str_pad(as.character(.), width = width, side = side, pad = pad)))}

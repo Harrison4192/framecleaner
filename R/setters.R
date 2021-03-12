@@ -25,7 +25,7 @@ set_chr <- function(.data, ...){
 #'
 #' @return dataframe
 #' @export
-set_lgl <- function(.data, ..., true_level = 1){
+set_lgl <- function(.data, ..., true_level = 1L){
 
 
     .data %>%
@@ -64,15 +64,8 @@ set_dbl <- function(.data, ...){
 #' @export
 set_int <- function(.data, ...){
 
-  if(missing(...)) {
-
-    .data %>%
-      dplyr::select(where(rlang::is_integerish) | where(is_integerish_character))  %>% names() -> nms
-
-  } else {
-
-    .data %>%
-      dplyr::select(...)  %>% names() -> nms  }
+  .data %>%
+    select_otherwise(..., otherwise = where(rlang::is_integerish) | where(is_integerish_character)) -> nms
 
   .data %>%
     dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as_integer16_or_64))
@@ -170,40 +163,18 @@ set_date <- function(.data, ..., date_fn = lubridate::ymd){
 #' @export
 set_fct <- function(.data, ..., first_level = NULL){
 
-  if(missing(...)) {
-
-    .data %>%
-      dplyr::select(where(is.character))  %>% names() -> nms
-
-  } else {
-
-    .data %>%
-      dplyr::select(...)  %>% names() -> nms  }
+  .data %>%
+    select_otherwise(..., otherwise = where(is.character)) -> nms
 
 
   if (!is.null(first_level)) {
     first_level <- as.character(first_level)
   }
 
-
-
-
-
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms),
+    dplyr::mutate(dplyr::across(tidyselect::any_of(nms),
                                 .fns = ~fct_or_prob(., first_level)))
 }
 
-is_probability <- function(x){
-  all(dplyr::between(x, 0, 1), na.rm = T) & is.double(x) & dplyr::n_distinct(x) > 2
-}
 
-
-fct_or_prob <- function(x, first_level = NULL) {
-  if(is_probability(x)){
-    x <- ifelse(x > .5, 1, 0)
-    first_level = "1"
-  }
-    x <-  forcats::fct_relevel(factor(x), first_level)
-}
 

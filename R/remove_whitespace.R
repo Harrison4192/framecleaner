@@ -9,13 +9,8 @@
 #' @export
 remove_whitespace <- function(.data, ...){
 
-  if (missing(..1)) {
-    .data %>%
-      dplyr::select(where(is.character)) %>% names() -> db_names
-  } else {
-    .data %>%
-      dplyr::select(...) %>% names() -> db_names
-  }
+  .data %>%
+    select_otherwise(..., otherwise = where(is.character)) -> col_indx
 
-  .data %>% dplyr::mutate(dplyr::across(tidyselect::any_of(db_names),  .fns = trimws))
+  .data %>% dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx),  .fns = trimws))
 }

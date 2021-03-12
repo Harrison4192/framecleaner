@@ -9,16 +9,11 @@
 #'
 #' @return data frame
 #' @export
-fill_na <- function(mdb, ..., fill = 0L){
+fill_na <- function(.data, ..., fill = 0L){
 
-  if (missing(..1)) {
-    mdb %>%
-      dplyr::select(where(rlang::is_bare_double) | where(is.integer)) %>% names() -> fill_names
-  } else {
-    mdb %>%
-      dplyr::select(...) %>% names() -> fill_names
-  }
+ .data %>%
+    select_otherwise(..., otherwise = where(rlang::is_bare_double) | where(is.integer)) -> fill_names
 
-  mdb %>%
+  .data %>%
     dplyr::mutate(dplyr::across(tidyselect::any_of(fill_names), ~ifelse(is.na(.), fill, .)))
 }
