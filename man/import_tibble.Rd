@@ -8,6 +8,8 @@ import_tibble(path, ...)
 }
 \arguments{
 \item{path}{filepath}
+
+\item{...}{other arguments}
 }
 \value{
 a tibble

@@ -4,14 +4,14 @@
 \alias{fill_na}
 \title{Fill NAs}
 \usage{
-fill_na(mdb, ..., fill = 0L)
+fill_na(.data, ..., fill = 0L)
 }
 \arguments{
-\item{mdb}{data frame}
-
 \item{...}{tidyselect specification of columns}
 
 \item{fill}{value to fill NAs}
+
+\item{mdb}{data frame}
 }
 \value{
 data frame

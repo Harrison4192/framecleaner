@@ -13,7 +13,7 @@
 #' is_integerish_character(1:10)
 is_integerish_character <- function(x) {
   purrr::possibly(as.double, otherwise = "error") -> safe_dbl
-  x %>% setdiff(NA) -> x1
+  x %>% remove_nas() -> x1
   suppressWarnings({x1 %>% safe_dbl() -> x2})
   if(is.character(x) & rlang::is_integerish(x2)){
   !anyNA(x2)} else{
@@ -63,6 +63,7 @@ auto_setwd <- function(){
 #' parsing of filetypes, int64 support, and intelligent language parsing.
 #'
 #' @param path filepath
+#' @param ... other arguments
 #'
 #' @return a tibble
 #' @export
@@ -71,45 +72,49 @@ import_tibble <- function(path, ...){
   rio::import(path, setclass = "tibble", ...)}
 
 
-#' select otherwise
-#'
-#' Get the integer positions of columns in a data frame using tidyselect, with the
-#' option to set a default tidyselect specification in the absenceo of any dots.
-#' Additionally another specification can be supplied through col that will be added on to
-#' whichever specification gets resolved.
-#'
 #' @param .data dataframe
 #' @param ... tidyselect
 #' @param otherwise tidyselect
 #' @param col tidyselect
+#' @param return_type choose to return column index, names, or df. defaults to index
 #'
-#' @return integer vector
+#' @return integer vector by default. possibly data frame or character vector
 #' @keywords internal
 #'
-select_otherwise <- function(.data, ..., otherwise, col = NULL){
+select_otherwise <- function(.data, ..., otherwise = tidyselect::everything(), col = NULL, return_type = c("index", "names", "df")){
 
-  .dots <- expr(c(...))
+  return_type <- return_type[1]
 
-  col <- enexpr(col)
-  otherwise = enexpr(otherwise)
+  .dots <- rlang::expr(c(...))
 
 
-  eval_select(
-    .dots, data = .data
-  ) -> eval1
+  col <- rlang::enexpr(col)
+  otherwise = rlang::enexpr(otherwise)
+
+
+  tidyselect::eval_select(.dots, data = .data) -> eval1
 
   if(length(eval1) == 0){
-    eval_select(
-      otherwise, data = .data
-    ) -> eval1
+    tidyselect::eval_select( otherwise, data = .data) -> eval1
   }
 
-  eval_select(col, data = .data) %>%
+  tidyselect::eval_select(col, data = .data) %>%
     c(eval1) %>% sort() -> eval1
 
-  eval1
 
+  if(return_type == "df"){
+
+    out <- .data %>% dplyr::select(tidyselect::any_of(eval1))
+  } else if(return_type == "names"){
+    out <- names(eval1)
+  } else{
+    out <- eval1
+  }
+
+  out
 }
+
+
 
 
 #' is_probability

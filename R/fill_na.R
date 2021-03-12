@@ -3,7 +3,7 @@
 #' use tidyselect to fill NA values
 #' Default behavior is to fill all integer or double columns cols with 0, preserving their types.
 #'
-#' @param mdb data frame
+#' @param .data data frame
 #' @param ... tidyselect specification of columns
 #' @param fill value to fill NAs
 #'

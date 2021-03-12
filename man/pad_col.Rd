@@ -4,12 +4,12 @@
 \alias{pad_col}
 \title{pad column}
 \usage{
-pad_col(mdb, col, width, pad = "0", side = "left")
+pad_col(mdb, ..., width, pad = "0", side = "left")
 }
 \arguments{
 \item{mdb}{data frame}
 
-\item{col}{column}
+\item{...}{tidyselect}
 
 \item{width}{str_pad width}
 

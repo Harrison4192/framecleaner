@@ -24,7 +24,7 @@ pad_auto <- function(mdb, ..., side = "left", pad = "0"){
       max -> wth
 
     mdb %>%
-      pad_col(any_of(i), width = wth, side = side, pad = pad) -> mdb
+      pad_col(dplyr::any_of(i), width = wth, side = side, pad = pad) -> mdb
   }
 
   mdb
@@ -35,7 +35,7 @@ pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 #' wrapper around mutate and str_pad
 #'
 #' @param mdb data frame
-#' @param col column
+#' @param ... tidyselect
 #' @param width str_pad width
 #' @param pad str_pad pad
 #' @param side str_pad side

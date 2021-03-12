@@ -4,7 +4,7 @@
 \alias{set_lgl}
 \title{set logical}
 \usage{
-set_lgl(.data, ..., true_level = 1)
+set_lgl(.data, ..., true_level = 1L)
 }
 \arguments{
 \item{.data}{dataframe}
