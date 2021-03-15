@@ -147,15 +147,11 @@ Default behavior is to fill all integer or double columns cols with 0, preservin
 Default behavior is to fill all integer or double columns cols with 0, preserving their types.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fill_na</span><span class='op'>(</span><span class='va'>mdb</span>, <span class='va'>...</span>, fill <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>fill_na</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, fill <span class='op'>=</span> <span class='fl'>0L</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>mdb</th>
-      <td><p>data frame</p></td>
-    </tr>
     <tr>
       <th>...</th>
       <td><p>tidyselect specification of columns</p></td>
@@ -163,6 +159,10 @@ Default behavior is to fill all integer or double columns cols with 0, preservin
     <tr>
       <th>fill</th>
       <td><p>value to fill NAs</p></td>
+    </tr>
+    <tr>
+      <th>mdb</th>
+      <td><p>data frame</p></td>
     </tr>
     </table>
 

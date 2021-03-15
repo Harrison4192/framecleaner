@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>pad column — pad_col • frameCleaneR</title>
+<title>fct_or_prob — fct_or_prob • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="pad column — pad_col" />
-<meta property="og:description" content="wrapper around mutate and str_pad" />
+<meta property="og:title" content="fct_or_prob — fct_or_prob" />
+<meta property="og:description" content="fct_or_prob" />
 
 
 
@@ -136,45 +136,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>pad column</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/pad_cols.R'><code>R/pad_cols.R</code></a></small>
-    <div class="hidden name"><code>pad_col.Rd</code></div>
+    <h1>fct_or_prob</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/utilities.R'><code>R/utilities.R</code></a></small>
+    <div class="hidden name"><code>fct_or_prob.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>wrapper around mutate and str_pad</p>
+    <p>fct_or_prob</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pad_col</span><span class='op'>(</span><span class='va'>mdb</span>, <span class='va'>...</span>, <span class='va'>width</span>, pad <span class='op'>=</span> <span class='st'>"0"</span>, side <span class='op'>=</span> <span class='st'>"left"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>fct_or_prob</span><span class='op'>(</span><span class='va'>x</span>, first_level <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>mdb</th>
-      <td><p>data frame</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>tidyselect</p></td>
-    </tr>
-    <tr>
-      <th>width</th>
-      <td><p>str_pad width</p></td>
-    </tr>
-    <tr>
-      <th>pad</th>
-      <td><p>str_pad pad</p></td>
-    </tr>
-    <tr>
-      <th>side</th>
-      <td><p>str_pad side</p></td>
+      <th>x</th>
+      <td><p>vector</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>logical</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
