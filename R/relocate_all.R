@@ -10,14 +10,13 @@
 #' @export
 relocate_all <- function(.data, ...){
 
+  .data %>%
+    select_otherwise(where(guess_id_col), return_type = "names") %>% sort() -> id_cols
 
-  dplyr::relocate(.data, sort(names(.data))) %>%
-    dplyr::relocate(
-      where(lubridate::is.Date),
-      where(is.character),
-      where(is.factor),
-      where(is.integer),
-      where(is.numeric),
-    ) %>%
-    dplyr::relocate(...)
+.data %>%
+    dplyr::relocate(tidyselect::any_of(id_cols)) %>%
+    dplyr::relocate(where(lubridate::is.Date)) -> .data
+
+.data
+
 }

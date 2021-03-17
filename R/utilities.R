@@ -6,6 +6,7 @@
 #'
 #' @return a logical
 #' @export
+#' @keywords internal
 #'
 #' @examples
 #' is_integerish_character(as.character(1:10))
@@ -19,6 +20,26 @@ is_integerish_character <- function(x) {
   !anyNA(x2)} else{
     FALSE
   }
+}
+
+
+#' is integery
+#'
+#' practical extension of rlang::is_integerish that supports integer64, integers in character strings,
+#' and doesn't coerce factors
+#'
+#' @param x a vector
+#'
+#' @return logical
+#' @export
+is_integery <- function(x){
+
+  is_integerish_character(x) -> c1
+  rlang::is_integerish(x) -> c2
+  bit64::is.integer64(x) -> c3
+  !is.factor(x) -> c4
+
+  any(c(c1, c2, c3)) & c4
 }
 
 #' as_integer16_or_64
@@ -81,7 +102,7 @@ import_tibble <- function(path, ...){
 #' @return integer vector by default. possibly data frame or character vector
 #' @keywords internal
 #'
-select_otherwise <- function(.data, ..., otherwise = tidyselect::everything(), col = NULL, return_type = c("index", "names", "df")){
+select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_type = c("index", "names", "df")){
 
   return_type <- return_type[1]
 

@@ -7,12 +7,11 @@
 #' @export
 set_chr <- function(.data, ...){
 
-  .data %>%
-    dplyr::select(...)  %>% names() -> nms
+  .data %>% select_otherwise(...) -> cols
 
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as.character))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as.character))
 }
 
 #' set logical
@@ -28,12 +27,11 @@ set_chr <- function(.data, ...){
 set_lgl <- function(.data, ..., true_level = 1L){
 
 
-    .data %>%
-      dplyr::select(...)  %>% names() -> nms
+    .data %>% select_otherwise(...) -> cols
 
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = ~ifelse(. == true_level, T, F)))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = ~ifelse(. == true_level, T, F)))
 }
 
 #' set double
@@ -45,12 +43,11 @@ set_lgl <- function(.data, ..., true_level = 1L){
 #' @export
 set_dbl <- function(.data, ...){
 
-  .data %>%
-    dplyr::select(...)  %>% names() -> nms
+  .data %>% dplyr::select_otherwise(...)   -> cols
 
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as.double))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as.double))
 }
 
 #' set integer
@@ -65,10 +62,10 @@ set_dbl <- function(.data, ...){
 set_int <- function(.data, ...){
 
   .data %>%
-    select_otherwise(..., otherwise = where(rlang::is_integerish) | where(is_integerish_character)) -> nms
+    select_otherwise(..., otherwise = where(is_integery)) -> cols
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = as_integer16_or_64))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64))
 }
 
 
@@ -93,11 +90,10 @@ set_int <- function(.data, ...){
 set_date <- function(.data, ..., date_fn = lubridate::ymd){
 
   if(!missing(..1)){
-  .data %>%
-    dplyr::select(...)  %>% names() -> nms
+  .data %>% select_otherwise(..., return_type = "names") -> nms
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::all_of(nms), .fns = date_fn))} else {
+    dplyr::mutate(dplyr::across(tidyselect::any_of(nms), .fns = date_fn))} else {
 
       .data %>%
         dplyr::select(where(is.character)) %>% names() -> fill_names

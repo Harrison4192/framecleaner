@@ -48,7 +48,7 @@ usethis::use_package("bit64")
 
 usethis::use_package("badger", type = "Suggests")
 
-
+usethis::use_r("guess_id_col")
 
 # edit R profile ----------------------------------------------------------
 
