@@ -25,7 +25,6 @@ Imports:
     rstudioapi,
     tidyr,
     forcats,
-    vroom,
     bit64,
     rio
 RoxygenNote: 7.1.1
