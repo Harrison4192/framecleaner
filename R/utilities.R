@@ -51,7 +51,12 @@ is_integery <- function(x){
 #' @return int or int64
 #' @keywords internal
 as_integer16_or_64 <- function(x){
-  x <- readr::parse_number(x)
+  if(is.character(x)){
+    if(!is_integerish_character(x)) {
+      message("some elements containing non-numeric values have been parsed as integers")
+    }
+    x <- readr::parse_number(x)
+    }
 
 suppressWarnings({
   x %>% remove_nas() -> x1
