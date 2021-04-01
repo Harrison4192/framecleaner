@@ -51,6 +51,8 @@ is_integery <- function(x){
 #' @return int or int64
 #' @keywords internal
 as_integer16_or_64 <- function(x){
+  x <- readr::parse_number(x)
+
 suppressWarnings({
   x %>% remove_nas() -> x1
   if(anyNA(as.integer(x1)))
