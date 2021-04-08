@@ -22,13 +22,10 @@ guess_id_col <- function(x, min_distinct = 3L){
 
 #' Title
 #'
-#' @param x
 #' @keywords internal
 #'
-#' @return
 #' @export
 #'
-#' @examples
 guess_distribution <- function(x){
 
   d1 <- fitdistrplus::fitdist(x, "pois") %>% fitdistrplus::gofstat()  %>% `$`(chisqpvalue)
@@ -44,13 +41,10 @@ guess_distribution <- function(x){
 
 #' Title
 #'
-#' @param x
 #' @keywords internal
 #'
-#' @return
 #' @export
 #'
-#' @examples
 test_integer <- function(x){if(rlang::is_bare_integer(x)){
 
   clist <- list()
@@ -75,13 +69,9 @@ test_integer <- function(x){if(rlang::is_bare_integer(x)){
 
 #' Title
 #'
-#' @param x
 #' @keywords internal
 #'
-#' @return
 #' @export
-#'
-#' @examples
 test_character <- function(x){if(is.character(x)){
 
   clist <- list()
@@ -104,14 +94,10 @@ test_character <- function(x){if(is.character(x)){
 
 #' Title
 #'
-#' @param x
-#' @param min_distinct
 #' @keywords internal
 #'
-#' @return
 #' @export
 #'
-#' @examples
 initial_test <- function(x, min_distinct = 3){
 
   clist <- list()
