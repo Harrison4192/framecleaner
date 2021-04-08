@@ -3,6 +3,7 @@
 #' companion to rlang::is_integerish that returns true only for  integerish character vectors.
 #'
 #' @param x a vector
+#' @keywords internal
 #'
 #' @return a logical
 #' @export
@@ -29,6 +30,8 @@ is_integerish_character <- function(x) {
 #' and doesn't coerce factors
 #'
 #' @param x a vector
+#' @keywords internal
+#'
 #'
 #' @return logical
 #' @export
@@ -47,6 +50,7 @@ is_integery <- function(x){
 #' coerce to integer. if too large, coerces to 64-bit integer
 #'
 #' @param x integerish vec
+#' @keywords internal
 #'
 #' @return int or int64
 #' @keywords internal
@@ -65,6 +69,15 @@ suppressWarnings({
 })
   }
 
+#' Title
+#'
+#' @param x
+#' @keywords internal
+#'
+#' @return
+#' @export
+#'
+#' @examples
 remove_nas <- function(x){
 
   x[which(!is.na(x))]
@@ -111,12 +124,12 @@ import_tibble <- function(path, ...){
 #'
 select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_type = c("index", "names", "df")){
 
-  return_type <- return_type[1]
+  return_type <- match.arg(return_type)
 
   .dots <- rlang::expr(c(...))
 
-
   col <- rlang::enexpr(col)
+
   otherwise = rlang::enexpr(otherwise)
 
 
@@ -150,27 +163,27 @@ select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_ty
 #' @param x numeric vector
 #'
 #' @return logical
-#' @export
 #' @keywords internal
 #'
 is_probability <- function(x){
-  all(dplyr::between(x, 0, 1), na.rm = T) & is.double(x) & dplyr::n_distinct(x) > 2
+   is.double(x) && all(dplyr::between(x, 0, 1), na.rm = T)  & dplyr::n_distinct(x) > 2
 }
 
 
 #' fct_or_prob
 #'
 #' @param x vector
+#' @param first_level character string to set the first level of the factor
+#' @param order_fct logical. ordered factor?
 #'
 #' @return logical
-#' @export
 #' @keywords internal
 #'
-fct_or_prob <- function(x, first_level = NULL) {
+fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE) {
   if(is_probability(x)){
     x <- ifelse(x > .5, 1, 0)
   }
-  x <-  forcats::fct_relevel(factor(x), first_level)
+  x <-  forcats::fct_relevel(factor(x, ordered = order_fct), first_level)
 
   x
 }

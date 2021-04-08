@@ -12,8 +12,17 @@
 fill_na <- function(.data, ..., fill = 0L){
 
  .data %>%
-    select_otherwise(..., otherwise = where(rlang::is_bare_double) | where(is.integer)) -> fill_names
+    select_otherwise(..., otherwise = where(rlang::is_bare_double) | where(is.integer)) -> col_indx
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(fill_names), ~ifelse(is.na(.), fill, .)))
+    select_otherwise(where(is.factor)) -> fct_indx
+
+  fctrs <- dplyr::intersect(col_indx, fct_indx)
+
+
+  .data %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(setdiff(col_indx, fctrs)), ~ifelse(is.na(.), fill, .))) -> .data
+
+  .data %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(fct_indx), ~forcats::fct_explicit_na(., na_level = as.character(fill))))
 }

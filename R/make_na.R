@@ -17,6 +17,19 @@ make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
     select_otherwise(..., where(is.character)) -> col_indx
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .)))
+    select_otherwise(where(is.factor)) -> fct_indx
+
+  fctrs <- dplyr::intersect(col_indx, fct_indx)
+
+  .data %>%
+    set_chr(tidyselect::any_of(fctrs)) -> .data
+
+
+
+  .data %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .))) -> .data
+
+  .data %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(fctrs), as.factor))
 }
 

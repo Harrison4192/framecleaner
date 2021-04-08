@@ -61,12 +61,47 @@ set_dbl <- function(.data, ...){
 #' @export
 set_int <- function(.data, ...){
 
+
+
   .data %>%
     select_otherwise(..., otherwise = where(is_integery)) -> cols
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64)) -> .data
+
+  .data
 }
+
+# set_int_groups <- function(.data, ...){
+#
+#   set_type_groups(.data, ..., setter = set_int)
+# }
+#
+# set_type_groups <- function(.data, ..., setter){
+#
+#   .data %>%
+#     dplyr::groups() -> grps
+#
+#   .data %>%
+#     dplyr::n_groups() -> n_grps1
+#
+#   .data %>%
+#     dplyr::ungroup() -> .data
+#
+#   setter(.data, ...) -> .data
+#
+#   .data %>%
+#     dplyr::group_by(!!!grps) -> .data
+#
+#   .data %>%
+#     dplyr::n_groups() -> n_grps2
+#
+#   if(n_grps1 != n_grps2){
+#     warning(stringr::str_glue("number of groups was changed from {n_grps1} to {n_grps2}"), call. = F)
+#   }
+#
+#   .data
+# }
 
 
 #' set date
@@ -153,11 +188,11 @@ set_date <- function(.data, ..., date_fn = lubridate::ymd){
 #' @param .data dataframe
 #' @param ... tidyselect (default selection: all character columns)
 #' @param first_level character string to set the first level of the factor
-
+#' @param order_fct logical. ordered factor?
 #'
 #' @return tibble
 #' @export
-set_fct <- function(.data, ..., first_level = NULL){
+set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE){
 
   .data %>%
     select_otherwise(..., otherwise = where(is.character)) -> nms
@@ -169,8 +204,12 @@ set_fct <- function(.data, ..., first_level = NULL){
 
   .data %>%
     dplyr::mutate(dplyr::across(tidyselect::any_of(nms),
-                                .fns = ~fct_or_prob(., first_level)))
+                                .fns = ~fct_or_prob(., first_level = first_level, order_fct = order_fct)))
 }
 
 
-
+# set_fct_groups <- function(.data, ..., first_level = NULL, order_fct = FALSE){
+#
+#   set_type_groups(.data, ..., order_fct = order_fct, first_level = first_level, setter = set_fct)
+#
+# }

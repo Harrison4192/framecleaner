@@ -16,6 +16,7 @@ clean_frame <- function(.data){
       remove_whitespace() %>%
       set_int() %>%
       set_date() %>%
-      make_na()
+      make_na() %>%
+      tibble::as_tibble()
   })
 }
