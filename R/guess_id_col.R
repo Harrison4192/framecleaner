@@ -7,7 +7,6 @@
 #' @keywords internal
 #'
 #' @return logical
-#' @export
 guess_id_col <- function(x, min_distinct = 3L){
 
 
@@ -24,7 +23,6 @@ guess_id_col <- function(x, min_distinct = 3L){
 #'
 #' @keywords internal
 #'
-#' @export
 #'
 guess_distribution <- function(x){
 
@@ -43,7 +41,6 @@ guess_distribution <- function(x){
 #'
 #' @keywords internal
 #'
-#' @export
 #'
 test_integer <- function(x){if(rlang::is_bare_integer(x)){
 
@@ -71,7 +68,6 @@ test_integer <- function(x){if(rlang::is_bare_integer(x)){
 #'
 #' @keywords internal
 #'
-#' @export
 test_character <- function(x){if(is.character(x)){
 
   clist <- list()
@@ -96,7 +92,6 @@ test_character <- function(x){if(is.character(x)){
 #'
 #' @keywords internal
 #'
-#' @export
 #'
 initial_test <- function(x, min_distinct = 3){
 

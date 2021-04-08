@@ -4,10 +4,14 @@
 \alias{fct_or_prob}
 \title{fct_or_prob}
 \usage{
-fct_or_prob(x, first_level = NULL)
+fct_or_prob(x, first_level = NULL, order_fct = FALSE)
 }
 \arguments{
 \item{x}{vector}
+
+\item{first_level}{character string to set the first level of the factor}
+
+\item{order_fct}{logical. ordered factor?}
 }
 \value{
 logical

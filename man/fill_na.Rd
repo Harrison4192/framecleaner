@@ -7,11 +7,11 @@
 fill_na(.data, ..., fill = 0L)
 }
 \arguments{
+\item{.data}{data frame}
+
 \item{...}{tidyselect specification of columns}
 
 \item{fill}{value to fill NAs}
-
-\item{mdb}{data frame}
 }
 \value{
 data frame

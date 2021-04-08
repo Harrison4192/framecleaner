@@ -4,7 +4,7 @@
 \alias{set_fct}
 \title{set factor}
 \usage{
-set_fct(.data, ..., first_level = NULL)
+set_fct(.data, ..., first_level = NULL, order_fct = FALSE)
 }
 \arguments{
 \item{.data}{dataframe}
@@ -12,6 +12,8 @@ set_fct(.data, ..., first_level = NULL)
 \item{...}{tidyselect (default selection: all character columns)}
 
 \item{first_level}{character string to set the first level of the factor}
+
+\item{order_fct}{logical. ordered factor?}
 }
 \value{
 tibble

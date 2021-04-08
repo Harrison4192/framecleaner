@@ -11,7 +11,6 @@
 #' is_integerish_character(as.character(1:10))
 #' is_integerish_character(as.character(1:5) %>% c(letters[1:5]))
 #' is_integerish_character(1:10)
-#' @export
 is_integerish_character <- function(x) {
   purrr::possibly(as.double, otherwise = "error") -> safe_dbl
   x %>% remove_nas() -> x1
@@ -33,7 +32,6 @@ is_integerish_character <- function(x) {
 #'
 #'
 #' @return logical
-#' @export
 is_integery <- function(x){
 
   is_integerish_character(x) -> c1
@@ -52,7 +50,6 @@ is_integery <- function(x){
 #' @keywords internal
 #'
 #' @return int or int64
-#' @export
 as_integer16_or_64 <- function(x){
   if(is.character(x)){
     if(!is_integerish_character(x)) {
@@ -74,7 +71,6 @@ suppressWarnings({
 #' @keywords internal
 #'
 #' @return vec
-#' @export
 #'
 remove_nas <- function(x){
 
@@ -119,7 +115,6 @@ import_tibble <- function(path, ...){
 #' @keywords internal
 #'
 #' @return logical
-#' @export
 is_probability <- function(x){
    is.double(x) && all(dplyr::between(x, 0, 1), na.rm = T)  & dplyr::n_distinct(x) > 2
 }
@@ -133,7 +128,6 @@ is_probability <- function(x){
 #' @keywords internal
 #'
 #' @return logical
-#' @export
 fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE) {
   if(is_probability(x)){
     x <- ifelse(x > .5, 1, 0)

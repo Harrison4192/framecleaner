@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("utilities")
+usethis::use_r("select_otherwise")
 
 # add this file to .Rbuildignore ------------------------------------------
 
@@ -107,5 +107,4 @@ build_site()
 devtools::check()
 preview_site()
 build_vignettes()
-
 
