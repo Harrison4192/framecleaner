@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: darkly
+    bootswatch: united
     ganalytics: G-S8LT8TQV81
 
 development:
@@ -34,6 +34,7 @@ reference:
   - '`auto_setwd`'
   - '`import_tibble`'
   - '`is_integerish_character`'
+  - '`select_otherwise`'
 articles:
 - title: All vignettes
   desc: null

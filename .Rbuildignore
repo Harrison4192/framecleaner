@@ -9,3 +9,5 @@
 ^build_package\.R$
 ^README\.Rmd$
 ^/Users/Harrison/Desktop/packages/frameCleaneR/_pkgdown\.yml$
+^doc$
+^Meta$

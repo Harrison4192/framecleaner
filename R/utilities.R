@@ -35,7 +35,7 @@ is_integerish_character <- function(x) {
 is_integery <- function(x){
 
   is_integerish_character(x) -> c1
-  rlang::is_integerish(x) -> c2
+  rlang::is_integerish(x) & !lubridate::is.Date(x) -> c2
   bit64::is.integer64(x) -> c3
   !is.factor(x) -> c4
 

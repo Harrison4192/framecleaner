@@ -67,7 +67,7 @@ set_int <- function(.data, ...){
     select_otherwise(..., otherwise = where(is_integery)) -> cols
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64)) -> .data
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = frameCleaneR:::as_integer16_or_64)) -> .data
 
   .data
 }

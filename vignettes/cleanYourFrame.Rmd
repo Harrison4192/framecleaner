@@ -30,7 +30,7 @@ sample_table
 
 # set nas
 
-Data occasionally has different ways to represent NA values. `set_na` checks as default `c("-", "", " ", "null")` but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using `dlookr::diagnose`
+Data occasionally has different ways to represent NA values. `set_na` checks as default `c("-", "", " ", "null")` but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using `valiData::diagnose`
 
 ```{r}
 sample_table %>% 
@@ -81,78 +81,3 @@ use tidyselect to fill NAs with a single value
 sample_table %>% 
   fill_na()
 ```
-# Pivot summary
-
-Transpose a tibble of summary statistics in tidy format. Convenient function for transposing the output of dplyr"s `group_by` and `summarize` operation.
-
-## 0 groups
-
-Transpose a 1 row numerical summary:
-
-**wide format**
-
-```{r}
-iris %>% 
-  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr0
-
-sumr0
-```
-
-**long format**
-
-```{r}
-
-sumr0 %>% 
-  pivot_summary()
-
-```
-
-## 1 group
-
-A grouped summary can be transposed by providing the name of the group column.
-
-**wide format**
-
-```{r}
-iris %>% 
-  group_by(Species) %>% 
-  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr1
-
-sumr1
-```
-**long format**
-
-```{r}
-
-sumr1 %>% 
-  pivot_summary(Species)
-```
-
-
-## 2 groups
-
-Supports transposing numerical summaries with multiple groups using tidyselect. 
-
-**long format**
-
-
-```{r}
-
-iris %>%
-  mutate(Species1 = sample(Species)) %>%
-  group_by(Species, Species1) %>% 
-  summarize(across(where(is.numeric), mean), .groups = "drop") -> sumr2
- 
-sumr2
-```
-
-
-Group names are concatenated and pivoted.
-
-**wide format**
-
-```{r}
-sumr2 %>% 
-   pivot_summary(matches("Spec")) 
-```
-
