@@ -34,7 +34,6 @@ reference:
   - '`auto_setwd`'
   - '`import_tibble`'
   - '`is_integerish_character`'
-  - '`pivot_summary`'
 articles:
 - title: All vignettes
   desc: null
