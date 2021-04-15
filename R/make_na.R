@@ -22,14 +22,23 @@ make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
   fctrs <- dplyr::intersect(col_indx, fct_indx)
 
   .data %>%
-    set_chr(tidyselect::any_of(fctrs)) -> .data
+    dplyr::mutate(dplyr::across(tidyselect::any_of(fctrs), as.character)) -> .data1
 
 
 
-  .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .))) -> .data
+  .data1 %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .))) -> .data2
 
-  .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(fctrs), as.factor))
+  for(i in fctrs){
+
+    .data %>%
+      dplyr::pull(i) %>%
+      levels() %>%
+      setdiff(vec) -> new_levls
+
+    .data2 %>%
+      dplyr::mutate(dplyr::across(tidyselect::any_of(i), ~factor(., levels = new_levls))) -> .data2}
+
+  .data2
 }
 
