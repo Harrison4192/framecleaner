@@ -43,7 +43,7 @@ set_lgl <- function(.data, ..., true_level = 1L){
 #' @export
 set_dbl <- function(.data, ...){
 
-  .data %>% dplyr::select_otherwise(...)   -> cols
+  .data %>% select_otherwise(...)   -> cols
 
 
   .data %>%
