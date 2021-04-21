@@ -24,5 +24,5 @@ fill_na <- function(.data, ..., fill = 0L){
     dplyr::mutate(dplyr::across(tidyselect::any_of(setdiff(col_indx, fctrs)), ~ifelse(is.na(.), fill, .))) -> .data
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(fct_indx), ~forcats::fct_explicit_na(., na_level = as.character(fill))))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(fctrs), ~forcats::fct_explicit_na(., na_level = as.character(fill))))
 }

@@ -65,7 +65,7 @@ suppressWarnings({
 })
   }
 
-#' Title
+#' remove nas
 #'
 #' @param x vec
 #' @keywords internal

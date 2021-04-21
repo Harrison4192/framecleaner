@@ -5,7 +5,7 @@ xfun::gsub_dir(pattern = "packageIntroduction", replacement = "cleanYourFrame")
 library(pacman)
 p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
        ymlthis, magrittr, fs, covr, gitcreds, credentials,
-       badger, hexSticker, gh, xfun, tidyverse)
+       badger, hexSticker, gh, xfun, tidyverse, r2symbols)
 
 # create functions --------------------------------------------------------
 
