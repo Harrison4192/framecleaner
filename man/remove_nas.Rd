@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{remove_nas}
 \alias{remove_nas}
-\title{Title}
+\title{remove nas}
 \usage{
 remove_nas(x)
 }
@@ -13,6 +13,6 @@ remove_nas(x)
 vec
 }
 \description{
-Title
+remove nas
 }
 \keyword{internal}

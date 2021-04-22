@@ -27,7 +27,9 @@ Imports:
     forcats,
     bit64,
     rio,
-    readr
+    readr,
+    vroom,
+    readxl
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

@@ -91,20 +91,6 @@ auto_setwd <- function(){
 
 
 
-#' import tibble
-#'
-#' wrapper around [rio::import()] to return a tibble instead of a data.table
-#' This is the official file reader of TidyConsultant because of it's speed, accurate
-#' parsing of filetypes, int64 support, and intelligent language parsing.
-#'
-#' @param path filepath
-#' @param ... other arguments
-#'
-#' @return a tibble
-#' @export
-#'
-import_tibble <- function(path, ...){
-  rio::import(path, setclass = "tibble", ...)}
 
 
 

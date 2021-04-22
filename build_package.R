@@ -43,11 +43,13 @@ usethis::use_package("tibble")
 usethis::use_package("rlang")
 usethis::use_package("lubridate")
 usethis::use_package("bit64")
+usethis::use_package("vroom")
+usethis::use_package("readxl")
 
 
 usethis::use_package("badger", type = "Suggests")
 
-usethis::use_r("guess_id_col")
+usethis::use_r("import_tibble")
 
 # edit R profile ----------------------------------------------------------
 
