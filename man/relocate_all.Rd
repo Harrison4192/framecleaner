@@ -4,7 +4,7 @@
 \alias{relocate_all}
 \title{Relocate All}
 \usage{
-relocate_all(.data, ...)
+relocate_all(.data, ..., regex = NULL)
 }
 \arguments{
 \item{.data}{data frame}

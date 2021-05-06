@@ -50,16 +50,23 @@ set_dbl <- function(.data, ...){
     dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as.double))
 }
 
+#' @rdname set_int.data.frame
+#' @export
+set_int <- function(.data, ...){
+
+  UseMethod("set_int", .data)
+}
+
 #' set integer
 #'
 #'
-#'
+#' @method set_int data.frame
 #' @param .data dataframe
 #' @param ... tidyselect. default selection is integerish doubles or integerish characters
 #'
 #' @return tibble
 #' @export
-set_int <- function(.data, ...){
+set_int.data.frame <- function(.data, ...){
 
 
 
@@ -72,36 +79,53 @@ set_int <- function(.data, ...){
   .data
 }
 
-# set_int_groups <- function(.data, ...){
-#
-#   set_type_groups(.data, ..., setter = set_int)
-# }
-#
-# set_type_groups <- function(.data, ..., setter){
-#
-#   .data %>%
-#     dplyr::groups() -> grps
-#
-#   .data %>%
-#     dplyr::n_groups() -> n_grps1
-#
-#   .data %>%
-#     dplyr::ungroup() -> .data
-#
-#   setter(.data, ...) -> .data
-#
-#   .data %>%
-#     dplyr::group_by(!!!grps) -> .data
-#
-#   .data %>%
-#     dplyr::n_groups() -> n_grps2
-#
-#   if(n_grps1 != n_grps2){
-#     warning(stringr::str_glue("number of groups was changed from {n_grps1} to {n_grps2}"), call. = F)
-#   }
-#
-#   .data
-# }
+#' @method set_int grouped_df
+#' @export
+set_int.grouped_df <- function(.data, ...){
+
+  set_type_groups(.data, ..., setter = set_int.data.frame)
+}
+
+#' @export
+set_int.default<- function(x){
+
+  frameCleaneR:::as_integer16_or_64(x)
+}
+
+#' set type groups
+#'
+#'
+#' @param .data dataframe
+#' @param ... tidyselect. default selection is integerish doubles or integerish characters
+#' @param setter which setter function to use
+#' @keywords internal
+#'
+#' @return tibble
+set_type_groups <- function(.data, ..., setter){
+
+  .data %>%
+    dplyr::groups() -> grps
+
+  .data %>%
+    dplyr::n_groups() -> n_grps1
+
+  .data %>%
+    dplyr::ungroup() -> .data
+
+  setter(.data, ...) -> .data
+
+  .data %>%
+    dplyr::group_by(!!!grps) -> .data
+
+  .data %>%
+    dplyr::n_groups() -> n_grps2
+
+  if(n_grps1 != n_grps2){
+    warning(stringr::str_glue("number of groups was changed from {n_grps1} to {n_grps2}"), call. = F)
+  }
+
+  .data
+}
 
 
 #' set date

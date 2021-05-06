@@ -103,7 +103,7 @@ usethis::use_github_pages()
 
 # build and check ---------------------------------------------------------
 
-document()
+devtools::document()
 build_readme()
 build_site()
 devtools::check()

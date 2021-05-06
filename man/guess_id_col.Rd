@@ -7,6 +7,8 @@
 guess_id_col(x, min_distinct = 3L)
 }
 \arguments{
+\item{x}{col}
+
 \item{min_distinct}{integer, allows the user to choose a minimum threshold for how many unique values are in an ID column}
 }
 \value{
