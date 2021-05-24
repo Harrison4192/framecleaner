@@ -49,7 +49,7 @@ usethis::use_package("readxl")
 
 usethis::use_package("badger", type = "Suggests")
 
-usethis::use_r("import_tibble")
+usethis::use_r("import_dir")
 
 # edit R profile ----------------------------------------------------------
 
