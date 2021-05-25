@@ -131,7 +131,9 @@ fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE) {
 get_headers <- function(db){
 
   db %>%
-    names() -> nms
+    names() %>%
+    enc2utf8() -> nms
+
   nms %>%
     stringr::str_extract("^.*(?=(_|\\.))") %>%
     table() %>%
