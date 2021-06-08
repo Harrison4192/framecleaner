@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>cleanYourFrame • frameCleaneR</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/darkly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -142,7 +142,7 @@
 <div id="set-nas" class="section level1">
 <h1 class="hasAnchor">
 <a href="#set-nas" class="anchor"></a>set nas</h1>
-<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>dlookr::diagnose</code></p>
+<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>valiData::diagnose</code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/make_na.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -244,24 +244,24 @@
   <span class="fu"><a href="../reference/relocate_all.html">relocate_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
-<th align="left">char_val</th>
 <th align="left">date</th>
+<th align="left">char_val</th>
 <th align="right">numeric_val</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left"></td>
 <td align="left">20190101</td>
+<td align="left"></td>
 <td align="right">1</td>
 </tr>
 <tr class="even">
-<td align="left">val</td>
 <td align="left">20190305</td>
+<td align="left">val</td>
 <td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">-</td>
 <td align="left">20201012</td>
+<td align="left">-</td>
 <td align="right">5</td>
 </tr>
 </tbody>
@@ -330,324 +330,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div id="pivot-summary" class="section level1">
-<h1 class="hasAnchor">
-<a href="#pivot-summary" class="anchor"></a>Pivot summary</h1>
-<p>Transpose a tibble of summary statistics in tidy format. Convenient function for transposing the output of dplyr"s <code>group_by</code> and <code>summarize</code> operation.</p>
-<div id="groups" class="section level2">
-<h2 class="hasAnchor">
-<a href="#groups" class="anchor"></a>0 groups</h2>
-<p>Transpose a 1 row numerical summary:</p>
-<p><strong>wide format</strong></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sumr0</span>
-
-<span class="va">sumr0</span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td align="right">5.843333</td>
-<td align="right">3.057333</td>
-<td align="right">3.758</td>
-<td align="right">1.199333</td>
-</tr></tbody>
-</table>
-<p><strong>long format</strong></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sumr0</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left">column</th>
-<th align="right">V1</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="right">3.758000</td>
-</tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="right">1.199333</td>
-</tr>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="right">5.843333</td>
-</tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="right">3.057333</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="group" class="section level2">
-<h2 class="hasAnchor">
-<a href="#group" class="anchor"></a>1 group</h2>
-<p>A grouped summary can be transposed by providing the name of the group column.</p>
-<p><strong>wide format</strong></p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sumr1</span>
-
-<span class="va">sumr1</span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Species</th>
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">setosa</td>
-<td align="right">5.006</td>
-<td align="right">3.428</td>
-<td align="right">1.462</td>
-<td align="right">0.246</td>
-</tr>
-<tr class="even">
-<td align="left">versicolor</td>
-<td align="right">5.936</td>
-<td align="right">2.770</td>
-<td align="right">4.260</td>
-<td align="right">1.326</td>
-</tr>
-<tr class="odd">
-<td align="left">virginica</td>
-<td align="right">6.588</td>
-<td align="right">2.974</td>
-<td align="right">5.552</td>
-<td align="right">2.026</td>
-</tr>
-</tbody>
-</table>
-<p><strong>long format</strong></p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sumr1</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left">column</th>
-<th align="right">setosa</th>
-<th align="right">versicolor</th>
-<th align="right">virginica</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="right">1.462</td>
-<td align="right">4.260</td>
-<td align="right">5.552</td>
-</tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="right">0.246</td>
-<td align="right">1.326</td>
-<td align="right">2.026</td>
-</tr>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="right">5.006</td>
-<td align="right">5.936</td>
-<td align="right">6.588</td>
-</tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="right">3.428</td>
-<td align="right">2.770</td>
-<td align="right">2.974</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="groups-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#groups-1" class="anchor"></a>2 groups</h2>
-<p>Supports transposing numerical summaries with multiple groups using tidyselect.</p>
-<p><strong>long format</strong></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">iris</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Species1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Species</span>, <span class="va">Species1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="va">mean</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sumr2</span>
- 
-<span class="va">sumr2</span></code></pre></div>
-<table class="table">
-<thead><tr class="header">
-<th align="left">Species</th>
-<th align="left">Species1</th>
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">setosa</td>
-<td align="left">setosa</td>
-<td align="right">4.993333</td>
-<td align="right">3.460000</td>
-<td align="right">1.386667</td>
-<td align="right">0.2733333</td>
-</tr>
-<tr class="even">
-<td align="left">setosa</td>
-<td align="left">versicolor</td>
-<td align="right">5.047059</td>
-<td align="right">3.458823</td>
-<td align="right">1.517647</td>
-<td align="right">0.2352941</td>
-</tr>
-<tr class="odd">
-<td align="left">setosa</td>
-<td align="left">virginica</td>
-<td align="right">4.977778</td>
-<td align="right">3.372222</td>
-<td align="right">1.472222</td>
-<td align="right">0.2333333</td>
-</tr>
-<tr class="even">
-<td align="left">versicolor</td>
-<td align="left">setosa</td>
-<td align="right">5.947059</td>
-<td align="right">2.841176</td>
-<td align="right">4.294118</td>
-<td align="right">1.3352941</td>
-</tr>
-<tr class="odd">
-<td align="left">versicolor</td>
-<td align="left">versicolor</td>
-<td align="right">6.088235</td>
-<td align="right">2.782353</td>
-<td align="right">4.311765</td>
-<td align="right">1.3352941</td>
-</tr>
-<tr class="even">
-<td align="left">versicolor</td>
-<td align="left">virginica</td>
-<td align="right">5.762500</td>
-<td align="right">2.681250</td>
-<td align="right">4.168750</td>
-<td align="right">1.3062500</td>
-</tr>
-<tr class="odd">
-<td align="left">virginica</td>
-<td align="left">setosa</td>
-<td align="right">6.683333</td>
-<td align="right">3.027778</td>
-<td align="right">5.572222</td>
-<td align="right">2.0666667</td>
-</tr>
-<tr class="even">
-<td align="left">virginica</td>
-<td align="left">versicolor</td>
-<td align="right">6.443750</td>
-<td align="right">2.925000</td>
-<td align="right">5.500000</td>
-<td align="right">1.9687500</td>
-</tr>
-<tr class="odd">
-<td align="left">virginica</td>
-<td align="left">virginica</td>
-<td align="right">6.625000</td>
-<td align="right">2.962500</td>
-<td align="right">5.581250</td>
-<td align="right">2.0375000</td>
-</tr>
-</tbody>
-</table>
-<p>Group names are concatenated and pivoted.</p>
-<p><strong>wide format</strong></p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sumr2</span> <span class="op">%&gt;%</span> 
-   <span class="fu"><a href="../reference/pivot_summary.html">pivot_summary</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">matches</a></span><span class="op">(</span><span class="st">"Spec"</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
-<table class="table">
-<colgroup>
-<col width="7%">
-<col width="7%">
-<col width="9%">
-<col width="9%">
-<col width="9%">
-<col width="12%">
-<col width="11%">
-<col width="9%">
-<col width="11%">
-<col width="11%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">column</th>
-<th align="right">setosa_setosa</th>
-<th align="right">setosa_versicolor</th>
-<th align="right">setosa_virginica</th>
-<th align="right">versicolor_setosa</th>
-<th align="right">versicolor_versicolor</th>
-<th align="right">versicolor_virginica</th>
-<th align="right">virginica_setosa</th>
-<th align="right">virginica_versicolor</th>
-<th align="right">virginica_virginica</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">Petal.Length</td>
-<td align="right">1.3866670</td>
-<td align="right">1.5176470</td>
-<td align="right">1.4722220</td>
-<td align="right">4.294118</td>
-<td align="right">4.311765</td>
-<td align="right">4.16875</td>
-<td align="right">5.572222</td>
-<td align="right">5.50000</td>
-<td align="right">5.58125</td>
-</tr>
-<tr class="even">
-<td align="left">Petal.Width</td>
-<td align="right">0.2733333</td>
-<td align="right">0.2352941</td>
-<td align="right">0.2333333</td>
-<td align="right">1.335294</td>
-<td align="right">1.335294</td>
-<td align="right">1.30625</td>
-<td align="right">2.066667</td>
-<td align="right">1.96875</td>
-<td align="right">2.03750</td>
-</tr>
-<tr class="odd">
-<td align="left">Sepal.Length</td>
-<td align="right">4.9933330</td>
-<td align="right">5.0470590</td>
-<td align="right">4.9777780</td>
-<td align="right">5.947059</td>
-<td align="right">6.088235</td>
-<td align="right">5.76250</td>
-<td align="right">6.683333</td>
-<td align="right">6.44375</td>
-<td align="right">6.62500</td>
-</tr>
-<tr class="even">
-<td align="left">Sepal.Width</td>
-<td align="right">3.4600000</td>
-<td align="right">3.4588240</td>
-<td align="right">3.3722220</td>
-<td align="right">2.841176</td>
-<td align="right">2.782353</td>
-<td align="right">2.68125</td>
-<td align="right">3.027778</td>
-<td align="right">2.92500</td>
-<td align="right">2.96250</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
   </div>
 

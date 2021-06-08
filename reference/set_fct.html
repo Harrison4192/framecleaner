@@ -12,7 +12,7 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/darkly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
@@ -149,7 +149,7 @@ yardstick which automatically considers the first level
 as the "positive class" when evaluating classification.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, first_level <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, first_level <span class='op'>=</span> <span class='cn'>NULL</span>, order_fct <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,6 +165,10 @@ as the "positive class" when evaluating classification.</p>
     <tr>
       <th>first_level</th>
       <td><p>character string to set the first level of the factor</p></td>
+    </tr>
+    <tr>
+      <th>order_fct</th>
+      <td><p>logical. ordered factor?</p></td>
     </tr>
     </table>
 
