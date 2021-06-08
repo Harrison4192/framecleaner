@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relocate All — relocate_all • frameCleaneR</title>
+<title>remove infs — remove_infs • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Relocate All — relocate_all" />
-<meta property="og:description" content="Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations" />
+<meta property="og:title" content="remove infs — remove_infs" />
+<meta property="og:description" content="remove infs" />
 
 
 
@@ -137,38 +136,29 @@ The user can supply a tidyselect argument to further specify relocations" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Relocate All</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
-    <div class="hidden name"><code>relocate_all.Rd</code></div>
+    <h1>remove infs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/filter_missing.R'><code>R/filter_missing.R</code></a></small>
+    <div class="hidden name"><code>remove_infs.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations</p>
+    <p>remove infs</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, regex <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>remove_infs</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>data frame</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>a tidyselect specification</p></td>
-    </tr>
-    <tr>
-      <th>regex</th>
-      <td><p>a regular expression to match columns that will be put at the front of the df</p></td>
+      <th>x</th>
+      <td><p>vec</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>vec</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("select_otherwise")
+usethis::use_r("filter_missing")
 
 # add this file to .Rbuildignore ------------------------------------------
 
@@ -105,7 +105,7 @@ usethis::use_github_pages()
 
 devtools::document()
 build_readme()
-build_site()
+devtools::build_site()
 devtools::check()
 preview_site()
 build_vignettes()

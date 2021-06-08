@@ -15,4 +15,3 @@ int or int64
 \description{
 coerce to integer. if too large, coerces to 64-bit integer
 }
-\keyword{internal}

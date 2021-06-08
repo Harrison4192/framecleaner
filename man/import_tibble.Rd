@@ -4,23 +4,28 @@
 \alias{import_tibble}
 \title{import tibble}
 \usage{
-import_tibble(path, ..., method = c("rio", "vroom", "vroom_jp", "read_csv"))
+import_tibble(
+  path,
+  ...,
+  method = c("rio", "vroom", "vroom_jp", "read_csv", "read_excel")
+)
 }
 \arguments{
 \item{path}{filepath}
 
 \item{...}{other arguments}
 
-\item{method}{method of import}
+\item{method}{method of import. default is rio}
 }
 \value{
 a tibble
 }
 \description{
-wrapper around [rio::import()] to return a tibble instead of a data.table
+wrapper around multiple file readers. The default being [rio::import()] set to return a tibble.
 This is the official file reader of TidyConsultant because of it's speed, accurate
 parsing of filetypes, int64 support, and intelligent language parsing.
+Also available is vroom and vroom_jp for japanese charaters.
 }
 \details{
-now supports multiple types of importing through [method]
+Supports multiple types of importing through [method]
 }

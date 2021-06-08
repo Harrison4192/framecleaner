@@ -74,7 +74,7 @@ set_int.data.frame <- function(.data, ...){
     select_otherwise(..., otherwise = where(is_integery)) -> cols
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = frameCleaneR:::as_integer16_or_64)) -> .data
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64)) -> .data
 
   .data
 }
@@ -87,9 +87,9 @@ set_int.grouped_df <- function(.data, ...){
 }
 
 #' @export
-set_int.default<- function(x){
+set_int.default<- function(.data, ...){
 
-  frameCleaneR:::as_integer16_or_64(x)
+  as_integer16_or_64(.data)
 }
 
 #' set type groups

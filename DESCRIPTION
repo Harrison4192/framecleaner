@@ -29,7 +29,9 @@ Imports:
     rio,
     readr,
     vroom,
-    readxl
+    readxl,
+    fs,
+    rlist
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,

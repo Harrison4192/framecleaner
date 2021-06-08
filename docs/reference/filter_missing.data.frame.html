@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Relocate All — relocate_all • frameCleaneR</title>
+<title>filter out missings — filter_missing • frameCleaneR</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Relocate All — relocate_all" />
-<meta property="og:description" content="Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations" />
+<meta property="og:title" content="filter out missings — filter_missing" />
+<meta property="og:description" content="More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally." />
 
 
 
@@ -137,38 +138,45 @@ The user can supply a tidyselect argument to further specify relocations" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Relocate All</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/relocate_all.R'><code>R/relocate_all.R</code></a></small>
-    <div class="hidden name"><code>relocate_all.Rd</code></div>
+    <h1>filter out missings</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/filter_missing.R'><code>R/filter_missing.R</code></a></small>
+    <div class="hidden name"><code>filter_missing.data.frame.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations</p>
+    <p>More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>relocate_all</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, regex <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+
+<span class='co'># S3 method for data.frame</span>
+<span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.data</th>
-      <td><p>data frame</p></td>
+      <td><p>dataframe</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>a tidyselect specification</p></td>
+      <td><p>tidyselect. default selection is all columns</p></td>
     </tr>
     <tr>
-      <th>regex</th>
-      <td><p>a regular expression to match columns that will be put at the front of the df</p></td>
+      <th>remove_inf</th>
+      <td><p>logical. default is to also remove Inf values. set to False otherwise.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>data frame</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>S3 method, can also be used on vectors</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

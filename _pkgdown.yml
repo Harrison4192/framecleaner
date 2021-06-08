@@ -11,9 +11,10 @@ reference:
   contents:
   - '`remove_whitespace`'
   - '`relocate_all`'
-- title: Fill or make NA values
+- title: Deal with NAs
   contents:
   - matches("na")
+  - '`filter_missing`'
 - title: Pad columns
   contents:
   - matches("pad")
@@ -33,6 +34,7 @@ reference:
   contents:
   - '`auto_setwd`'
   - '`import_tibble`'
+  - '`import_dir`'
   - '`is_integerish_character`'
   - '`select_otherwise`'
 articles:

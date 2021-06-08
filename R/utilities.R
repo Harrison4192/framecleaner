@@ -7,10 +7,6 @@
 #'
 #' @return a logical
 #'
-#' @examples
-#' is_integerish_character(as.character(1:10))
-#' is_integerish_character(as.character(1:5) %>% c(letters[1:5]))
-#' is_integerish_character(1:10)
 is_integerish_character <- function(x) {
   purrr::possibly(as.double, otherwise = "error") -> safe_dbl
   x %>% remove_nas() -> x1
@@ -47,9 +43,9 @@ is_integery <- function(x){
 #' coerce to integer. if too large, coerces to 64-bit integer
 #'
 #' @param x integerish vec
-#' @keywords internal
 #'
 #' @return int or int64
+#' @export
 as_integer16_or_64 <- function(x){
   if(is.character(x)){
     if(!is_integerish_character(x)) {
@@ -65,17 +61,7 @@ suppressWarnings({
 })
   }
 
-#' remove nas
-#'
-#' @param x vec
-#' @keywords internal
-#'
-#' @return vec
-#'
-remove_nas <- function(x){
 
-  x[which(!is.na(x))]
-}
 
 
 
@@ -146,7 +132,7 @@ get_headers <- function(db){
     nms1 <- nms
   } else{
     nms %>%
-      str_subset(stringr::str_c(hdrs, collapse = "|"), negate = T) -> nms1
+      stringr::str_subset(stringr::str_c(hdrs, collapse = "|"), negate = T) -> nms1
 
   }
 

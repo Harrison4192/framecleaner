@@ -10,6 +10,8 @@ relocate_all(.data, ..., regex = NULL)
 \item{.data}{data frame}
 
 \item{...}{a tidyselect specification}
+
+\item{regex}{a regular expression to match columns that will be put at the front of the df}
 }
 \value{
 data frame

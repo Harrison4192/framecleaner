@@ -15,9 +15,4 @@ a logical
 \description{
 companion to rlang::is_integerish that returns true only for  integerish character vectors.
 }
-\examples{
-is_integerish_character(as.character(1:10))
-is_integerish_character(as.character(1:5) \%>\% c(letters[1:5]))
-is_integerish_character(1:10)
-}
 \keyword{internal}
