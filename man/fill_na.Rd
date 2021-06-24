@@ -4,7 +4,7 @@
 \alias{fill_na}
 \title{Fill NAs}
 \usage{
-fill_na(.data, ..., fill = 0L)
+fill_na(.data, ..., fill = 0L, missing_type = c("all", "NA", "NaN", "Inf"))
 }
 \arguments{
 \item{.data}{data frame}
@@ -12,6 +12,8 @@ fill_na(.data, ..., fill = 0L)
 \item{...}{tidyselect specification of columns}
 
 \item{fill}{value to fill NAs}
+
+\item{missing_type}{character vector. Choose what type of missing to fill. Default is all types.}
 }
 \value{
 data frame

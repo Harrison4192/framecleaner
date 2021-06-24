@@ -1,9 +1,7 @@
 #' import tibble
 #'
-#' wrapper around multiple file readers. The default being [rio::import()] set to return a tibble.
-#' This is the official file reader of TidyConsultant because of it's speed, accurate
-#' parsing of filetypes, int64 support, and intelligent language parsing.
-#' Also available is vroom and vroom_jp for japanese charaters.
+#' wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
+#' Also available is rio and vroom_jp for japanese charaters.
 #'
 #' Supports multiple types of importing through [method]
 #'
@@ -14,7 +12,7 @@
 #' @return a tibble
 #' @export
 #'
-import_tibble <- function(path, ..., method = c("rio", "vroom", "vroom_jp", "read_csv", "read_excel")){
+import_tibble <- function(path, ..., method = c("vroom", "rio", "vroom_jp", "read_csv", "read_excel")){
 
   method <- match.arg(method)
 
@@ -22,10 +20,10 @@ import_tibble <- function(path, ..., method = c("rio", "vroom", "vroom_jp", "rea
   rio::import(path, setclass = "tibble", ...) -> file
     }
   else if(method == "vroom"){
-    vroom::vroom(path, ...) -> file
+    vroom::vroom(path, ...) %>% set_int() -> file
   }
   else if(method == "vroom_jp"){
-    vroom::vroom(path, ..., locale = readr::locale(encoding = "shift-jis")) -> file
+    vroom::vroom(path, ..., locale = readr::locale(encoding = "shift-jis")) %>% set_int() -> file
   }
   else if(method == "read_csv"){
     readr::read_csv(path, ...) -> file

@@ -7,7 +7,7 @@
 import_tibble(
   path,
   ...,
-  method = c("rio", "vroom", "vroom_jp", "read_csv", "read_excel")
+  method = c("vroom", "rio", "vroom_jp", "read_csv", "read_excel")
 )
 }
 \arguments{
@@ -21,10 +21,8 @@ import_tibble(
 a tibble
 }
 \description{
-wrapper around multiple file readers. The default being [rio::import()] set to return a tibble.
-This is the official file reader of TidyConsultant because of it's speed, accurate
-parsing of filetypes, int64 support, and intelligent language parsing.
-Also available is vroom and vroom_jp for japanese charaters.
+wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
+Also available is rio and vroom_jp for japanese charaters.
 }
 \details{
 Supports multiple types of importing through [method]
