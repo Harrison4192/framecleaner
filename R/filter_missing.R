@@ -56,11 +56,20 @@ filter_missing <- function(.data, ..., remove_inf = T){
 #' @param .data dataframe
 #' @param ... tidyselect. default selection is all columns
 #' @param remove_inf logical. default is to also remove Inf values. set to False otherwise.
+#' @param condition defaults to "any". in which case removes rows if NA is in any specified column. "all" will remove rows only if each specified column is NA
 #'
 #' @return data frame
 #' @export
-filter_missing.data.frame <- function(.data, ..., remove_inf = T){
+filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c("any", "all")){
 
+  condition <- match.arg(condition)
+
+  if(condition == "any"){
+    filter_condition <- dplyr::if_any
+  } else {
+    filter_condition <- dplyr::if_all
+
+  }
 
 
   .data %>%
@@ -69,7 +78,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T){
   nrow(.data) -> rows1
 
   .data %>%
-    dplyr::filter(!dplyr::if_any(tidyselect::any_of(cols), is.nan)) -> .data
+    dplyr::filter(!filter_condition(tidyselect::any_of(cols), is.nan)) -> .data
 
   nrow(.data) -> rows2
 
@@ -80,7 +89,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T){
   }
 
   .data %>%
-    dplyr::filter(!dplyr::if_any(tidyselect::any_of(cols), is.na)) -> .data
+    dplyr::filter(!filter_condition(tidyselect::any_of(cols), is.na)) -> .data
 
   nrow(.data) -> rows3
 
@@ -92,7 +101,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T){
 
   if(remove_inf){
     .data %>%
-      dplyr::filter(!dplyr::if_any(tidyselect::any_of(cols), is.infinite)) -> .data
+      dplyr::filter(!filter_condition(tidyselect::any_of(cols), is.infinite)) -> .data
 
     nrow(.data) -> rows4
 

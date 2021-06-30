@@ -13,7 +13,8 @@
 #'
 #' @return integer vector by default. possibly data frame or character vector
 #'
-select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_type = c("index", "names", "df")){
+#'@export
+select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_type = c("names", "index", "df")){
 
   return_type <- match.arg(return_type)
 

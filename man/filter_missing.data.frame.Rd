@@ -7,7 +7,7 @@
 \usage{
 filter_missing(.data, ..., remove_inf = T)
 
-\method{filter_missing}{data.frame}(.data, ..., remove_inf = T)
+\method{filter_missing}{data.frame}(.data, ..., remove_inf = T, condition = c("any", "all"))
 }
 \arguments{
 \item{.data}{dataframe}
@@ -15,6 +15,8 @@ filter_missing(.data, ..., remove_inf = T)
 \item{...}{tidyselect. default selection is all columns}
 
 \item{remove_inf}{logical. default is to also remove Inf values. set to False otherwise.}
+
+\item{condition}{defaults to "any". in which case removes rows if NA is in any specified column. "all" will remove rows only if each specified column is NA}
 }
 \value{
 data frame

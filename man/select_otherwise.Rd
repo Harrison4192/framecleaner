@@ -9,7 +9,7 @@ select_otherwise(
   ...,
   otherwise = NULL,
   col = NULL,
-  return_type = c("index", "names", "df")
+  return_type = c("names", "index", "df")
 )
 }
 \arguments{
