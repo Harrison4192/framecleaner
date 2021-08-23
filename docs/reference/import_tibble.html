@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>import tibble — import_tibble • frameCleaneR</title>
+<title>import tibble — import_tibble • framecleaner</title>
 
 
 <!-- jquery -->
@@ -40,10 +40,8 @@
 
 
 <meta property="og:title" content="import tibble — import_tibble" />
-<meta property="og:description" content="wrapper around multiple file readers. The default being [rio::import()] set to return a tibble.
-This is the official file reader of TidyConsultant because of it's speed, accurate
-parsing of filetypes, int64 support, and intelligent language parsing.
-Also available is vroom and vroom_jp for japanese charaters." />
+<meta property="og:description" content="wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
+Also available is rio and vroom_jp for japanese charaters." />
 
 
 
@@ -84,7 +82,7 @@ Also available is vroom and vroom_jp for japanese charaters." />
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">frameCleaneR</a>
+        <a class="navbar-link" href="../index.html">framecleaner</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
@@ -118,7 +116,7 @@ Also available is vroom and vroom_jp for japanese charaters." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/Harrison4192/frameCleaneR/">
+  <a href="https://github.com/Harrison4192/framecleaner/">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -140,21 +138,19 @@ Also available is vroom and vroom_jp for japanese charaters." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>import tibble</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/frameCleaneR/blob/master/R/import_tibble.R'><code>R/import_tibble.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/import_tibble.R'><code>R/import_tibble.R</code></a></small>
     <div class="hidden name"><code>import_tibble.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>wrapper around multiple file readers. The default being [rio::import()] set to return a tibble.
-This is the official file reader of TidyConsultant because of it's speed, accurate
-parsing of filetypes, int64 support, and intelligent language parsing.
-Also available is vroom and vroom_jp for japanese charaters.</p>
+    <p>wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
+Also available is rio and vroom_jp for japanese charaters.</p>
     </div>
 
     <pre class="usage"><span class='fu'>import_tibble</span><span class='op'>(</span>
   <span class='va'>path</span>,
   <span class='va'>...</span>,
-  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"rio"</span>, <span class='st'>"vroom"</span>, <span class='st'>"vroom_jp"</span>, <span class='st'>"read_csv"</span>, <span class='st'>"read_excel"</span><span class='op'>)</span>
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"vroom"</span>, <span class='st'>"rio"</span>, <span class='st'>"vroom_jp"</span>, <span class='st'>"read_csv"</span>, <span class='st'>"read_excel"</span><span class='op'>)</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>

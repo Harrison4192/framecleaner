@@ -1,4 +1,4 @@
-Package: frameCleaneR
+Package: framecleaner
 Type: Package
 Title: Clean Tibbles
 Version: 0.1.0
@@ -39,5 +39,5 @@ Suggests:
     printr,
     badger
 VignetteBuilder: knitr
-URL: https://github.com/Harrison4192/frameCleaneR, https://harrison4192.github.io/frameCleaneR/
-BugReports: https://github.com/Harrison4192/frameCleaneR/issues
+URL: https://github.com/Harrison4192/framecleaner, https://harrison4192.github.io/framecleaner/
+BugReports: https://github.com/Harrison4192/framecleaner/issues

@@ -134,7 +134,7 @@ set_type_groups <- function(.data, ..., setter){
 #'
 #' note: can be called without any `...` arguments and instead automatically determines which character columns
 #' are actually dates, then proceeds to set them. It checks for the date specified in `date_fn` and also \code{lubridate::ymd_hms}.
-#' On auto detect mode, it sets `ymd_hms` output to ymd dates instead of datetimes with hms. This is because of the common occurence
+#' On auto detect mode, it sets `ymd_hms` output to ymd dates instead of datetimes with hms. This is because of the common occurrence
 #' of trying to extract a `ymd` date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
 #' supply the appropriate lubridate function.
 #'

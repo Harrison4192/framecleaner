@@ -1,6 +1,6 @@
 #' Clean Data Frame
 #'
-#' Uses the functions of frameCleaneR and other operations to apply cleaning operations to a data frame
+#' Uses the functions of framecleaner and other operations to apply cleaning operations to a data frame
 #'
 #' @param .data a data frame
 #'

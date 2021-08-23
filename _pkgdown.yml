@@ -28,7 +28,7 @@ reference:
   - '`set_int`'
   - '`set_lgl`'
   - '`set_fct`'
-- title: Clean Frame is a wrapper function combining multiple frameCleaneR operations
+- title: Clean Frame is a wrapper function combining multiple framecleaner operations
   contents:
   - '`clean_frame`'
 - title: Misc utilites
@@ -69,7 +69,7 @@ navbar:
       href: news/index.html
     github:
       icon: fab fa-github fa-lg
-      href: https://github.com/Harrison4192/frameCleaneR/
+      href: https://github.com/Harrison4192/framecleaner/
     articles:
       text: Articles
       menu:

@@ -1,36 +1,36 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# frameCleaneR
+# framecleaner
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/Harrison4192/frameCleaneR/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/frameCleaneR/actions)
+[![R-CMD-check](https://github.com/Harrison4192/framecleaner/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/framecleaner/actions)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/frameCleaneR)](https://CRAN.R-project.org/package=frameCleaneR)
+status](https://www.r-pkg.org/badges/version/framecleaner)](https://CRAN.R-project.org/package=framecleaner)
 
-[![](http://cranlogs.r-pkg.org/badges/grand-total/frameCleaneR?color=blue)](https://cran.r-project.org/package=frameCleaneR)
-[![](https://img.shields.io/github/languages/code-size/Harrison4192/frameCleaneR.svg)](https://github.com/Harrison4192/frameCleaneR)
-[![](https://img.shields.io/github/last-commit/Harrison4192/frameCleaneR.svg)](https://github.com/Harrison4192/frameCleaneR/commits/master)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/framecleaner?color=blue)](https://cran.r-project.org/package=framecleaner)
+[![](https://img.shields.io/github/languages/code-size/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner)
+[![](https://img.shields.io/github/last-commit/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner/commits/master)
 <!-- badges: end -->
 
-The goal of frameCleaneR is to provide functions for cleaning common
+The goal of framecleaner is to provide functions for cleaning common
 irregularities in raw data sets.
 
 ## Installation
 
-You can install the released version of frameCleaneR from
+You can install the released version of framecleaner from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("frameCleaneR")
+install.packages("framecleaner")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Harrison4192/frameCleaneR")
+devtools::install_github("Harrison4192/framecleaner")
 ```

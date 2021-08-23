@@ -22,7 +22,7 @@ a tibble
 }
 \description{
 wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
-Also available is rio and vroom_jp for japanese charaters.
+Also available is rio and vroom_jp for japanese characters.
 }
 \details{
 Supports multiple types of importing through [method]

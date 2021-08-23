@@ -1,4 +1,4 @@
-xfun::gsub_dir(pattern = "packageIntroduction", replacement = "cleanYourFrame")
+xfun::gsub_dir(pattern = "frameCleaneR", replacement = "framecleaner")
 # load developer libraries ------------------------------------------------
 
 
@@ -101,12 +101,19 @@ usethis::use_github_actions()
 usethis::use_github_links()
 usethis::use_github_pages()
 
+p_load(available)
+available("validata")
 # build and check ---------------------------------------------------------
 
 devtools::document()
-build_readme()
+devtools::build_readme()
+devtools::build_manual()
+devtools::build_vignettes()
 devtools::build_site()
 devtools::check()
 preview_site()
 build_vignettes()
+devtools::spell_check()
+devtools::release(check = T)
 
+usethis::use_cran_comments(open = rlang::is_interactive())
