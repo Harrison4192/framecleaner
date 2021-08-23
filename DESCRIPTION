@@ -1,6 +1,6 @@
 Package: framecleaner
 Type: Package
-Title: Clean Tibbles
+Title: Clean Data Frames
 Version: 0.1.0
 Authors@R: 
     person(given = "Harrison",
@@ -11,7 +11,6 @@ Maintainer: Harrison Tietze <Harrison4192@gmail.com>
 Description: Functions for handling common issues in raw data sets.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports: 
     dplyr,
     stringr,
