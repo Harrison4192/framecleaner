@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("filter_missing")
+usethis::use_r("recode_item")
 
 # add this file to .Rbuildignore ------------------------------------------
 
@@ -49,7 +49,7 @@ usethis::use_package("readxl")
 
 usethis::use_package("badger", type = "Suggests")
 
-usethis::use_r("import_dir")
+usethis::use_r("create_flag")
 
 # edit R profile ----------------------------------------------------------
 

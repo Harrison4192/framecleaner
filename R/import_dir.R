@@ -22,7 +22,7 @@ import_dir <-function(dir,
   file_list <- list()
 
   for (f in seq_along(files)) {
-    import_tibble(files[f], ..., method = method1) -> file_list[[f]]
+    import_tibble(files[f], ..., method = method1)  -> file_list[[f]]
   }
 
   if(return_type1 == "df"){
