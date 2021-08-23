@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Harrison4192/framecleaner/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/framecleaner/actions)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN status](https://www.r-pkg.org/badges/version/framecleaner)](https://CRAN.R-project.org/package=framecleaner)
 
 `r badger::badge_cran_download("framecleaner", "grand-total", "blue")`

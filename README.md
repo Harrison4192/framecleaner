@@ -7,13 +7,13 @@
 
 [![R-CMD-check](https://github.com/Harrison4192/framecleaner/workflows/R-CMD-check/badge.svg)](https://github.com/Harrison4192/framecleaner/actions)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/framecleaner)](https://CRAN.R-project.org/package=framecleaner)
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/framecleaner?color=blue)](https://cran.r-project.org/package=framecleaner)
 [![](https://img.shields.io/github/languages/code-size/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner)
-[![](https://img.shields.io/github/last-commit/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner/commits/master)
+[![](https://img.shields.io/github/last-commit/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner/commits/main)
 <!-- badges: end -->
 
 The goal of framecleaner is to provide functions for cleaning common
