@@ -5,7 +5,7 @@
 #' Defaults to choosing all character columns.
 #'
 #' @param .data data frame
-#' @param ... tidyselect specification
+#' @param ... tidyselect. Default selection: all chr cols
 #' @param vec vector of possible elements to replace with NA
 #'
 #' @return data frame

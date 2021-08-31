@@ -1,7 +1,7 @@
 #' set character
 #'
 #' @param .data dataframe
-#' @param ... tidyselect
+#' @param ... tidyselect. Default selection: none
 #'
 #' @return tibble
 #' @export
@@ -19,7 +19,7 @@ set_chr <- function(.data, ...){
 #' note: for non-binary data, all values other than the true_level will be set to false
 #'
 #' @param .data dataframe
-#' @param ... tidyselect
+#' @param ... tidyselect. Default selection: none
 #' @param true_level specify the value to set as TRUE. Default value is 1 for seamless conversion between logicals and integers.
 #'
 #' @return dataframe
@@ -37,7 +37,7 @@ set_lgl <- function(.data, ..., true_level = 1L){
 #' set double
 #'
 #' @param .data dataframe
-#' @param ... tidyselect
+#' @param ... tidyselect. Default selection: none
 #'
 #' @return tibble
 #' @export
@@ -62,7 +62,7 @@ set_int <- function(.data, ...){
 #'
 #' @method set_int data.frame
 #' @param .data dataframe
-#' @param ... tidyselect. default selection is integerish doubles or integerish characters
+#' @param ... tidyselect. Default Selecton: integerish doubles or integerish characters
 #'
 #' @return tibble
 #' @export

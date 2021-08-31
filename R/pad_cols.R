@@ -45,4 +45,7 @@ pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 pad_col <- function(mdb, ..., width, pad = "0", side = "left"){
 
   mdb %>%
-    dplyr::mutate(dplyr::across(...,  .fns =  ~stringr::str_pad(as.character(.), width = width, side = side, pad = pad)))}
+    select_otherwise(...) -> cols
+
+  mdb %>%
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols),  .fns =  ~stringr::str_pad(as.character(.), width = width, side = side, pad = pad)))}
