@@ -9,7 +9,7 @@ fill_na(.data, ..., fill = 0L, missing_type = c("all", "NA", "NaN", "Inf"))
 \arguments{
 \item{.data}{data frame}
 
-\item{...}{tidyselect specification of columns}
+\item{...}{tidyselect specification. Default selection: none}
 
 \item{fill}{value to fill NAs}
 

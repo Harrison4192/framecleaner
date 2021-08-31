@@ -9,7 +9,7 @@ set_dbl(.data, ...)
 \arguments{
 \item{.data}{dataframe}
 
-\item{...}{tidyselect}
+\item{...}{tidyselect. Default selection: none}
 }
 \value{
 tibble

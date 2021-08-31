@@ -9,7 +9,7 @@ set_lgl(.data, ..., true_level = 1L)
 \arguments{
 \item{.data}{dataframe}
 
-\item{...}{tidyselect}
+\item{...}{tidyselect. Default selection: none}
 
 \item{true_level}{specify the value to set as TRUE. Default value is 1 for seamless conversion between logicals and integers.}
 }

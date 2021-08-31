@@ -12,7 +12,7 @@ set_int(.data, ...)
 \arguments{
 \item{.data}{dataframe}
 
-\item{...}{tidyselect. default selection is integerish doubles or integerish characters}
+\item{...}{tidyselect. Default Selecton: integerish doubles or integerish characters}
 }
 \value{
 tibble

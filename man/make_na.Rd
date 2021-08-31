@@ -9,7 +9,7 @@ make_na(.data, ..., vec = c("-", "", " ", "null"))
 \arguments{
 \item{.data}{data frame}
 
-\item{...}{tidyselect specification}
+\item{...}{tidyselect. Default selection: all chr cols}
 
 \item{vec}{vector of possible elements to replace with NA}
 }
