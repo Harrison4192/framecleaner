@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>recode_chr — recode_chr • framecleaner</title>
+<title>create flag — create_flag • framecleaner</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="recode_chr — recode_chr" />
-<meta property="og:description" content="recode_chr" />
+<meta property="og:title" content="create flag — create_flag" />
+<meta property="og:description" content="create flag" />
 
 
 
@@ -136,49 +136,45 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>recode_chr</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/recode_item.R'><code>R/recode_item.R</code></a></small>
-    <div class="hidden name"><code>recode_chr.Rd</code></div>
+    <h1>create flag</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/create_flag.R'><code>R/create_flag.R</code></a></small>
+    <div class="hidden name"><code>create_flag.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>recode_chr</p>
+    <p>create flag</p>
     </div>
 
-    <pre class="usage"><span class='fu'>recode_chr</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>col</span>, <span class='va'>old_names</span>, <span class='va'>new_name</span>, regex <span class='op'>=</span> <span class='cn'>F</span>, negate <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>create_flag</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>col</span>, <span class='va'>flag</span>, full_name <span class='op'>=</span> <span class='cn'>F</span>, drop <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>df</th>
+      <th>.data</th>
       <td><p>data frame</p></td>
     </tr>
     <tr>
       <th>col</th>
-      <td><p>unquoted col</p></td>
+      <td><p>column</p></td>
     </tr>
     <tr>
-      <th>old_names</th>
-      <td><p>character vector or regular expression</p></td>
+      <th>flag</th>
+      <td><p>column entry</p></td>
     </tr>
     <tr>
-      <th>new_name</th>
-      <td><p>atomic chr string</p></td>
+      <th>full_name</th>
+      <td><p>Logical. default F. if T, new column name is original name + flag. other wise just flag</p></td>
     </tr>
     <tr>
-      <th>regex</th>
-      <td><p>Logical, default F. If using a regular expression, set to T</p></td>
-    </tr>
-    <tr>
-      <th>negate</th>
-      <td><p>logicalm defailt F. If negating the regex, set to T</p></td>
+      <th>drop</th>
+      <td><p>logical. default F. If T, drop original column.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>df</p>
+    <p>data frame</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
