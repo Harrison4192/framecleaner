@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("recode_item")
+usethis::use_r("create_flag")
 
 # add this file to .Rbuildignore ------------------------------------------
 
