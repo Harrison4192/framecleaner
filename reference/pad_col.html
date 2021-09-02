@@ -176,6 +176,22 @@
 
     <p>data frame</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+ <span class='co'># manually pad with 0's (or other value)</span>
+ <span class='co'># use case over `pad_auto`: the desired width is greater than the widest element</span>
+
+ <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
+ ID <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>13</span>, <span class='fl'>86</span>, <span class='fl'>302</span><span class='op'>)</span>
+ <span class='op'>)</span> <span class='op'>%&gt;%</span>
+ <span class='fu'>pad_col</span><span class='op'>(</span><span class='va'>ID</span>, width <span class='op'>=</span> <span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 4 × 1</span>
+#&gt;   ID   
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0002 
+#&gt; <span style='color: #BCBCBC;'>2</span> 0013 
+#&gt; <span style='color: #BCBCBC;'>3</span> 0086 
+#&gt; <span style='color: #BCBCBC;'>4</span> 0302 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
