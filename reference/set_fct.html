@@ -183,10 +183,10 @@ as the "positive class" when evaluating classification.</p>
 <span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span> <span class='op'>%&gt;%</span> <span class='va'>levels</span>
 </div><div class='output co'>#&gt; [1] "setosa"     "versicolor" "virginica" </div><div class='input'>
 <span class='va'>iris</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>Species</span>, first_level <span class='op'>=</span> <span class='st'>"virginica"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-<span class='fu'>pull</span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-<span class='va'>levels</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in pull(., Species): could not find function "pull"</span></div></pre>
+  <span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>Species</span>, first_level <span class='op'>=</span> <span class='st'>"virginica"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "virginica"  "setosa"     "versicolor"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
