@@ -60,6 +60,10 @@ filter_missing <- function(.data, ..., remove_inf = T){
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#'
 filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c("any", "all")){
 
   condition <- match.arg(condition)

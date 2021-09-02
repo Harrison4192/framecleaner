@@ -23,3 +23,14 @@ allows option to manually set the first level of the factor, for consistency wit
 yardstick which automatically considers the first level
 as the "positive class" when evaluating classification.
 }
+\examples{
+
+## simply set the first level of a factor
+
+iris$Species \%>\% levels
+
+iris \%>\%
+set_fct(Species, first_level = "virginica") \%>\%
+pull(Species) \%>\%
+levels
+}

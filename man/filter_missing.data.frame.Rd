@@ -29,3 +29,7 @@ For example if one row contains Inf in one column and Na in another, the removed
 \details{
 S3 method, can also be used on vectors
 }
+\examples{
+
+
+}

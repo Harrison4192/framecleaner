@@ -22,3 +22,10 @@ data frame
 Automatically pads elements of a column to the largest sized element. Useful when an integer code with
 leading zeros is read in as an integer and needs to be fixed.
 }
+\examples{
+
+# good for putting leading 0's
+
+tibble::tibble(x = 1:10) \%>\%
+  pad_auto(x)
+}

@@ -24,6 +24,13 @@ set_chr <- function(.data, ...){
 #'
 #' @return dataframe
 #' @export
+#'
+#' @examples
+#'
+#' # convert a 1/0 vector back into T/F
+#'
+#' tibble::tibble(x = c(1, 0, 0, 1, 0, 1)) %>%
+#' set_lgl(x)
 set_lgl <- function(.data, ..., true_level = 1L){
 
 
@@ -52,6 +59,15 @@ set_dbl <- function(.data, ...){
 
 #' @rdname set_int.data.frame
 #' @export
+#'
+#' @examples
+#'
+#' # automaticaly turns "integerish" characters or doubles into int values
+#'
+#' tibble::tibble(
+#' x = c("1", "2", "10"),
+#' y = c(1.0, 5.0, 20.0)) %>%
+#' set_int()
 set_int <- function(.data, ...){
 
   UseMethod("set_int", .data)
@@ -216,6 +232,17 @@ set_date <- function(.data, ..., date_fn = lubridate::ymd){
 #'
 #' @return tibble
 #' @export
+#'
+#' @examples
+#'
+#' ## simply set the first level of a factor
+#'
+#' iris$Species %>% levels
+#'
+#' iris %>%
+#'   set_fct(Species, first_level = "virginica") %>%
+#'   dplyr::pull(Species) %>%
+#'   levels()
 set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE){
 
   .data %>%

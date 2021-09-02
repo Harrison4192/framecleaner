@@ -9,6 +9,21 @@
 #'
 #' @return df
 #' @export
+#'
+#' @examples
+#'
+#' # Use a negative regex to rename all species other than "virginica" to "none"
+#'
+#' iris %>%
+#'    recode_chr(
+#'  col = Species,
+#'  old_names = "vir",
+#'  new_name = "none",
+#'  regex = T,
+#'  negate = T) %>%
+#'  dplyr::count(Species)
+#'
+#'
 recode_chr <- function(df, col, old_names, new_name, regex = F, negate = F){
 
   if(regex){

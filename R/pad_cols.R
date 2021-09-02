@@ -11,6 +11,13 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' # good for putting leading 0's
+#'
+#' tibble::tibble(x = 1:10) %>%
+#'   pad_auto(x)
 pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 
   mdb %>%
@@ -42,6 +49,16 @@ pad_auto <- function(mdb, ..., side = "left", pad = "0"){
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#'  # manually pad with 0's (or other value)
+#'  # use case over `pad_auto`: the desired width is greater than the widest element
+#'
+#'  tibble::tibble(
+#'  ID = c(2, 13, 86, 302)
+#'  ) %>%
+#'  pad_col(ID, width = 4)
 pad_col <- function(mdb, ..., width, pad = "0", side = "left"){
 
   mdb %>%

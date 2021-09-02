@@ -21,3 +21,11 @@ Set elements to NA values using tidyselect specification.
 Don't use this function on columns of different modes at once.
 Defaults to choosing all character columns.
 }
+\examples{
+
+# easily set NA values. blank space and empty space are default options
+
+tibble::tibble(x = c("a", "b", "", "d", " ", "", "e")) \%>\%
+   make_na()
+
+}

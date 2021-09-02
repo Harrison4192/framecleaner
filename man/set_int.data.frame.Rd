@@ -20,3 +20,12 @@ tibble
 \description{
 set integer
 }
+\examples{
+
+# automaticaly turns "integerish" characters or doubles into int values
+
+tibble::tibble(
+x = c("1", "2", "10"),
+y = c(1.0, 5.0, 20.0)) \%>\%
+set_int()
+}

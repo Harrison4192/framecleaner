@@ -22,3 +22,17 @@ data frame
 use tidyselect to fill NA values
 Default behavior is to fill all integer or double columns cols with 0, preserving their types.
 }
+\examples{
+
+tibble::tibble(x = c(NA, 1L, 2L, NA, NaN, 5L, Inf)) -> tbl
+
+tbl \%>\%
+  fill_na()
+
+tbl \%>\%
+ fill_na(fill = 1L, missing_type = "Inf")
+
+tbl \%>\%
+ fill_na(missing_type = "NaN")
+
+}

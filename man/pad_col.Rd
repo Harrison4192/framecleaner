@@ -23,3 +23,13 @@ data frame
 \description{
 wrapper around mutate and str_pad
 }
+\examples{
+
+ # manually pad with 0's (or other value)
+ # use case over `pad_auto`: the desired width is greater than the widest element
+
+ tibble::tibble(
+ ID = c(2, 13, 86, 302)
+ ) \%>\%
+ pad_col(ID, width = 4)
+}

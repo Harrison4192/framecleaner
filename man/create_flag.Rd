@@ -23,3 +23,13 @@ data frame
 \description{
 create flag
 }
+\examples{
+
+iris \%>\%
+  create_flag(
+  col = Species,
+  flag = "versicolor",
+  drop = T) \%>\%
+  head()
+
+}

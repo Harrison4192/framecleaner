@@ -10,6 +10,14 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' # easily set NA values. blank space and empty space are default options
+#'
+#' tibble::tibble(x = c("a", "b", "", "d", " ", "", "e")) %>%
+#'    make_na()
+#'
 
 make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
 

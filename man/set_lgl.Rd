@@ -19,3 +19,10 @@ dataframe
 \description{
 note: for non-binary data, all values other than the true_level will be set to false
 }
+\examples{
+
+# convert a 1/0 vector back into T/F
+
+tibble::tibble(x = c(1, 0, 0, 1, 0, 1)) \%>\%
+set_lgl(x)
+}

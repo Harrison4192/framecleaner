@@ -8,6 +8,16 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' iris %>%
+#'   create_flag(
+#'   col = Species,
+#'   flag = "versicolor",
+#'   drop = T) %>%
+#'   head()
+#'
 create_flag <- function(.data, col, flag, full_name = F, drop = F){
 
   col <- rlang::ensym(col)
