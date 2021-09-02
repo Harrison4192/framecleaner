@@ -12,6 +12,7 @@ reference:
   - '`remove_whitespace`'
   - '`relocate_all`'
   - '`recode_chr`'
+  - '`create_flag`'
 - title: Deal with NAs
   contents:
   - matches("na")
