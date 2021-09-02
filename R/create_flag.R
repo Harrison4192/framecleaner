@@ -15,7 +15,7 @@
 #'   create_flag(
 #'   col = Species,
 #'   flag = "versicolor",
-#'   drop = T) %>%
+#'   drop = TRUE) %>%
 #'   head()
 #'
 create_flag <- function(.data, col, flag, full_name = F, drop = F){

@@ -29,7 +29,7 @@ iris \%>\%
   create_flag(
   col = Species,
   flag = "versicolor",
-  drop = T) \%>\%
+  drop = TRUE) \%>\%
   head()
 
 }

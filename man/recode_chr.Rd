@@ -34,8 +34,8 @@ iris \%>\%
  col = Species,
  old_names = "vir",
  new_name = "none",
- regex = T,
- negate = T) \%>\%
+ regex = TRUE,
+ negate = TRUE) \%>\%
  dplyr::count(Species)
 
 

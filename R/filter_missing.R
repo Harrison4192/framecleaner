@@ -63,7 +63,17 @@ filter_missing <- function(.data, ..., remove_inf = T){
 #'
 #' @examples
 #'
+#' tibble::tibble(x = c(NA, 1L, 2L, NA, NaN, 5L, Inf),
+#' y = c(1L, NA, 2L, NA, Inf, 5L, Inf)) -> tbl1
 #'
+#' tbl1 %>%
+#' filter_missing()
+#'
+#' tbl1 %>%
+#' filter_missing(x, remove_inf = FALSE)
+#'
+#' tbl1 %>%
+#' filter_missing(condition = "all")
 filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c("any", "all")){
 
   condition <- match.arg(condition)

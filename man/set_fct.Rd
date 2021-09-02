@@ -30,7 +30,7 @@ as the "positive class" when evaluating classification.
 iris$Species \%>\% levels
 
 iris \%>\%
-set_fct(Species, first_level = "virginica") \%>\%
-pull(Species) \%>\%
-levels
+  set_fct(Species, first_level = "virginica") \%>\%
+  dplyr::pull(Species) \%>\%
+  levels()
 }

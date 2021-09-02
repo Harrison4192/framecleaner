@@ -31,5 +31,15 @@ S3 method, can also be used on vectors
 }
 \examples{
 
+tibble::tibble(x = c(NA, 1L, 2L, NA, NaN, 5L, Inf),
+y = c(1L, NA, 2L, NA, Inf, 5L, Inf)) -> tbl1
 
+tbl1 \%>\%
+filter_missing()
+
+tbl1 \%>\%
+filter_missing(x, remove_inf = FALSE)
+
+tbl1 \%>\%
+filter_missing(condition = "all")
 }
