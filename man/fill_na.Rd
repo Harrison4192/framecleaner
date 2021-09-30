@@ -13,7 +13,7 @@ fill_na(.data, ..., fill = 0L, missing_type = c("all", "NA", "NaN", "Inf"))
 
 \item{fill}{value to fill NAs}
 
-\item{missing_type}{character vector. Choose what type of missing to fill. Default is all types.}
+\item{missing_type}{character vector. Choose what type of missing to fill. Default is all types. choose from "all", "Na", "NaN", "Inf"}
 }
 \value{
 data frame
