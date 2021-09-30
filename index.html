@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Clean Data Frames">
-<meta property="og:description" content="Functions for handling common issues in raw data sets.">
+<meta property="og:description" content="Provides a friendly interface for modifying data frames with a sequence of piped commands built upon the tidyverse Wickham et al., (2019) &lt;https://doi.org/10.21105/joss.01686&gt; . The majority of commands wrap dplyr mutate statements in a convenient way to concisely solve common issues that arise when tidying small to medium data sets. Includes smart defaults and allows flexible selection of columns via tidyselect. ">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -96,7 +96,7 @@
 <!-- badges: start -->
 
 <p><a href="https://cran.r-project.org/package=framecleaner"><img src="http://cranlogs.r-pkg.org/badges/grand-total/framecleaner?color=blue"></a> <a href="https://github.com/Harrison4192/framecleaner"><img src="https://img.shields.io/github/languages/code-size/Harrison4192/framecleaner.svg"></a> <a href="https://github.com/Harrison4192/framecleaner/commits/main"><img src="https://img.shields.io/github/last-commit/Harrison4192/framecleaner.svg"></a> <!-- badges: end --></p>
-<p>The goal of framecleaner is to provide functions for cleaning common irregularities in raw data sets.</p>
+<p>framecleaner provides a tidyverse-friendly interface for modifying data frames with a sequence of piped commands. These commands wrap <a href="https://dplyr.tidyverse.org/index.html">dplyr</a> mutate statements in a convenient way to concisely solve common issues that arise when tidying small to medium data sets. It also includes smart defaults and allows selection of columns via <a href="https://tidyselect.r-lib.org/reference/index.html">tidyselect</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
