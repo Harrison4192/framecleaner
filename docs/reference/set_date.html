@@ -176,6 +176,15 @@ of trying to extract a `ymd` date from an excel workbook, and having it come wit
 supply the appropriate lubridate function.</p>
 <p>Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>date <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20190101"</span>, <span class='st'>"20170205"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+<span class='fu'>set_date</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 1</span><span>
+#&gt;   date      
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;date&gt;</span><span>    
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 2019-01-01
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 2017-02-05</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

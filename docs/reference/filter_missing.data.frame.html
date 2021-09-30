@@ -40,9 +40,9 @@
 
 
 <meta property="og:title" content="filter out missings — filter_missing" />
-<meta property="og:description" content="More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
-For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally." />
+<meta property="og:description" content="More complex wrapper around [filter(!is.na())] to remove [NA] rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing [NaN], [Na], [Inf], in that order.
+For example if one row contains [Inf] in one column and [Na] in another, the removed row will be counted in the [Na] tally." />
 
 
 
@@ -144,15 +144,15 @@ For example if one row contains Inf in one column and Na in another, the removed
     </div>
 
     <div class="ref-description">
-    <p>More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
-For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally.</p>
+    <p>More complex wrapper around [filter(!is.na())] to remove [NA] rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing [NaN], [Na], [Inf], in that order.
+For example if one row contains [Inf] in one column and [Na] in another, the removed row will be counted in the [Na] tally.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># S3 method for data.frame</span>
-<span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>T</span>, condition <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"any"</span>, <span class='st'>"all"</span><span class='op'>)</span><span class='op'>)</span></pre>
+<span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>TRUE</span>, condition <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"any"</span>, <span class='st'>"all"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

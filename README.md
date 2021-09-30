@@ -16,8 +16,13 @@ status](https://www.r-pkg.org/badges/version/framecleaner)](https://CRAN.R-proje
 [![](https://img.shields.io/github/last-commit/Harrison4192/framecleaner.svg)](https://github.com/Harrison4192/framecleaner/commits/main)
 <!-- badges: end -->
 
-The goal of framecleaner is to provide functions for cleaning common
-irregularities in raw data sets.
+framecleaner provides a tidyverse-friendly interface for modifying data
+frames with a sequence of piped commands. These commands wrap
+[dplyr](https://dplyr.tidyverse.org/index.html) mutate statements in a
+convenient way to concisely solve common issues that arise when tidying
+small to medium data sets. It also includes smart defaults and allows
+selection of columns via
+[tidyselect](https://tidyselect.r-lib.org/reference/index.html).
 
 ## Installation
 

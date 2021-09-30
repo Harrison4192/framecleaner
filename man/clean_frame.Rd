@@ -15,3 +15,8 @@ data frame
 \description{
 Uses the functions of framecleaner and other operations to apply cleaning operations to a data frame
 }
+\examples{
+
+iris \%>\%
+clean_frame()
+}

@@ -7,6 +7,15 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' tibble::tibble(a = c(" a ", "b ", " c")) -> t1
+#'
+#' t1
+#'
+#' t1 %>%
+#' remove_whitespace()
 remove_whitespace <- function(.data, ...){
 
   .data %>%

@@ -5,9 +5,9 @@
 \alias{filter_missing.data.frame}
 \title{filter out missings}
 \usage{
-filter_missing(.data, ..., remove_inf = T)
+filter_missing(.data, ..., remove_inf = TRUE)
 
-\method{filter_missing}{data.frame}(.data, ..., remove_inf = T, condition = c("any", "all"))
+\method{filter_missing}{data.frame}(.data, ..., remove_inf = TRUE, condition = c("any", "all"))
 }
 \arguments{
 \item{.data}{dataframe}
@@ -22,8 +22,8 @@ filter_missing(.data, ..., remove_inf = T)
 data frame
 }
 \description{
-More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+More complex wrapper around filter(!is.na()) to remove NA rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing NaN, Na, Inf, in that order.
 For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally.
 }
 \details{

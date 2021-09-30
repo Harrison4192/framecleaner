@@ -18,5 +18,12 @@ data frame
 }
 \description{
 Arranges columns alphabetically and then by type
-The user can supply a tidyselect argument to further specify relocations
+The user can supply a tidyselect argument to specify columns that should come first
+}
+\examples{
+
+iris \%>\%
+head \%>\%
+relocate_all(matches("Petal"))
+
 }

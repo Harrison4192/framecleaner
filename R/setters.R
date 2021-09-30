@@ -3,8 +3,15 @@
 #' @param .data dataframe
 #' @param ... tidyselect. Default selection: none
 #'
-#' @return tibble
+#' @return dataframe
 #' @export
+#'
+#' @examples
+#'
+#' iris %>%
+#' tibble::as_tibble() %>%
+#' set_chr(tidyselect::everything())
+#'
 set_chr <- function(.data, ...){
 
   .data %>% select_otherwise(...) -> cols
@@ -48,6 +55,12 @@ set_lgl <- function(.data, ..., true_level = 1L){
 #'
 #' @return tibble
 #' @export
+#'
+#' @examples
+#'
+#' tibble::tibble(a = c(1L, 2L), b = factor(c(10, 11))) %>%
+#' set_dbl(c(a,b))
+#'
 set_dbl <- function(.data, ...){
 
   .data %>% select_otherwise(...)   -> cols
@@ -64,9 +77,14 @@ set_dbl <- function(.data, ...){
 #'
 #' # automaticaly turns "integerish" characters or doubles into int values
 #'
+#'int_vec <- c("1", "2", "10")
+#'
 #' tibble::tibble(
-#' x = c("1", "2", "10"),
+#' x = int_vec,
 #' y = c(1.0, 5.0, 20.0)) %>%
+#' set_int()
+#'
+#' int_vec %>%
 #' set_int()
 set_int <- function(.data, ...){
 
@@ -162,6 +180,11 @@ set_type_groups <- function(.data, ..., setter){
 #'
 #' @return tibble
 #' @export
+#'
+#' @examples
+#'
+#' tibble::tibble(date = c("20190101", "20170205")) %>%
+#' set_date()
 set_date <- function(.data, ..., date_fn = lubridate::ymd){
 
   if(!missing(..1)){

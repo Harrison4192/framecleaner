@@ -31,3 +31,8 @@ flexible select operator that powers the tidy consultant universe. Used to set s
 and flexibly return the chosen columns. A developer focused function, but may be useful in
 interactive programming due to the ability to return different types.
 }
+\examples{
+
+iris \%>\%
+select_otherwise(where(is.double), return_type = "index")
+}

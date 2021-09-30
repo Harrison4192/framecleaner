@@ -24,8 +24,13 @@ set integer
 
 # automaticaly turns "integerish" characters or doubles into int values
 
+int_vec <- c("1", "2", "10")
+
 tibble::tibble(
-x = c("1", "2", "10"),
+x = int_vec,
 y = c(1.0, 5.0, 20.0)) \%>\%
+set_int()
+
+int_vec \%>\%
 set_int()
 }

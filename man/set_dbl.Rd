@@ -17,3 +17,9 @@ tibble
 \description{
 set double
 }
+\examples{
+
+tibble::tibble(a = c(1L, 2L), b = factor(c(10, 11))) \%>\%
+set_dbl(c(a,b))
+
+}

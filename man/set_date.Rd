@@ -28,3 +28,8 @@ supply the appropriate lubridate function.
 
 Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.
 }
+\examples{
+
+tibble::tibble(date = c("20190101", "20170205")) \%>\%
+set_date()
+}

@@ -4,7 +4,7 @@
 \alias{recode_chr}
 \title{recode_chr}
 \usage{
-recode_chr(df, col, old_names, new_name, regex = F, negate = F)
+recode_chr(df, col, old_names, new_name, regex = FALSE, negate = FALSE)
 }
 \arguments{
 \item{df}{data frame}
@@ -17,7 +17,7 @@ recode_chr(df, col, old_names, new_name, regex = F, negate = F)
 
 \item{regex}{Logical, default F. If using a regular expression, set to T}
 
-\item{negate}{logicalm defailt F. If negating the regex, set to T}
+\item{negate}{logical, defailt F. If negating the regex, set to T}
 }
 \value{
 df

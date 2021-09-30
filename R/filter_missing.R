@@ -39,15 +39,15 @@ remove_infs <- function(x){
 #' @rdname filter_missing.data.frame
 #' @param remove_inf logical. default is to also remove Inf values. set to False otherwise.
 #' @export
-filter_missing <- function(.data, ..., remove_inf = T){
+filter_missing <- function(.data, ..., remove_inf = TRUE){
 
   UseMethod("filter_missing", .data)
 }
 
 #' filter out missings
 #'
-#' More complex wrapper around `filter(!is.na())` to remove NA rows using tidyselect. If any specified column contains an NA
-#' the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+#' More complex wrapper around filter(!is.na()) to remove NA rows using tidyselect. If any specified column contains an NA
+#' the whole row is removed. Reports the amount of rows removed containing NaN, Na, Inf, in that order.
 #' For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally.
 #'
 #' S3 method, can also be used on vectors
@@ -74,7 +74,7 @@ filter_missing <- function(.data, ..., remove_inf = T){
 #'
 #' tbl1 %>%
 #' filter_missing(condition = "all")
-filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c("any", "all")){
+filter_missing.data.frame <- function(.data, ..., remove_inf = TRUE, condition = c("any", "all")){
 
   condition <- match.arg(condition)
 
@@ -99,7 +99,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c(
   rows1 - rows2 -> nan_diff
 
   if(nan_diff > 0){
-    warning(stringr::str_c("Removed ",nan_diff, " rows containing NaN values"), call. = F)
+    warning(stringr::str_c("Removed ",nan_diff, " rows containing NaN values"), call. = FALSE)
   }
 
   .data %>%
@@ -110,7 +110,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c(
   rows2 - rows3 -> na_diff
 
   if(na_diff > 0){
-    warning(stringr::str_c("Removed ",na_diff, " rows containing Na values"), call. = F)
+    warning(stringr::str_c("Removed ",na_diff, " rows containing Na values"), call. = FALSE)
   }
 
   if(remove_inf){
@@ -122,7 +122,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c(
     rows3 - rows4 -> inf_diff
 
     if(inf_diff > 0){
-      warning(stringr::str_c("Removed ",inf_diff, " rows containing Inf values"), call. = F)
+      warning(stringr::str_c("Removed ",inf_diff, " rows containing Inf values"), call. = FALSE)
     }
 
   }
@@ -132,7 +132,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = T, condition = c(
 
 
 #' @export
-filter_missing.default<- function(.data, ..., remove_inf = T){
+filter_missing.default<- function(.data, ..., remove_inf = TRUE){
 
   length(.data) -> elements1
 
@@ -144,7 +144,7 @@ filter_missing.default<- function(.data, ..., remove_inf = T){
   elements1 - elements2 -> nan_diff
 
   if(nan_diff > 0){
-    warning(stringr::str_c("Removed ",nan_diff, " elements containing NaN values"), call. = F)
+    warning(stringr::str_c("Removed ",nan_diff, " elements containing NaN values"), call. = FALSE)
   }
 
   .data %>%
@@ -155,7 +155,7 @@ filter_missing.default<- function(.data, ..., remove_inf = T){
   elements2 - elements3 -> na_diff
 
   if(na_diff > 0){
-    warning(stringr::str_c("Removed ",na_diff, " elements containing Na values"), call. = F)
+    warning(stringr::str_c("Removed ",na_diff, " elements containing Na values"), call. = FALSE)
   }
 
   if(remove_inf){
@@ -167,7 +167,7 @@ filter_missing.default<- function(.data, ..., remove_inf = T){
     elements3 - elements4 -> inf_diff
 
     if(inf_diff > 0){
-      warning(stringr::str_c("Removed ",inf_diff, " elements containing Inf values"), call. = F)
+      warning(stringr::str_c("Removed ",inf_diff, " elements containing Inf values"), call. = FALSE)
     }
 
   }

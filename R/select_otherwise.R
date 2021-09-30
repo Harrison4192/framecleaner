@@ -14,6 +14,11 @@
 #' @return integer vector by default. possibly data frame or character vector
 #'
 #'@export
+#'
+#'@examples
+#'
+#'iris %>%
+#'select_otherwise(where(is.double), return_type = "index")
 select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_type = c("names", "index", "df")){
 
   return_type <- match.arg(return_type)

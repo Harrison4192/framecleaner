@@ -6,7 +6,7 @@
 #' @param .data data frame
 #' @param ... tidyselect specification. Default selection: none
 #' @param fill value to fill NAs
-#' @param missing_type character vector. Choose what type of missing to fill. Default is all types.
+#' @param missing_type character vector. Choose what type of missing to fill. Default is all types. choose from "all", "Na", "NaN", "Inf"
 #'
 #' @return data frame
 #' @export

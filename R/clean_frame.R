@@ -6,6 +6,11 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' iris %>%
+#' clean_frame()
 clean_frame <- function(.data){
 
   suppressWarnings({
@@ -13,7 +18,7 @@ clean_frame <- function(.data){
     .data %>%
       janitor::remove_empty(which = c("rows", "cols")) %>%
       dplyr::rename_with(.fn = enc2utf8) %>%
-      janitor::clean_names(., case = "all_caps", ascii = F) %>%
+      janitor::clean_names(., case = "all_caps", ascii = FALSE) %>%
       # remove_whitespace() %>%
       set_int() %>%
       set_date() %>%

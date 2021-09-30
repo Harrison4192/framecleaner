@@ -4,7 +4,7 @@
 \alias{create_flag}
 \title{create flag}
 \usage{
-create_flag(.data, col, flag, full_name = F, drop = F)
+create_flag(.data, col, flag, full_name = FALSE, drop = FALSE)
 }
 \arguments{
 \item{.data}{data frame}

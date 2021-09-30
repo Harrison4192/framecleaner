@@ -49,4 +49,3 @@ make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
 
   .data2
 }
-

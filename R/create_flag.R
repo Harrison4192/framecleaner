@@ -18,7 +18,7 @@
 #'   drop = TRUE) %>%
 #'   head()
 #'
-create_flag <- function(.data, col, flag, full_name = F, drop = F){
+create_flag <- function(.data, col, flag, full_name = FALSE, drop = FALSE){
 
   col <- rlang::ensym(col)
 

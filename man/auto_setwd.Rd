@@ -6,6 +6,9 @@
 \usage{
 auto_setwd()
 }
+\value{
+No return value.
+}
 \description{
 Call from a saved R script. Automatically sets your working directory to the directory that you saved the current
 R script in. Takes no arguments.

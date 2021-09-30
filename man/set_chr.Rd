@@ -12,8 +12,15 @@ set_chr(.data, ...)
 \item{...}{tidyselect. Default selection: none}
 }
 \value{
-tibble
+dataframe
 }
 \description{
 set character
+}
+\examples{
+
+iris \%>\%
+tibble::as_tibble() \%>\%
+set_chr(tidyselect::everything())
+
 }

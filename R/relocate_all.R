@@ -1,7 +1,7 @@
 #' Relocate All
 #'
 #' Arranges columns alphabetically and then by type
-#' The user can supply a tidyselect argument to further specify relocations
+#' The user can supply a tidyselect argument to specify columns that should come first
 #'
 #' @param .data data frame
 #' @param ... a tidyselect specification
@@ -9,6 +9,13 @@
 #'
 #' @return data frame
 #' @export
+#'
+#' @examples
+#'
+#' iris %>%
+#' head %>%
+#' relocate_all(matches("Petal"))
+#'
 relocate_all <- function(.data, ..., regex = NULL){
 
   .data %>%
