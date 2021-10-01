@@ -14,6 +14,7 @@ Encoding: UTF-8
 Imports: 
     dplyr,
     stringr,
+    stringi,
     tidyselect,
     purrr,
     janitor,

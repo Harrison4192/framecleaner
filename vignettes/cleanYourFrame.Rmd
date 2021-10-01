@@ -30,7 +30,7 @@ sample_table
 
 # set nas
 
-Data occasionally has different ways to represent NA values. `set_na` checks as default `c("-", "", " ", "null")` but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using `valiData::diagnose`
+Data occasionally has different ways to represent NA values. `set_na` checks as default `c("-", "", " ", "null")` but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using `validata::diagnose`
 
 ```{r}
 sample_table %>% 
