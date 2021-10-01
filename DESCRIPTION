@@ -31,12 +31,12 @@ Imports:
     vroom,
     readxl,
     fs,
-    rlist
+    rlist,
+    printr
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
     rmarkdown,
-    printr,
     badger
 VignetteBuilder: knitr
 URL: https://github.com/Harrison4192/framecleaner, https://harrison4192.github.io/framecleaner/
