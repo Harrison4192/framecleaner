@@ -11,13 +11,13 @@
 \usage{
 set_dbl(.data, ...)
 
-\method{set_dbl}{character}(x)
+\method{set_dbl}{character}(.data)
 
-\method{set_dbl}{factor}(x)
+\method{set_dbl}{factor}(.data)
 
-\method{set_dbl}{Date}(x)
+\method{set_dbl}{Date}(.data)
 
-\method{set_dbl}{numeric}(x)
+\method{set_dbl}{numeric}(.data)
 
 \method{set_dbl}{data.frame}(.data, ...)
 }

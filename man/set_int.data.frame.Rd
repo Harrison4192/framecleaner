@@ -3,11 +3,14 @@
 \name{set_int}
 \alias{set_int}
 \alias{set_int.data.frame}
+\alias{set_int.grouped_df}
 \title{set integer}
 \usage{
 set_int(.data, ...)
 
 \method{set_int}{data.frame}(.data, ...)
+
+\method{set_int}{grouped_df}(.data, ...)
 }
 \arguments{
 \item{.data}{dataframe}

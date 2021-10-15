@@ -58,18 +58,18 @@ set_dbl <- function(.data, ...){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl character
 #' @export
-set_dbl.character <- function(x){
+set_dbl.character <- function(.data){
 
-  x %>%
+  .data %>%
     readr::parse_number()
 }
 
 #' @rdname set_dbl.data.frame
 #' @method set_dbl factor
 #' @export
-set_dbl.factor <- function(x){
+set_dbl.factor <- function(.data){
 
-  x %>%
+  .data %>%
     as.character() %>%
     readr::parse_number()
 }
@@ -77,9 +77,9 @@ set_dbl.factor <- function(x){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl Date
 #' @export
-set_dbl.Date <- function(x){
+set_dbl.Date <- function(.data){
 
-  x %>%
+  .data %>%
     as.character() %>%
     stringr::str_remove_all("-") %>%
     readr::parse_number()
@@ -88,9 +88,9 @@ set_dbl.Date <- function(x){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl numeric
 #' @export
-set_dbl.numeric <- function(x){
+set_dbl.numeric <- function(.data){
 
-  x %>%
+  .data %>%
     as.double()
 }
 
@@ -186,6 +186,7 @@ set_int.data.frame <- function(.data, ...){
   .data
 }
 
+#' @rdname set_int.data.frame
 #' @method set_int grouped_df
 #' @export
 set_int.grouped_df <- function(.data, ...){
