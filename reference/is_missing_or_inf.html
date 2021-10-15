@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>set date — set_date • framecleaner</title>
+<title>is missing or inf — is_missing_or_inf • framecleaner</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="set date — set_date" />
-<meta property="og:description" content="set dates manually or automatically" />
+<meta property="og:title" content="is missing or inf — is_missing_or_inf" />
+<meta property="og:description" content="is missing or inf" />
 
 
 
@@ -136,72 +136,30 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>set date</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/setters.R'><code>R/setters.R</code></a></small>
-    <div class="hidden name"><code>set_date.Rd</code></div>
+    <h1>is missing or inf</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/filter_missing.R'><code>R/filter_missing.R</code></a></small>
+    <div class="hidden name"><code>is_missing_or_inf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>set dates manually or automatically</p>
+    <p>is missing or inf</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_date</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, date_fn <span class='op'>=</span> <span class='fu'>lubridate</span><span class='fu'>::</span><span class='va'><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_missing_or_inf</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>dataframe</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>tidyselect</p></td>
-    </tr>
-    <tr>
-      <th>date_fn</th>
-      <td><p>a function to convert to a date object</p></td>
+      <th>x</th>
+      <td></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>tibble</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>logical</p>
 
-    <p>note: can be called without any <code>...</code> arguments and instead automatically determines which character columns
-are actually dates, then proceeds to set them. It checks for the date specified in <code>date_fn</code> and also <code><a href='https://lubridate.tidyverse.org/reference/ymd_hms.html'>ymd_hms</a></code>.
-On auto detect mode, it sets <code><a href='https://lubridate.tidyverse.org/reference/ymd_hms.html'>ymd_hms</a></code> output to ymd dates instead of datetimes with hms. This is because of the common occurrence
-of trying to extract a <code><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></code> date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
-supply the appropriate lubridate function.</p>
-<p>Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>date_col1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20190101"</span>, <span class='st'>"20170205"</span><span class='op'>)</span>,
-date_col2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20201015"</span>, <span class='st'>"20180909"</span><span class='op'>)</span>,
-not_date_col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a345"</span>, <span class='st'>"b040"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>t1</span>
-
-<span class='va'>t1</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1 date_col2 not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 20190101  20201015  a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 20170205  20180909  b040        </div><div class='input'>
-<span class='va'>t1</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_date</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1  date_col2  not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 2019-01-01 2020-10-15 a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 2017-02-05 2018-09-09 b040        </div><div class='input'>
-<span class='va'>t1</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_date</span><span class='op'>(</span><span class='va'>date_col1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1  date_col2 not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 2019-01-01 20201015  a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 2017-02-05 20180909  b040        </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

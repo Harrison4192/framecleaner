@@ -175,7 +175,17 @@
 
 <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
 x <span class='op'>=</span> <span class='va'>int_vec</span>,
-y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.0</span>, <span class='fl'>5.0</span>, <span class='fl'>20.0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.0</span>, <span class='fl'>5.0</span>, <span class='fl'>20.0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>tbl</span>
+
+<span class='co'># automatically coerce integerish cols in a tibble</span>
+<span class='va'>tbl</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
+#&gt;   x         y
+#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 1         1
+#&gt; <span style='color: #BCBCBC;'>2</span> 2         5
+#&gt; <span style='color: #BCBCBC;'>3</span> 10       20</div><div class='input'>
+<span class='va'>tbl</span> <span class='op'>%&gt;%</span>
 <span class='fu'>set_int</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
 #&gt;       x     y
@@ -183,6 +193,10 @@ y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.h
 #&gt; <span style='color: #BCBCBC;'>1</span>     1     1
 #&gt; <span style='color: #BCBCBC;'>2</span>     2     5
 #&gt; <span style='color: #BCBCBC;'>3</span>    10    20</div><div class='input'>
+<span class='co'># s3 method works for vectors as well</span>
+
+<span class='va'>int_vec</span>
+</div><div class='output co'>#&gt; [1] "1"  "2"  "10"</div><div class='input'>
 <span class='va'>int_vec</span> <span class='op'>%&gt;%</span>
 <span class='fu'>set_int</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1]  1  2 10</div></pre>
