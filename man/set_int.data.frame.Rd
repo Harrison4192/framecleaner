@@ -28,8 +28,17 @@ int_vec <- c("1", "2", "10")
 
 tibble::tibble(
 x = int_vec,
-y = c(1.0, 5.0, 20.0)) \%>\%
+y = c(1.0, 5.0, 20.0)) -> tbl
+
+# automatically coerce integerish cols in a tibble
+tbl
+
+tbl \%>\%
 set_int()
+
+# s3 method works for vectors as well
+
+int_vec
 
 int_vec \%>\%
 set_int()

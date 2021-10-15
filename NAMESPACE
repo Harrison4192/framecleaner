@@ -2,6 +2,11 @@
 
 S3method(filter_missing,data.frame)
 S3method(filter_missing,default)
+S3method(set_dbl,Date)
+S3method(set_dbl,character)
+S3method(set_dbl,data.frame)
+S3method(set_dbl,factor)
+S3method(set_dbl,numeric)
 S3method(set_int,data.frame)
 S3method(set_int,default)
 S3method(set_int,grouped_df)

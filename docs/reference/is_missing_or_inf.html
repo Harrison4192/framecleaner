@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fill NAs — fill_na • framecleaner</title>
+<title>is missing or inf — is_missing_or_inf • framecleaner</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Fill NAs — fill_na" />
-<meta property="og:description" content="use tidyselect to fill NA values
-Default behavior is to fill all integer or double columns cols with 0, preserving their types." />
+<meta property="og:title" content="is missing or inf — is_missing_or_inf" />
+<meta property="og:description" content="is missing or inf" />
 
 
 
@@ -137,84 +136,30 @@ Default behavior is to fill all integer or double columns cols with 0, preservin
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fill NAs</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/fill_na.R'><code>R/fill_na.R</code></a></small>
-    <div class="hidden name"><code>fill_na.Rd</code></div>
+    <h1>is missing or inf</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/filter_missing.R'><code>R/filter_missing.R</code></a></small>
+    <div class="hidden name"><code>is_missing_or_inf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>use tidyselect to fill NA values
-Default behavior is to fill all integer or double columns cols with 0, preserving their types.</p>
+    <p>is missing or inf</p>
     </div>
 
-    <pre class="usage"><span class='fu'>fill_na</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, fill <span class='op'>=</span> <span class='fl'>0L</span>, missing_type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"NA"</span>, <span class='st'>"NaN"</span>, <span class='st'>"Inf"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_missing_or_inf</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>data frame</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>tidyselect specification. Default selection: none</p></td>
-    </tr>
-    <tr>
-      <th>fill</th>
-      <td><p>value to fill NAs</p></td>
-    </tr>
-    <tr>
-      <th>missing_type</th>
-      <td><p>character vector. Choose what type of missing to fill. Default is all types. choose from "all", "Na", "NaN", "Inf"</p></td>
+      <th>x</th>
+      <td></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>data frame</p>
+    <p>logical</p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>1L</span>, <span class='fl'>2L</span>, <span class='cn'>NA</span>, <span class='cn'>NaN</span>, <span class='fl'>5L</span>, <span class='cn'>Inf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>tbl</span>
-
-<span class='va'>tbl</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>fill_na</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 7 x 1</span><span>
-#&gt;       x
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     0
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     1
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     2
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span>     0
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span>     0
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span>     5
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span>     0</div><div class='input'>
-<span class='va'>tbl</span> <span class='op'>%&gt;%</span>
- <span class='fu'>fill_na</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='fl'>1L</span>, missing_type <span class='op'>=</span> <span class='st'>"Inf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 7 x 1</span><span>
-#&gt;       x
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     1
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     2
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span>     5
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span>     1</div><div class='input'>
-<span class='va'>tbl</span> <span class='op'>%&gt;%</span>
- <span class='fu'>fill_na</span><span class='op'>(</span>missing_type <span class='op'>=</span> <span class='st'>"NaN"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 7 x 1</span><span>
-#&gt;       x
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     1
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     2
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span>     0
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span>     5
-#&gt; </span><span style='color: #BCBCBC;'>7</span><span>   </span><span style='color: #BB0000;'>Inf</span><span></div><div class='input'>
-</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

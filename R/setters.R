@@ -48,8 +48,55 @@ set_lgl <- function(.data, ..., true_level = 1L){
     dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = ~ifelse(. == true_level, T, F)))
 }
 
+#' @rdname set_dbl.data.frame
+#' @export
+set_dbl <- function(.data, ...){
+
+  UseMethod("set_dbl", .data)
+}
+
+#' @rdname set_dbl.data.frame
+#' @method set_dbl character
+#' @export
+set_dbl.character <- function(x){
+
+  x %>%
+    readr::parse_number()
+}
+
+#' @rdname set_dbl.data.frame
+#' @method set_dbl factor
+#' @export
+set_dbl.factor <- function(x){
+
+  x %>%
+    as.character() %>%
+    readr::parse_number()
+}
+
+#' @rdname set_dbl.data.frame
+#' @method set_dbl Date
+#' @export
+set_dbl.Date <- function(x){
+
+  x %>%
+    as.character() %>%
+    stringr::str_remove_all("-") %>%
+    readr::parse_number()
+}
+
+#' @rdname set_dbl.data.frame
+#' @method set_dbl numeric
+#' @export
+set_dbl.numeric <- function(x){
+
+  x %>%
+    as.double()
+}
+
 #' set double
 #'
+#' @method set_dbl data.frame
 #' @param .data dataframe
 #' @param ... tidyselect. Default selection: none
 #'
@@ -58,16 +105,33 @@ set_lgl <- function(.data, ..., true_level = 1L){
 #'
 #' @examples
 #'
-#' tibble::tibble(a = c(1L, 2L), b = factor(c(10, 11))) %>%
-#' set_dbl(c(a,b))
 #'
-set_dbl <- function(.data, ...){
+#'
+#' date_col <- c(lubridate::ymd(20180101), lubridate::ymd(20210420))
+#'
+#'
+#' tibble::tibble(int = c(1L, 2L),
+#' fct = factor(c(10, 11)),
+#' date = date_col,
+#' chr = c("a2.1", "rtg50.5")) -> t1
+#'
+#' t1
+#'
+#' t1 %>%
+#' set_dbl(tidyselect::everything())
+#'
+#' # s3 method works for vectors individually
+#' # custom date coercion to represent date as a number. For lubridate's coercion method, use set_int
+#' date_col %>%
+#' set_dbl
+#'
+set_dbl.data.frame <- function(.data, ...){
 
   .data %>% select_otherwise(...)   -> cols
 
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as.double))
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = set_dbl))
 }
 
 #' @rdname set_int.data.frame
@@ -81,8 +145,17 @@ set_dbl <- function(.data, ...){
 #'
 #' tibble::tibble(
 #' x = int_vec,
-#' y = c(1.0, 5.0, 20.0)) %>%
+#' y = c(1.0, 5.0, 20.0)) -> tbl
+#'
+#' # automatically coerce integerish cols in a tibble
+#' tbl
+#'
+#' tbl %>%
 #' set_int()
+#'
+#' # s3 method works for vectors as well
+#'
+#' int_vec
 #'
 #' int_vec %>%
 #' set_int()
@@ -108,7 +181,7 @@ set_int.data.frame <- function(.data, ...){
     select_otherwise(..., otherwise = where(is_integery)) -> cols
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = as_integer16_or_64)) -> .data
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = set_int)) -> .data
 
   .data
 }
@@ -166,10 +239,10 @@ set_type_groups <- function(.data, ..., setter){
 #'
 #' set dates manually or automatically
 #'
-#' note: can be called without any `...` arguments and instead automatically determines which character columns
-#' are actually dates, then proceeds to set them. It checks for the date specified in `date_fn` and also \code{lubridate::ymd_hms}.
-#' On auto detect mode, it sets `ymd_hms` output to ymd dates instead of datetimes with hms. This is because of the common occurrence
-#' of trying to extract a `ymd` date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
+#' note: can be called without any \code{...} arguments and instead automatically determines which character columns
+#' are actually dates, then proceeds to set them. It checks for the date specified in \code{date_fn} and also \code{\link[lubridate]{ymd_hms}}.
+#' On auto detect mode, it sets \code{\link[lubridate]{ymd_hms}} output to ymd dates instead of datetimes with hms. This is because of the common occurrence
+#' of trying to extract a \code{\link[lubridate]{ymd}} date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
 #' supply the appropriate lubridate function.
 #'
 #' Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.
@@ -183,15 +256,26 @@ set_type_groups <- function(.data, ..., setter){
 #'
 #' @examples
 #'
-#' tibble::tibble(date = c("20190101", "20170205")) %>%
+#' tibble::tibble(date_col1 = c("20190101", "20170205"),
+#' date_col2 = c("20201015", "20180909"),
+#' not_date_col = c("a345", "b040")) -> t1
+#'
+#' t1
+#'
+#' t1 %>%
 #' set_date()
+#'
+#' t1 %>%
+#' set_date(date_col1)
 set_date <- function(.data, ..., date_fn = lubridate::ymd){
+
 
   if(!missing(..1)){
   .data %>% select_otherwise(..., return_type = "names") -> nms
 
+
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(nms), .fns = date_fn))} else {
+    dplyr::mutate(dplyr::across(tidyselect::any_of(nms), .fns = ~date_fn(.)))} else {
 
       .data %>%
         dplyr::select(where(is.character)) %>% names() -> fill_names

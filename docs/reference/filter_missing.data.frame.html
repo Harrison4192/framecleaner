@@ -40,9 +40,9 @@
 
 
 <meta property="og:title" content="filter out missings — filter_missing" />
-<meta property="og:description" content="More complex wrapper around [filter(!is.na())] to remove [NA] rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing [NaN], [Na], [Inf], in that order.
-For example if one row contains [Inf] in one column and [Na] in another, the removed row will be counted in the [Na] tally." />
+<meta property="og:description" content="More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
+the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally." />
 
 
 
@@ -144,9 +144,9 @@ For example if one row contains [Inf] in one column and [Na] in another, the rem
     </div>
 
     <div class="ref-description">
-    <p>More complex wrapper around [filter(!is.na())] to remove [NA] rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing [NaN], [Na], [Inf], in that order.
-For example if one row contains [Inf] in one column and [Na] in another, the removed row will be counted in the [Na] tally.</p>
+    <p>More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
+the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally.</p>
     </div>
 
     <pre class="usage"><span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
@@ -167,11 +167,11 @@ For example if one row contains [Inf] in one column and [Na] in another, the rem
     </tr>
     <tr>
       <th>remove_inf</th>
-      <td><p>logical. default is to also remove Inf values. set to False otherwise.</p></td>
+      <td><p>logical. default is to also remove `Inf` values. set to `FALSE` otherwise.</p></td>
     </tr>
     <tr>
       <th>condition</th>
-      <td><p>defaults to "any". in which case removes rows if NA is in any specified column. "all" will remove rows only if each specified column is NA</p></td>
+      <td><p>defaults to "any". in which case removes rows if `NA` is in any specified column. "all" will remove rows only if each specified column is missing</p></td>
     </tr>
     </table>
 
@@ -187,13 +187,26 @@ For example if one row contains [Inf] in one column and [Na] in another, the rem
 <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>NA</span>, <span class='fl'>1L</span>, <span class='fl'>2L</span>, <span class='cn'>NA</span>, <span class='cn'>NaN</span>, <span class='fl'>5L</span>, <span class='cn'>Inf</span><span class='op'>)</span>,
 y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='cn'>NA</span>, <span class='fl'>2L</span>, <span class='cn'>NA</span>, <span class='cn'>Inf</span>, <span class='fl'>5L</span>, <span class='cn'>Inf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>tbl1</span>
 
+<span class='va'>tbl1</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 7 x 2</span><span>
+#&gt;       x     y
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     1
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     1    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span>     2     2
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span>    </span><span style='color: #BB0000;'>NA</span><span>    </span><span style='color: #BB0000;'>NA</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>Inf</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>6</span><span>     5     5
+#&gt; </span><span style='color: #BCBCBC;'>7</span><span>   </span><span style='color: #BB0000;'>Inf</span><span>   </span><span style='color: #BB0000;'>Inf</span><span></div><div class='input'>
+<span class='co'># remove any row with a missing or Inf</span>
 <span class='va'>tbl1</span> <span class='op'>%&gt;%</span>
 <span class='fu'>filter_missing</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing NaN values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 3 rows containing Na values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing Inf values</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 2</span><span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing NaN values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 3 rows containing Na values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing Inf values</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 2 x 2</span><span>
 #&gt;       x     y
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span>     2     2
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span>     5     5</div><div class='input'>
+<span class='co'># remove any row with Na or NaN in the x column</span>
 <span class='va'>tbl1</span> <span class='op'>%&gt;%</span>
 <span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>x</span>, remove_inf <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing NaN values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 2 rows containing Na values</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 2</span><span>
@@ -203,16 +216,16 @@ y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.h
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span>     2     2
 #&gt; </span><span style='color: #BCBCBC;'>3</span><span>     5     5
 #&gt; </span><span style='color: #BCBCBC;'>4</span><span>   </span><span style='color: #BB0000;'>Inf</span><span>   </span><span style='color: #BB0000;'>Inf</span><span></div><div class='input'>
+<span class='co'># only remove rows where every entry is Na, NaN, or Inf</span>
 <span class='va'>tbl1</span> <span class='op'>%&gt;%</span>
 <span class='fu'>filter_missing</span><span class='op'>(</span>condition <span class='op'>=</span> <span class='st'>"all"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing Na values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing Inf values</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 5 x 2</span><span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 1 rows containing Na values</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Removed 2 rows containing Inf values</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 4 x 2</span><span>
 #&gt;       x     y
 #&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>1</span><span>    </span><span style='color: #BB0000;'>NA</span><span>     1
 #&gt; </span><span style='color: #BCBCBC;'>2</span><span>     1    </span><span style='color: #BB0000;'>NA</span><span>
 #&gt; </span><span style='color: #BCBCBC;'>3</span><span>     2     2
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span>   </span><span style='color: #BB0000;'>NaN</span><span>   </span><span style='color: #BB0000;'>Inf</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span>     5     5</div></span></pre>
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span>     5     5</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -14,17 +14,17 @@ filter_missing(.data, ..., remove_inf = TRUE)
 
 \item{...}{tidyselect. default selection is all columns}
 
-\item{remove_inf}{logical. default is to also remove Inf values. set to False otherwise.}
+\item{remove_inf}{logical. default is to also remove `Inf` values. set to `FALSE` otherwise.}
 
-\item{condition}{defaults to "any". in which case removes rows if NA is in any specified column. "all" will remove rows only if each specified column is NA}
+\item{condition}{defaults to "any". in which case removes rows if `NA` is in any specified column. "all" will remove rows only if each specified column is missing}
 }
 \value{
 data frame
 }
 \description{
-More complex wrapper around filter(!is.na()) to remove NA rows using tidyselect. If any specified column contains an NA
-the whole row is removed. Reports the amount of rows removed containing NaN, Na, Inf, in that order.
-For example if one row contains Inf in one column and Na in another, the removed row will be counted in the Na tally.
+More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
+the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
+For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally.
 }
 \details{
 S3 method, can also be used on vectors
@@ -34,12 +34,17 @@ S3 method, can also be used on vectors
 tibble::tibble(x = c(NA, 1L, 2L, NA, NaN, 5L, Inf),
 y = c(1L, NA, 2L, NA, Inf, 5L, Inf)) -> tbl1
 
+tbl1
+
+# remove any row with a missing or Inf
 tbl1 \%>\%
 filter_missing()
 
+# remove any row with Na or NaN in the x column
 tbl1 \%>\%
 filter_missing(x, remove_inf = FALSE)
 
+# only remove rows where every entry is Na, NaN, or Inf
 tbl1 \%>\%
 filter_missing(condition = "all")
 }

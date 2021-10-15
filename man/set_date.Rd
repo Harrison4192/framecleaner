@@ -20,16 +20,25 @@ tibble
 set dates manually or automatically
 }
 \details{
-note: can be called without any `...` arguments and instead automatically determines which character columns
-are actually dates, then proceeds to set them. It checks for the date specified in `date_fn` and also \code{lubridate::ymd_hms}.
-On auto detect mode, it sets `ymd_hms` output to ymd dates instead of datetimes with hms. This is because of the common occurrence
-of trying to extract a `ymd` date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
+note: can be called without any \code{...} arguments and instead automatically determines which character columns
+are actually dates, then proceeds to set them. It checks for the date specified in \code{date_fn} and also \code{\link[lubridate]{ymd_hms}}.
+On auto detect mode, it sets \code{\link[lubridate]{ymd_hms}} output to ymd dates instead of datetimes with hms. This is because of the common occurrence
+of trying to extract a \code{\link[lubridate]{ymd}} date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
 supply the appropriate lubridate function.
 
 Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.
 }
 \examples{
 
-tibble::tibble(date = c("20190101", "20170205")) \%>\%
+tibble::tibble(date_col1 = c("20190101", "20170205"),
+date_col2 = c("20201015", "20180909"),
+not_date_col = c("a345", "b040")) -> t1
+
+t1
+
+t1 \%>\%
 set_date()
+
+t1 \%>\%
+set_date(date_col1)
 }

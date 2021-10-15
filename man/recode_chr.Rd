@@ -15,7 +15,7 @@ recode_chr(df, col, old_names, new_name, regex = FALSE, negate = FALSE)
 
 \item{new_name}{atomic chr string}
 
-\item{regex}{Logical, default F. If using a regular expression, set to T}
+\item{regex}{Logical, default F. Specify elements for old_names using a regex?}
 
 \item{negate}{logical, defailt F. If negating the regex, set to T}
 }
@@ -38,5 +38,13 @@ iris \%>\%
  negate = TRUE) \%>\%
  dplyr::count(Species)
 
+# Specify old names using a regex
 
+iris \%>\%
+   recode_chr(
+   col = Species,
+   old_names = "set|vir",
+   new_name = "other",
+   regex = TRUE) \%>\%
+   dplyr::count(Species)
 }

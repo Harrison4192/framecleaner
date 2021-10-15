@@ -4,7 +4,7 @@
 #' @param col unquoted col
 #' @param old_names character vector or regular expression
 #' @param new_name atomic chr string
-#' @param regex Logical, default F. If using a regular expression, set to T
+#' @param regex Logical, default F. Specify elements for old_names using a regex?
 #' @param negate logical, defailt F. If negating the regex, set to T
 #'
 #' @return df
@@ -23,7 +23,15 @@
 #'  negate = TRUE) %>%
 #'  dplyr::count(Species)
 #'
+#' # Specify old names using a regex
 #'
+#' iris %>%
+#'    recode_chr(
+#'    col = Species,
+#'    old_names = "set|vir",
+#'    new_name = "other",
+#'    regex = TRUE) %>%
+#'    dplyr::count(Species)
 recode_chr <- function(df, col, old_names, new_name, regex = FALSE, negate = FALSE){
 
   if(regex){

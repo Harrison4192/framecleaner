@@ -142,7 +142,7 @@
 <div id="set-nas" class="section level1">
 <h1 class="hasAnchor">
 <a href="#set-nas" class="anchor"></a>set nas</h1>
-<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>valiData::diagnose</code></p>
+<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code><a href="https://harrison4192.github.io/validata/reference/diagnose.html">validata::diagnose</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/make_na.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
