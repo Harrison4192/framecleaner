@@ -40,9 +40,9 @@
 
 
 <meta property="og:title" content="filter out missings — filter_missing" />
-<meta property="og:description" content="More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
-the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
-For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally." />
+<meta property="og:description" content="More complex wrapper around dplyr::filter(!is.na()) to remove NA rows using tidyselect. If any specified column contains an NA
+the whole row is removed. Reports the amount of rows removed containing NaN, NA, Inf, in that order.
+For example if one row contains Inf in one column and  in another, the removed row will be counted in the NA tally." />
 
 
 
@@ -144,9 +144,9 @@ For example if one row contains `Inf` in one column and  in another, the removed
     </div>
 
     <div class="ref-description">
-    <p>More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
-the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
-For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally.</p>
+    <p>More complex wrapper around <code><a href='https://dplyr.tidyverse.org/reference/filter.html'>dplyr::filter(!is.na())</a></code> to remove <code>NA</code> rows using tidyselect. If any specified column contains an <code>NA</code>
+the whole row is removed. Reports the amount of rows removed containing <code>NaN</code>, <code>NA</code>, <code>Inf</code>, in that order.
+For example if one row contains <code>Inf</code> in one column and  in another, the removed row will be counted in the <code>NA</code> tally.</p>
     </div>
 
     <pre class="usage"><span class='fu'>filter_missing</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, remove_inf <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
@@ -167,11 +167,11 @@ For example if one row contains `Inf` in one column and  in another, the removed
     </tr>
     <tr>
       <th>remove_inf</th>
-      <td><p>logical. default is to also remove `Inf` values. set to `FALSE` otherwise.</p></td>
+      <td><p>logical. default is to also remove <code>Inf</code> values. set to <code>FALSE</code> otherwise.</p></td>
     </tr>
     <tr>
       <th>condition</th>
-      <td><p>defaults to "any". in which case removes rows if `NA` is in any specified column. "all" will remove rows only if each specified column is missing</p></td>
+      <td><p>defaults to "any". in which case removes rows if <code>NA</code> is in any specified column. "all" will remove rows only if each specified column is missing</p></td>
     </tr>
     </table>
 

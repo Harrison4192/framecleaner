@@ -58,7 +58,7 @@ set_dbl <- function(.data, ...){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl character
 #' @export
-set_dbl.character <- function(.data){
+set_dbl.character <- function(.data, ...){
 
   .data %>%
     readr::parse_number()
@@ -67,7 +67,7 @@ set_dbl.character <- function(.data){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl factor
 #' @export
-set_dbl.factor <- function(.data){
+set_dbl.factor <- function(.data, ...){
 
   .data %>%
     as.character() %>%
@@ -77,7 +77,7 @@ set_dbl.factor <- function(.data){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl Date
 #' @export
-set_dbl.Date <- function(.data){
+set_dbl.Date <- function(.data, ...){
 
   .data %>%
     as.character() %>%
@@ -88,7 +88,7 @@ set_dbl.Date <- function(.data){
 #' @rdname set_dbl.data.frame
 #' @method set_dbl numeric
 #' @export
-set_dbl.numeric <- function(.data){
+set_dbl.numeric <- function(.data, ...){
 
   .data %>%
     as.double()

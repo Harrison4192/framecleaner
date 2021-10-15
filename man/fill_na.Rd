@@ -11,7 +11,7 @@ fill_na(.data, ..., fill = 0L, missing_type = c("all", "NA", "NaN", "Inf"))
 
 \item{...}{tidyselect specification. Default selection: none}
 
-\item{fill}{value to fill NAs}
+\item{fill}{value to fill missings}
 
 \item{missing_type}{character vector. Choose what type of missing to fill. Default is all types. choose from "all", "Na", "NaN", "Inf"}
 }
@@ -19,7 +19,7 @@ fill_na(.data, ..., fill = 0L, missing_type = c("all", "NA", "NaN", "Inf"))
 data frame
 }
 \description{
-use tidyselect to fill NA values
+use tidyselect to fill \code{NA} values
 Default behavior is to fill all integer or double columns cols with 0, preserving their types.
 }
 \examples{

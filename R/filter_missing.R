@@ -48,7 +48,7 @@ is_missing_or_inf <- function(x){
 
 
 #' @rdname filter_missing.data.frame
-#' @param remove_inf logical. default is to also remove Inf values. set to False otherwise.
+#' @param remove_inf logical. default is to also remove \code{Inf} values. set to \code{FALSE} otherwise.
 #' @export
 filter_missing <- function(.data, ..., remove_inf = TRUE){
 
@@ -57,17 +57,17 @@ filter_missing <- function(.data, ..., remove_inf = TRUE){
 
 #' filter out missings
 #'
-#' More complex wrapper around `filter(!is.na())` to remove `NA` rows using tidyselect. If any specified column contains an `NA`
-#' the whole row is removed. Reports the amount of rows removed containing `NaN`, `Na`, `Inf`, in that order.
-#' For example if one row contains `Inf` in one column and  in another, the removed row will be counted in the `NA` tally.
+#' More complex wrapper around \code{dplyr::filter(!is.na())} to remove \code{NA} rows using tidyselect. If any specified column contains an \code{NA}
+#' the whole row is removed. Reports the amount of rows removed containing \code{NaN}, \code{NA}, \code{Inf}, in that order.
+#' For example if one row contains \code{Inf} in one column and  in another, the removed row will be counted in the \code{NA} tally.
 #'
 #' S3 method, can also be used on vectors
 #'
 #' @method filter_missing data.frame
 #' @param .data dataframe
 #' @param ... tidyselect. default selection is all columns
-#' @param remove_inf logical. default is to also remove `Inf` values. set to `FALSE` otherwise.
-#' @param condition defaults to "any". in which case removes rows if `NA` is in any specified column. "all" will remove rows only if each specified column is missing
+#' @param remove_inf logical. default is to also remove \code{Inf} values. set to \code{FALSE} otherwise.
+#' @param condition defaults to "any". in which case removes rows if \code{NA} is in any specified column. "all" will remove rows only if each specified column is missing
 #'
 #' @return data frame
 #' @export
@@ -126,7 +126,7 @@ filter_missing.data.frame <- function(.data, ..., remove_inf = TRUE, condition =
   rows2 - rows3 -> na_diff
 
   if(na_diff > 0){
-    warning(stringr::str_c("Removed ",na_diff, " rows containing Na values"), call. = FALSE)
+    warning(stringr::str_c("Removed ",na_diff, " rows containing NA values"), call. = FALSE)
   }
 
   if(remove_inf){
@@ -171,7 +171,7 @@ filter_missing.default<- function(.data, ..., remove_inf = TRUE){
   elements2 - elements3 -> na_diff
 
   if(na_diff > 0){
-    warning(stringr::str_c("Removed ",na_diff, " elements containing Na values"), call. = FALSE)
+    warning(stringr::str_c("Removed ",na_diff, " elements containing NA values"), call. = FALSE)
   }
 
   if(remove_inf){

@@ -1,11 +1,11 @@
 #' Fill NAs
 #'
-#' use tidyselect to fill NA values
+#' use tidyselect to fill \code{NA} values
 #' Default behavior is to fill all integer or double columns cols with 0, preserving their types.
 #'
 #' @param .data data frame
 #' @param ... tidyselect specification. Default selection: none
-#' @param fill value to fill NAs
+#' @param fill value to fill missings
 #' @param missing_type character vector. Choose what type of missing to fill. Default is all types. choose from "all", "Na", "NaN", "Inf"
 #'
 #' @return data frame
