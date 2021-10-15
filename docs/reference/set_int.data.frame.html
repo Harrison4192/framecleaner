@@ -172,30 +172,41 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'># automaticaly turns "integerish" characters or doubles into int values</span>
 
 <span class='va'>int_vec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1"</span>, <span class='st'>"2"</span>, <span class='st'>"10"</span><span class='op'>)</span>
 
 <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
-x <span class='op'>=</span> <span class='va'>int_vec</span>,
-y <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.0</span>, <span class='fl'>5.0</span>, <span class='fl'>20.0</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>tbl</span>
+  chr_int <span class='op'>=</span> <span class='va'>int_vec</span>,
+  dbl_int <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.0</span>, <span class='fl'>5.0</span>, <span class='fl'>20.0</span><span class='op'>)</span>,
+  chr_int64 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"1033493932"</span>, <span class='st'>"4432500065"</span>, <span class='st'>"30303022192"</span><span class='op'>)</span>,
+  string_int <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SALES2020"</span>, <span class='st'>"SALES2021"</span>, <span class='st'>"SALES2022"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>tbl</span>
 
 <span class='co'># automatically coerce integerish cols in a tibble</span>
 <span class='va'>tbl</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 2</span><span>
-#&gt;   x         y
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 1         1
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 2         5
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 10       20</div><div class='input'>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 x 4</span><span>
+#&gt;   chr_int dbl_int chr_int64   string_int
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 1             1 1033493932  SALES2020 
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 2             5 4432500065  SALES2021 
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 10           20 30303022192 SALES2022 </div><div class='input'>
+<span class='co'># integerish doubles or chars will be detected for coercion automatically</span>
 <span class='va'>tbl</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_int</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 2</span><span>
-#&gt;       x     y
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span>     1     1
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span>     2     5
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span>    10    20</div><div class='input'>
+  <span class='fu'>set_int</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 4</span><span>
+#&gt;   chr_int dbl_int   chr_int64 string_int
+#&gt;     </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;int64&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>     
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span>       1       1 </span><span style='text-decoration: underline;'> 1</span><span>033</span><span style='text-decoration: underline;'>493</span><span>932 SALES2020 
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span>       2       5 </span><span style='text-decoration: underline;'> 4</span><span>432</span><span style='text-decoration: underline;'>500</span><span>065 SALES2021 
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span>      10      20 </span><span style='text-decoration: underline;'>30</span><span>303</span><span style='text-decoration: underline;'>022</span><span>192 SALES2022 </div><div class='input'>
+<span class='co'># string_int requires parsing, so it must be specified directly for coercion</span>
+<span class='va'>tbl</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>set_int</span><span class='op'>(</span><span class='fu'>matches</span><span class='op'>(</span><span class='st'>"str|chr"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>some elements containing non-numeric values have been parsed as integers</span></div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 3 x 4</span><span>
+#&gt;   chr_int dbl_int   chr_int64 string_int
+#&gt;     </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;int64&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span>       1       1 </span><span style='text-decoration: underline;'> 1</span><span>033</span><span style='text-decoration: underline;'>493</span><span>932       </span><span style='text-decoration: underline;'>2</span><span>020
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span>       2       5 </span><span style='text-decoration: underline;'> 4</span><span>432</span><span style='text-decoration: underline;'>500</span><span>065       </span><span style='text-decoration: underline;'>2</span><span>021
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span>      10      20 </span><span style='text-decoration: underline;'>30</span><span>303</span><span style='text-decoration: underline;'>022</span><span>192       </span><span style='text-decoration: underline;'>2</span><span>022</div><div class='input'>
 <span class='co'># s3 method works for vectors as well</span>
 
 <span class='va'>int_vec</span>

@@ -25,19 +25,25 @@ set integer
 }
 \examples{
 
-# automaticaly turns "integerish" characters or doubles into int values
 
 int_vec <- c("1", "2", "10")
 
 tibble::tibble(
-x = int_vec,
-y = c(1.0, 5.0, 20.0)) -> tbl
+  chr_int = int_vec,
+  dbl_int = c(1.0, 5.0, 20.0),
+  chr_int64 = c("1033493932", "4432500065", "30303022192"),
+  string_int = c("SALES2020", "SALES2021", "SALES2022")) -> tbl
 
 # automatically coerce integerish cols in a tibble
 tbl
 
+# integerish doubles or chars will be detected for coercion automatically
 tbl \%>\%
-set_int()
+  set_int()
+
+# string_int requires parsing, so it must be specified directly for coercion
+tbl \%>\%
+  set_int(matches("str|chr"))
 
 # s3 method works for vectors as well
 
