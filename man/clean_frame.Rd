@@ -19,13 +19,13 @@ Uses the functions of framecleaner and other operations to apply cleaning operat
 Functions applied in \code{clean_frame}
 
 \itemize{
-\item{\code{\link[janitor]{janitor::remove_empty}}}
-\item{\code{\link[dplyr]{dplyr::rename_with}} \code{.fn = \link[base]{enc2utf8}}}
-\item{\code{\link[janitor]{janitor::clean_names(case = "all_caps", ascii = FALSE)}}}
+\item{\code{\link[janitor]{remove_empty}}}
+\item{\code{\link[dplyr]{rename_with}} \code{.fn = \link[base]{enc2utf8}}}
+\item{\code{\link[janitor]{clean_names}} \code{case = "all_caps", ascii = FALSE)}}
 \item{\code{\link{set_int}}}
 \item{\code{\link{set_date}}}
 \item{\code{\link{make_na}}}
-\item{\code{\link[tibble]{tibble::as_tibble}}}
+\item{\code{\link[tibble]{as_tibble}}}
 
 }
 }
