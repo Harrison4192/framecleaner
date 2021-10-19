@@ -10,7 +10,6 @@ vignette: >
 
 ```{r message=F, warning=F}
 library(framecleaner)
-library(printr)
 library(dplyr)
 ```
 
@@ -66,7 +65,7 @@ sample_table %>%
 
 # clean frame
 
-Wrapper function to apply all cleaning operations to a data frame using sensible defaults. I encourage you to build your own `clean_frame` function to suit your needs. 
+Wrapper function to apply all cleaning operations to a data frame using sensible defaults. 
 
 ```{r}
 sample_table %>% 

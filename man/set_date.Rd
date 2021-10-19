@@ -24,7 +24,7 @@ note: can be called without any \code{...} arguments and instead automatically d
 are actually dates, then proceeds to set them. It checks for the date specified in \code{date_fn} and also \code{\link[lubridate]{ymd_hms}}.
 On auto detect mode, it sets \code{\link[lubridate]{ymd_hms}} output to ymd dates instead of datetimes with hms. This is because of the common occurrence
 of trying to extract a \code{\link[lubridate]{ymd}} date from an excel workbook, and having it come with extra 00:00:00. If you need a datetime, manually
-supply the appropriate lubridate function.
+supply the appropriate \href{https://lubridate.tidyverse.org/}{lubridate} function.
 
 Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.
 }

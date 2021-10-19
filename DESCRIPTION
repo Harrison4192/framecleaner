@@ -31,8 +31,7 @@ Imports:
     vroom,
     readxl,
     fs,
-    rlist,
-    printr
+    rlist
 RoxygenNote: 7.1.1
 Suggests: 
     knitr,
