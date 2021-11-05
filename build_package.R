@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("create_flag")
+usethis::use_r("create_dummmies")
 
 # add this file to .Rbuildignore ------------------------------------------
 
@@ -50,6 +50,15 @@ usethis::use_package("readxl")
 usethis::use_package("badger", type = "Suggests")
 
 usethis::use_r("create_flag")
+
+usethis::use_r("set_fct")
+usethis::use_r("set_dbl")
+usethis::use_r("set_int")
+usethis::use_r("set_chr")
+usethis::use_r("set_date")
+usethis::use_r("set_lgl")
+
+
 
 # edit R profile ----------------------------------------------------------
 
@@ -120,4 +129,5 @@ usethis::use_cran_comments(open = rlang::is_interactive())
 devtools::check_win_devel()
 devtools::check_rhub()
 
+library(TidyConsultant)
 

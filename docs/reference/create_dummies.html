@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>set factor — set_fct • framecleaner</title>
+<title>create dummies — create_dummies • framecleaner</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,9 @@
 
 
 
-<meta property="og:title" content="set factor — set_fct" />
-<meta property="og:description" content="allows option to manually set the first level of the factor, for consistency with
-yardstick which automatically considers the first level
-as the &quot;positive class&quot; when evaluating classification." />
+<meta property="og:title" content="create dummies — create_dummies" />
+<meta property="og:description" content="adapted from the dummy_cols function Added the option to truncate the dummy column
+names, and to specify dummy cols using tidyselect." />
 
 
 
@@ -138,59 +137,97 @@ as the &quot;positive class&quot; when evaluating classification." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>set factor</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/setters.R'><code>R/setters.R</code></a></small>
-    <div class="hidden name"><code>set_fct.Rd</code></div>
+    <h1>create dummies</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/create_dummmies.R'><code>R/create_dummmies.R</code></a></small>
+    <div class="hidden name"><code>create_dummies.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>allows option to manually set the first level of the factor, for consistency with
-yardstick which automatically considers the first level
-as the "positive class" when evaluating classification.</p>
+    <p>adapted from the <code><a href='https://jacobkap.github.io/fastDummies/reference/dummy_cols.html'>dummy_cols</a></code> function Added the option to truncate the dummy column
+names, and to specify dummy cols using tidyselect.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, first_level <span class='op'>=</span> <span class='cn'>NULL</span>, order_fct <span class='op'>=</span> <span class='cn'>FALSE</span>, max_levels <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>create_dummies</span><span class='op'>(</span>
+  <span class='va'>.data</span>,
+  <span class='va'>...</span>,
+  append_col_name <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  max_levels <span class='op'>=</span> <span class='fl'>10L</span>,
+  remove_first_dummy <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  remove_most_frequent_dummy <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  ignore_na <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  split <span class='op'>=</span> <span class='cn'>NULL</span>,
+  remove_selected_columns <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.data</th>
-      <td><p>dataframe</p></td>
+      <td><p>data frame</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>tidyselect (default selection: all character columns)</p></td>
+      <td><p>tidyselect columns. default selection is all character or factor variables</p></td>
     </tr>
     <tr>
-      <th>first_level</th>
-      <td><p>character string to set the first level of the factor</p></td>
-    </tr>
-    <tr>
-      <th>order_fct</th>
-      <td><p>logical. ordered factor?</p></td>
+      <th>append_col_name</th>
+      <td><p>logical, default TRUE. Appends original column name to dummy col name</p></td>
     </tr>
     <tr>
       <th>max_levels</th>
-      <td><p>uses <code><a href='https://forcats.tidyverse.org/reference/fct_lump.html'>fct_lump_n</a></code> to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other"</p></td>
+      <td><p>uses <code><a href='https://forcats.tidyverse.org/reference/fct_lump.html'>fct_lump_n</a></code> to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other". Default is set to 10 levels, to prevent accidental overload. Set value to <code>Inf</code> to use all levels</p></td>
+    </tr>
+    <tr>
+      <th>remove_first_dummy</th>
+      <td><p>logical, default FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>remove_most_frequent_dummy</th>
+      <td><p>logical, default FALSE</p></td>
+    </tr>
+    <tr>
+      <th>ignore_na</th>
+      <td><p>logical, default FALSE</p></td>
+    </tr>
+    <tr>
+      <th>split</th>
+      <td><p>NULL</p></td>
+    </tr>
+    <tr>
+      <th>remove_selected_columns</th>
+      <td><p>logical, default TRUE</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>tibble</p>
+    <p>data frame</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>reference the <a href='https://jacobkap.github.io/fastDummies/index.html'>fastDummies</a> package for documentation on the original function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='co'>## simply set the first level of a factor</span>
-
-<span class='va'>iris</span><span class='op'>$</span><span class='va'>Species</span> <span class='op'>%&gt;%</span> <span class='va'>levels</span>
-</div><div class='output co'>#&gt; [1] "setosa"     "versicolor" "virginica" </div><div class='input'>
 <span class='va'>iris</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>set_fct</span><span class='op'>(</span><span class='va'>Species</span>, first_level <span class='op'>=</span> <span class='st'>"virginica"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "virginica"  "setosa"     "versicolor"</div></pre>
+<span class='fu'>create_dummies</span><span class='op'>(</span><span class='va'>Species</span>, append_col_name <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 150 x 7</span><span>
+#&gt;    Sepal.Length Sepal.Width Petal.Length Petal.Width setosa versicolor virginica
+#&gt;           </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>       </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>     </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span>          5.1         3.5          1.4         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span>          4.9         3            1.4         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span>          4.7         3.2          1.3         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span>          4.6         3.1          1.5         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span>          5           3.6          1.4         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span>          5.4         3.9          1.7         0.4      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span>          4.6         3.4          1.4         0.3      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span>          5           3.4          1.5         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span>          4.4         2.9          1.4         0.2      1          0         0
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span>          4.9         3.1          1.5         0.1      1          0         0
+#&gt; </span><span style='color: #949494;'># … with 140 more rows</span><span></div><div class='input'>
+
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

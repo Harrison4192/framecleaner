@@ -4,6 +4,7 @@
 #' Don't use this function on columns of different modes at once.
 #' Defaults to choosing all character columns.
 #'
+#' @method make_na data.frame
 #' @param .data data frame
 #' @param ... tidyselect. Default selection: all chr cols
 #' @param vec vector of possible elements to replace with NA
@@ -19,33 +20,59 @@
 #'    make_na()
 #'
 
-make_na <- function(.data, ...,  vec = c("-", "", " ", "null")){
+make_na.data.frame <- function(.data, ...,  vec = c("-", "", " ", "null", "NA", "NA_")){
 
   .data %>%
-    select_otherwise(..., where(is.character)) -> col_indx
+    select_otherwise(..., otherwise = where(is.character), return_type = "names") -> cols
+
 
   .data %>%
-    select_otherwise(where(is.factor)) -> fct_indx
+    dplyr::mutate(dplyr::across(tidyselect::any_of(cols), .fns = ~make_na(., vec = vec))) -> .data
 
-  fctrs <- dplyr::intersect(col_indx, fct_indx)
+  .data
+
+
+}
+
+
+make_na <- function(.data, ...){
+
+  UseMethod("make_na", .data)
+}
+
+#' @export
+make_na.default<- function(.data, ...){
+
+  ifelse(.data %in% vec, NA, .data)
+}
+
+#' @export
+#' @method make_na factor
+make_na.factor <- function(.data, ..., vec = c("-", "", " ", "null", "NA", "NA_")){
+
 
   .data %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(fctrs), as.character)) -> .data1
+    as.character() %>%
+    make_na.character(vec = vec) -> .data1
 
-
+  .data %>%
+    levels() %>%
+    setdiff(vec) -> new_levls
 
   .data1 %>%
-    dplyr::mutate(dplyr::across(tidyselect::any_of(col_indx), ~ifelse(. %in% vec, NA, .))) -> .data2
+    factor(levels = new_levls)
+}
 
-  for(i in fctrs){
+#' @export
+#' @method make_na character
+make_na.character<- function(.data, ...,  vec = c("-", "", " ", "null", "NA", "NA_")){
 
-    .data %>%
-      dplyr::pull(i) %>%
-      levels() %>%
-      setdiff(vec) -> new_levls
+    ifelse(.data %in% vec, NA, .data)
+}
 
-    .data2 %>%
-      dplyr::mutate(dplyr::across(tidyselect::any_of(i), ~factor(., levels = new_levls))) -> .data2}
+#' @export
+#' @method make_na numeric
+make_na.numeric <- function(.data, ..., vec = c(Inf, -Inf, NaN)){
 
-  .data2
+  ifelse(.data %in% vec, NA, .data)
 }

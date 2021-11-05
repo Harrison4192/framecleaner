@@ -1,5 +1,6 @@
 template:
   params:
+    bootstrap: 5
     bootswatch: united
     ganalytics: G-S8LT8TQV81
 
@@ -7,12 +8,14 @@ development:
   mode: auto
 
 reference:
-- title: Use a tidyselect specification to modify columns in your data frame
+- title: Functions to modify columns in your data frame
   contents:
   - '`remove_whitespace`'
   - '`relocate_all`'
   - '`recode_chr`'
   - '`create_flag`'
+  - '`create_dummies`'
+  - '`filter_for`'
 - title: Deal with NAs
   contents:
   - matches("na")

@@ -31,12 +31,13 @@ Imports:
     vroom,
     readxl,
     fs,
-    rlist
-RoxygenNote: 7.1.1
+    rlist,
+    fastDummies
+RoxygenNote: 7.1.2
 Suggests: 
     knitr,
     rmarkdown,
     badger
 VignetteBuilder: knitr
-URL: https://github.com/Harrison4192/framecleaner, https://harrison4192.github.io/framecleaner/
+URL: https://harrison4192.github.io/framecleaner/, https://github.com/Harrison4192/framecleaner
 BugReports: https://github.com/Harrison4192/framecleaner/issues
