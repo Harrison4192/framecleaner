@@ -34,14 +34,15 @@ make_na.data.frame <- function(.data, ...,  vec = c("-", "", " ", "null", "NA", 
 
 }
 
-
-make_na <- function(.data, ...){
+#' @rdname make_na.data.frame
+#' @export
+make_na <- function(.data, ..., vec = c("-", "", " ", "null", "NA", "NA_")){
 
   UseMethod("make_na", .data)
 }
 
 #' @export
-make_na.default<- function(.data, ...){
+make_na.default<- function(.data, ..., vec = c("-", "", " ", "null", "NA", "NA_")){
 
   ifelse(.data %in% vec, NA, .data)
 }

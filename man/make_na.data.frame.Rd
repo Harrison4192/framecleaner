@@ -2,9 +2,12 @@
 % Please edit documentation in R/make_na.R
 \name{make_na.data.frame}
 \alias{make_na.data.frame}
+\alias{make_na}
 \title{Make NAs}
 \usage{
 \method{make_na}{data.frame}(.data, ..., vec = c("-", "", " ", "null", "NA", "NA_"))
+
+make_na(.data, ..., vec = c("-", "", " ", "null", "NA", "NA_"))
 }
 \arguments{
 \item{.data}{data frame}

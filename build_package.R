@@ -121,7 +121,7 @@ devtools::build_vignettes()
 devtools::build_site()
 devtools::check()
 preview_site()
-build_vignettes()
+devtools::build_vignettes()
 devtools::spell_check()
 devtools::release(check = T)
 
