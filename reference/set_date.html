@@ -137,7 +137,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>set date</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/setters.R'><code>R/setters.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/set_date.R'><code>R/set_date.R</code></a></small>
     <div class="hidden name"><code>set_date.Rd</code></div>
     </div>
 
@@ -177,31 +177,34 @@ supply the appropriate <a href='https://lubridate.tidyverse.org/'>lubridate</a> 
 <p>Auto mode is experimental. Commonly detected error is a long character string of integers being interpreted as a date.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>date_col1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20190101"</span>, <span class='st'>"20170205"</span><span class='op'>)</span>,
-date_col2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20201015"</span>, <span class='st'>"20180909"</span><span class='op'>)</span>,
-not_date_col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a345"</span>, <span class='st'>"b040"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>t1</span>
-
-<span class='va'>t1</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1 date_col2 not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 20190101  20201015  a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 20170205  20180909  b040        </div><div class='input'>
-<span class='va'>t1</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_date</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1  date_col2  not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 2019-01-01 2020-10-15 a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 2017-02-05 2018-09-09 b040        </div><div class='input'>
-<span class='va'>t1</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_date</span><span class='op'>(</span><span class='va'>date_col1</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 3</span>
-#&gt;   date_col1  date_col2 not_date_col
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       
-#&gt; <span style='color: #BCBCBC;'>1</span> 2019-01-01 20201015  a345        
-#&gt; <span style='color: #BCBCBC;'>2</span> 2017-02-05 20180909  b040        </div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>date_col1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20190101"</span>, <span class='st'>"20170205"</span><span class='op'>)</span>,</span>
+<span class='r-in'>date_col2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"20201015"</span>, <span class='st'>"20180909"</span><span class='op'>)</span>,</span>
+<span class='r-in'>not_date_col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a345"</span>, <span class='st'>"b040"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>t1</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>t1</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   date_col1 date_col2 not_date_col</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 20190101  20201015  a345        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 20170205  20180909  b040        </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>t1</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'><span class='fu'>set_date</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   date_col1  date_col2  not_date_col</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 2019-01-01 2020-10-15 a345        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 2017-02-05 2018-09-09 b040        </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>t1</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'><span class='fu'>set_date</span><span class='op'>(</span><span class='va'>date_col1</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   date_col1  date_col2 not_date_col</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 2019-01-01 20201015  a345        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 2017-02-05 20180909  b040        </span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

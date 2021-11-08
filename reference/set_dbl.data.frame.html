@@ -137,7 +137,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>set double</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/setters.R'><code>R/setters.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/set_dbl.R'><code>R/set_dbl.R</code></a></small>
     <div class="hidden name"><code>set_dbl.data.frame.Rd</code></div>
     </div>
 
@@ -180,36 +180,39 @@
     <p>tibble</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-
-
-<span class='va'>date_col</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>(</span><span class='fl'>20180101</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>(</span><span class='fl'>20210420</span><span class='op'>)</span><span class='op'>)</span>
-
-
-<span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>int <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>2L</span><span class='op'>)</span>,
-fct <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>11</span><span class='op'>)</span><span class='op'>)</span>,
-date <span class='op'>=</span> <span class='va'>date_col</span>,
-chr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a2.1"</span>, <span class='st'>"rtg50.5"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>t1</span>
-
-<span class='va'>t1</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 4</span>
-#&gt;     int fct   date       chr    
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  
-#&gt; <span style='color: #BCBCBC;'>1</span>     1 10    2018-01-01 a2.1   
-#&gt; <span style='color: #BCBCBC;'>2</span>     2 11    2021-04-20 rtg50.5</div><div class='input'>
-<span class='va'>t1</span> <span class='op'>%&gt;%</span>
-<span class='fu'>set_dbl</span><span class='op'>(</span><span class='fu'>tidyselect</span><span class='fu'>::</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 × 4</span>
-#&gt;     int   fct     date   chr
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span>     1    10 20<span style='text-decoration: underline;'>180</span>101   2.1
-#&gt; <span style='color: #BCBCBC;'>2</span>     2    11 20<span style='text-decoration: underline;'>210</span>420  50.5</div><div class='input'>
-<span class='co'># s3 method works for vectors individually</span>
-<span class='co'># custom date coercion to represent date as a number. For lubridate's coercion method, use set_int</span>
-<span class='va'>date_col</span> <span class='op'>%&gt;%</span>
-<span class='va'>set_dbl</span>
-</div><div class='output co'>#&gt; [1] 20180101 20210420</div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>date_col</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>(</span><span class='fl'>20180101</span><span class='op'>)</span>, <span class='fu'>lubridate</span><span class='fu'>::</span><span class='fu'><a href='https://lubridate.tidyverse.org/reference/ymd.html'>ymd</a></span><span class='op'>(</span><span class='fl'>20210420</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>int <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>2L</span><span class='op'>)</span>,</span>
+<span class='r-in'>fct <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>11</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span class='r-in'>date <span class='op'>=</span> <span class='va'>date_col</span>,</span>
+<span class='r-in'>chr <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a2.1"</span>, <span class='st'>"rtg50.5"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>-&gt;</span> <span class='va'>t1</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>t1</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 4</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     int fct   date       chr    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;fct&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;date&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>     1 10    2018-01-01 a2.1   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>     2 11    2021-04-20 rtg50.5</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>t1</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'><span class='fu'>set_dbl</span><span class='op'>(</span><span class='fu'>tidyselect</span><span class='fu'>::</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 2 × 4</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     int   fct     date   chr</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span>     1    10 20<span style='text-decoration: underline;'>180</span>101   2.1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span>     2    11 20<span style='text-decoration: underline;'>210</span>420  50.5</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># s3 method works for vectors individually</span></span>
+<span class='r-in'><span class='co'># custom date coercion to represent date as a number. For lubridate's coercion method, use set_int</span></span>
+<span class='r-in'><span class='va'>date_col</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'><span class='va'>set_dbl</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 20180101 20210420</span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

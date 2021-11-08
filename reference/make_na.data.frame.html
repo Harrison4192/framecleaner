@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>set character — set_chr • framecleaner</title>
+<title>Make NAs — make_na.data.frame • framecleaner</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,10 @@
 
 
 
-<meta property="og:title" content="set character — set_chr" />
-<meta property="og:description" content="set character" />
+<meta property="og:title" content="Make NAs — make_na.data.frame" />
+<meta property="og:description" content="Set elements to NA values using tidyselect specification.
+Don't use this function on columns of different modes at once.
+Defaults to choosing all character columns." />
 
 
 
@@ -136,53 +138,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>set character</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/set_chr.R'><code>R/set_chr.R</code></a></small>
-    <div class="hidden name"><code>set_chr.Rd</code></div>
+    <h1>Make NAs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/Harrison4192/framecleaner/blob/master/R/make_na.R'><code>R/make_na.R</code></a></small>
+    <div class="hidden name"><code>make_na.data.frame.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>set character</p>
+    <p>Set elements to NA values using tidyselect specification.
+Don't use this function on columns of different modes at once.
+Defaults to choosing all character columns.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_chr</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='co'># S3 method for data.frame</span>
+<span class='fu'>make_na</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, vec <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"-"</span>, <span class='st'>""</span>, <span class='st'>" "</span>, <span class='st'>"null"</span>, <span class='st'>"NA"</span>, <span class='st'>"NA_"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>make_na</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>...</span>, vec <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"-"</span>, <span class='st'>""</span>, <span class='st'>" "</span>, <span class='st'>"null"</span>, <span class='st'>"NA"</span>, <span class='st'>"NA_"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.data</th>
-      <td><p>dataframe</p></td>
+      <td><p>data frame</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>tidyselect. Default selection: none</p></td>
+      <td><p>tidyselect. Default selection: all chr cols</p></td>
+    </tr>
+    <tr>
+      <th>vec</th>
+      <td><p>vector of possible elements to replace with NA</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>dataframe</p>
+    <p>data frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='r-in'></span>
-<span class='r-in'><span class='va'>iris</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
-<span class='r-in'><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/as_tibble.html'>as_tibble</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
-<span class='r-in'><span class='fu'>set_chr</span><span class='op'>(</span><span class='fu'>tidyselect</span><span class='fu'>::</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 150 × 5</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 5.1          3.5         1.4          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 4.9          3           1.4          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 4.7          3.2         1.3          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 4.6          3.1         1.5          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 5            3.6         1.4          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 5.4          3.9         1.7          0.4         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 4.6          3.4         1.4          0.3         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 5            3.4         1.5          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 4.4          2.9         1.4          0.2         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 4.9          3.1         1.5          0.1         setosa </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 140 more rows</span></span>
+<span class='r-in'><span class='co'># easily set NA values. blank space and empty space are default options</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>tibble</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"a"</span>, <span class='st'>"b"</span>, <span class='st'>""</span>, <span class='st'>"d"</span>, <span class='st'>" "</span>, <span class='st'>""</span>, <span class='st'>"e"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>   <span class='fu'>make_na</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 7 × 1</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   x    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> a    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> b    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> d    </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>6</span> <span style='color: #BB0000;'>NA</span>   </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>7</span> e    </span>
 <span class='r-in'></span>
 </pre>
   </div>

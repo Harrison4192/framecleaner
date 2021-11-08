@@ -102,7 +102,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Harrison4192/framecleaner">framecleaner</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://harrison4192.github.io/framecleaner/">framecleaner</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
 <p>Data imported from excel and csv in business situations can have messy characteristics and data formats. This package provides functions to tidy your data frame using the power of <code>tidyselect</code>.</p>
 <p><strong>create sample data</strong></p>
@@ -123,10 +123,10 @@
 <div id="set-nas" class="section level1">
 <h1 class="hasAnchor">
 <a href="#set-nas" class="anchor"></a>set nas</h1>
-<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code><a href="https://rdrr.io/r/base/c.html">c("-", "", " ", "null")</a></code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>validata::diagnose</code></p>
+<p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code>c("-", "", " ", "null")</code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>validata::diagnose</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/make_na.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/make_na.data.frame.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   date     numeric_val char_val  
 ##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;     
@@ -139,7 +139,7 @@
 <a href="#remove-whitespace" class="anchor"></a>remove whitespace</h1>
 <p>remove whitespace from the ends of character variables that may be otherwise undetectable by inspection.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/remove_whitespace.html">remove_whitespace</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   date     numeric_val char_val
@@ -153,7 +153,7 @@
 <a href="#set-dates" class="anchor"></a>set dates</h1>
 <p>automatically convert character columns that should be dates.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/set_date.html">set_date</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   date       numeric_val char_val  
@@ -167,7 +167,7 @@
 <a href="#relocate-all" class="anchor"></a>relocate all</h1>
 <p>relocates an unorganized dataframe using heuristics such as putting character and date columns first, and organizing by alphabetical order.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/relocate_all.html">relocate_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   date     char_val   numeric_val
@@ -181,7 +181,7 @@
 <a href="#clean-frame" class="anchor"></a>clean frame</h1>
 <p>Wrapper function to apply all cleaning operations to a data frame using sensible defaults.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/clean_frame.html">clean_frame</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##       DATE NUMERIC_VAL CHAR_VAL  
@@ -195,7 +195,7 @@
 <a href="#fill-nas" class="anchor"></a>fill nas</h1>
 <p>use tidyselect to fill NAs with a single value</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/fill_na.html">fill_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   date     numeric_val char_val  

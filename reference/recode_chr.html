@@ -181,32 +181,34 @@
     <p>df</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Use a negative regex to rename all species other than "virginica" to "none"</span>
-
-<span class='va'>iris</span> <span class='op'>%&gt;%</span>
-   <span class='fu'>recode_chr</span><span class='op'>(</span>
- col <span class='op'>=</span> <span class='va'>Species</span>,
- old_names <span class='op'>=</span> <span class='st'>"vir"</span>,
- new_name <span class='op'>=</span> <span class='st'>"none"</span>,
- regex <span class='op'>=</span> <span class='cn'>TRUE</span>,
- negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
- <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;     Species   n
-#&gt; 1      none 100
-#&gt; 2 virginica  50</div><div class='input'>
-<span class='co'># Specify old names using a regex</span>
-
-<span class='va'>iris</span> <span class='op'>%&gt;%</span>
-   <span class='fu'>recode_chr</span><span class='op'>(</span>
-   col <span class='op'>=</span> <span class='va'>Species</span>,
-   old_names <span class='op'>=</span> <span class='st'>"set|vir"</span>,
-   new_name <span class='op'>=</span> <span class='st'>"other"</span>,
-   regex <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;      Species   n
-#&gt; 1      other 100
-#&gt; 2 versicolor  50</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='co'># Use a negative regex to rename all species other than "virginica" to "none"</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>iris</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>   <span class='fu'>recode_chr</span><span class='op'>(</span></span>
+<span class='r-in'> col <span class='op'>=</span> <span class='va'>Species</span>,</span>
+<span class='r-in'> old_names <span class='op'>=</span> <span class='st'>"vir"</span>,</span>
+<span class='r-in'> new_name <span class='op'>=</span> <span class='st'>"none"</span>,</span>
+<span class='r-in'> regex <span class='op'>=</span> <span class='cn'>TRUE</span>,</span>
+<span class='r-in'> negate <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>     Species   n</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      none 100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 virginica  50</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Specify old names using a regex</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>iris</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>   <span class='fu'>recode_chr</span><span class='op'>(</span></span>
+<span class='r-in'>   col <span class='op'>=</span> <span class='va'>Species</span>,</span>
+<span class='r-in'>   old_names <span class='op'>=</span> <span class='st'>"set|vir"</span>,</span>
+<span class='r-in'>   new_name <span class='op'>=</span> <span class='st'>"other"</span>,</span>
+<span class='r-in'>   regex <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='%>%.html'>%&gt;%</a></span></span>
+<span class='r-in'>   <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>Species</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      Species   n</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1      other 100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 versicolor  50</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
