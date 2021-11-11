@@ -25,6 +25,8 @@ select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_ty
 
   .dots <- rlang::expr(c(...))
 
+  dots_input <- as.character(rlang::enexprs(...))
+
   col <- rlang::enexpr(col)
 
   otherwise = rlang::enexpr(otherwise)
@@ -32,12 +34,18 @@ select_otherwise <- function(.data, ..., otherwise = NULL, col = NULL, return_ty
 
   tidyselect::eval_select(.dots, data = .data) -> eval1
 
-  if(length(eval1) == 0){
+
+
+  if(length(eval1) == 0 & length(dots_input) != 0){
+    eval1 <- NULL
+  } else if (length(eval1) == 0){
     tidyselect::eval_select( otherwise, data = .data) -> eval1
   }
 
+
   tidyselect::eval_select(col, data = .data) %>%
     c(eval1) %>% sort() -> eval1
+
 
 
   if(return_type == "df"){

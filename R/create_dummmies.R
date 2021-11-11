@@ -37,6 +37,8 @@ create_dummies <- function(.data, ...,
   .data %>%
     select_otherwise(..., otherwise = where(is.character) | where(is.factor), return_type = "names") -> dummy_cols
 
+if(!rlang::is_empty(dummy_cols)){
+
 .data %>%
   set_fct(tidyselect::any_of(dummy_cols), max_levels = max_levels) %>%
   fastDummies::dummy_cols(
@@ -50,12 +52,20 @@ create_dummies <- function(.data, ...,
 
   setdiff(names(.data1), names(.data)) -> dummynames
 
+message(
+  stringr::str_c(length(dummy_cols), " column(s) have become ", length(dummynames), " dummy columns")
+)
+
 
   if(!append_col_name){
    .data1 %>%
       dplyr::rename_with(.fn = ~stringr::str_remove(., stringr::str_c(dummy_cols, "_")), .cols = tidyselect::any_of(dummynames)) -> .data1
   }
 
-  .data1
+}
+  else{
+    message("no dummies were created")
+    .data -> .data1
+  }
 }
 
