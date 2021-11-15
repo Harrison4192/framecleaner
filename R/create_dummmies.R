@@ -67,5 +67,7 @@ message(
     message("no dummies were created")
     .data -> .data1
   }
+
+  .data1
 }
 
