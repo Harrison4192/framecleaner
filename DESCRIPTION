@@ -14,7 +14,6 @@ Encoding: UTF-8
 Imports: 
     dplyr,
     stringr,
-    stringi,
     tidyselect,
     purrr,
     janitor,
@@ -23,13 +22,11 @@ Imports:
     magrittr,
     tibble,
     rstudioapi,
-    tidyr,
     forcats,
     bit64,
     rio,
     readr,
     vroom,
-    readxl,
     fs,
     rlist,
     fastDummies
@@ -37,7 +34,8 @@ RoxygenNote: 7.1.2
 Suggests: 
     knitr,
     rmarkdown,
-    badger
+    badger,
+    readxl
 VignetteBuilder: knitr
 URL: https://harrison4192.github.io/framecleaner/, https://github.com/Harrison4192/framecleaner
 BugReports: https://github.com/Harrison4192/framecleaner/issues
