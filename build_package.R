@@ -110,6 +110,7 @@ usethis::use_github_actions()
 usethis::use_github_links()
 usethis::use_github_pages()
 
+usethis::use_version("minor")
 p_load(available)
 available("validata")
 # build and check ---------------------------------------------------------
@@ -129,5 +130,4 @@ usethis::use_cran_comments(open = rlang::is_interactive())
 devtools::check_win_devel()
 devtools::check_rhub()
 
-library(TidyConsultant)
 
