@@ -11,6 +11,7 @@ create_dummies(
   max_levels = 10L,
   remove_first_dummy = FALSE,
   remove_most_frequent_dummy = FALSE,
+  clean_names = TRUE,
   ignore_na = FALSE,
   split = NULL,
   remove_selected_columns = TRUE
@@ -28,6 +29,8 @@ create_dummies(
 \item{remove_first_dummy}{logical, default FALSE.}
 
 \item{remove_most_frequent_dummy}{logical, default FALSE}
+
+\item{clean_names}{logical, default TRUE. apply  \code{\link[janitor]{clean_names}}}
 
 \item{ignore_na}{logical, default FALSE}
 

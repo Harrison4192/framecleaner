@@ -11,6 +11,7 @@
 #' @param max_levels uses \code{\link[forcats]{fct_lump_n}} to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other". Default is set to 10 levels, to prevent accidental overload. Set value to \code{Inf} to use all levels
 #' @param remove_first_dummy logical, default FALSE.
 #' @param remove_most_frequent_dummy logical, default FALSE
+#' @param clean_names logical, default TRUE. apply  \code{\link[janitor]{clean_names}}
 #' @param ignore_na logical, default FALSE
 #' @param split NULL
 #' @param remove_selected_columns logical, default TRUE
@@ -30,6 +31,7 @@ create_dummies <- function(.data, ...,
                            max_levels = 10L,
                            remove_first_dummy = FALSE,
                            remove_most_frequent_dummy = FALSE,
+                           clean_names = TRUE,
                            ignore_na = FALSE,
                            split = NULL,
                            remove_selected_columns = TRUE){
@@ -47,10 +49,14 @@ if(!rlang::is_empty(dummy_cols)){
     remove_most_frequent_dummy = remove_most_frequent_dummy,
     ignore_na = ignore_na,
     split = split,
-    remove_selected_columns = remove_selected_columns
-  ) -> .data1
+    remove_selected_columns = remove_selected_columns) -> .data1
 
   setdiff(names(.data1), names(.data)) -> dummynames
+
+  .data1 %>%
+    select_otherwise(tidyselect::any_of(dummynames), return_type = "index") -> dummy_ind
+
+
 
 message(
   stringr::str_c(length(dummy_cols), " column(s) have become ", length(dummynames), " dummy columns")
@@ -61,6 +67,15 @@ message(
    .data1 %>%
       dplyr::rename_with(.fn = ~stringr::str_remove(., stringr::str_c(dummy_cols, "_")), .cols = tidyselect::any_of(dummynames)) -> .data1
   }
+
+
+
+if(clean_names){
+
+
+  names(.data1)[dummy_ind] <- janitor::make_clean_names(names(.data1)[dummy_ind])
+
+}
 
 }
   else{

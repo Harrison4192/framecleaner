@@ -4,7 +4,13 @@
 \alias{fct_or_prob}
 \title{fct_or_prob}
 \usage{
-fct_or_prob(x, first_level = NULL, order_fct = FALSE, max_levels = Inf)
+fct_or_prob(
+  x,
+  first_level = NULL,
+  order_fct = FALSE,
+  labels = NULL,
+  max_levels = Inf
+)
 }
 \arguments{
 \item{x}{vector}
@@ -12,6 +18,8 @@ fct_or_prob(x, first_level = NULL, order_fct = FALSE, max_levels = Inf)
 \item{first_level}{character string to set the first level of the factor}
 
 \item{order_fct}{logical. ordered factor?}
+
+\item{labels}{chr vector of labels, length equal to factor levels}
 }
 \value{
 logical

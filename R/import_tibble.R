@@ -1,9 +1,9 @@
 #' import tibble
 #'
-#' wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
-#' Also available is rio and vroom_jp for japanese characters.
+#' wrapper around multiple file readers. The default being \code{\link[rio]{import}} set to return a tibble
+#' Also available  \code{\link[vroom]{vroom}} and \code{vroom_jp} for japanese characters.
 #'
-#' Supports multiple types of importing through [method]
+#' Supports multiple types of importing through \code{method}
 #'
 #' @param path filepath
 #' @param ... other arguments
@@ -12,7 +12,7 @@
 #' @return a tibble
 #' @export
 #'
-import_tibble <- function(path, ..., method = c("vroom", "rio", "vroom_jp", "read_csv", "read_excel")){
+import_tibble <- function(path, ..., method = c("rio", "vroom", "vroom_jp", "read_csv", "read_excel")){
 
   method <- match.arg(method)
 

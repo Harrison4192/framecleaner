@@ -1,6 +1,6 @@
 #' @rdname set_fct.data.frame
 #' @export
-set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf){
+set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE,  labels = NULL, max_levels = Inf){
 
   UseMethod("set_fct", .data)
 }
@@ -15,8 +15,9 @@ set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE, max_level
 #' @param .data dataframe
 #' @param ... tidyselect (default selection: all character columns)
 #' @param first_level character string to set the first level of the factor
+#' @param labels chr vector of labels, length equal to factor levels
 #' @param order_fct logical. ordered factor?
-#' @param max_levels uses \code{\link[forcats]{fct_lump_n}} to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other"
+#' @param max_levels integer. uses \code{\link[forcats]{fct_lump_n}} to limit the number of categories. Only the top \code{max_levels} are preserved, and the rest being lumped into "other"
 #'
 #' @return tibble
 #' @export
@@ -31,7 +32,7 @@ set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE, max_level
 #'   set_fct(Species, first_level = "virginica") %>%
 #'   dplyr::pull(Species) %>%
 #'   levels()
-set_fct.data.frame <- function(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf){
+set_fct.data.frame <- function(.data, ..., first_level = NULL, order_fct = FALSE,  labels = NULL,  max_levels = Inf){
 
   .data %>%
     select_otherwise(..., otherwise = where(is.character)) -> nms
@@ -44,7 +45,8 @@ set_fct.data.frame <- function(.data, ..., first_level = NULL, order_fct = FALSE
   .data %>%
     dplyr::mutate(dplyr::across(tidyselect::any_of(nms),  .fns = ~set_fct(., first_level = first_level,
                                                                          order_fct = order_fct,
-                                                                         max_levels = max_levels) ))
+                                                                         max_levels = max_levels,
+                                                                         labels = labels) ))
 }
 
 
@@ -76,15 +78,16 @@ is_probability <- function(x){
 #'
 #' @param x vector
 #' @param first_level character string to set the first level of the factor
+#' @param labels chr vector of labels, length equal to factor levels
 #' @param order_fct logical. ordered factor?
 #' @keywords internal
 #'
 #' @return logical
-fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE, max_levels = Inf) {
+fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE, labels = NULL, max_levels = Inf) {
   if(is_probability(x)){
     x <- ifelse(x > .5, 1, 0)
   }
-  x <-  forcats::fct_relevel(factor(x, ordered = order_fct), first_level) %>%
+  x <-  forcats::fct_relevel(factor(x, ordered = order_fct, labels = labels), first_level) %>%
     forcats::fct_lump(n = max_levels, ties.method = "first")
 
   x
