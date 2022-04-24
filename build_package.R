@@ -9,7 +9,7 @@ p_load(rstudioapi, devtools, roxygen2, usethis, pkgdown,
 
 # create functions --------------------------------------------------------
 
-usethis::use_r("create_dummmies")
+usethis::use_r("manipulate_dates")
 
 # add this file to .Rbuildignore ------------------------------------------
 

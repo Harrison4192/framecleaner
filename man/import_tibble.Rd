@@ -7,7 +7,7 @@
 import_tibble(
   path,
   ...,
-  method = c("vroom", "rio", "vroom_jp", "read_csv", "read_excel")
+  method = c("rio", "vroom", "vroom_jp", "read_csv", "read_excel")
 )
 }
 \arguments{
@@ -21,9 +21,9 @@ import_tibble(
 a tibble
 }
 \description{
-wrapper around multiple file readers. The default being [vroom] set to return a tibble, with [set_int] to encode integers.
-Also available is rio and vroom_jp for japanese characters.
+wrapper around multiple file readers. The default being \code{\link[rio]{import}} set to return a tibble
+Also available  \code{\link[vroom]{vroom}} and \code{vroom_jp} for japanese characters.
 }
 \details{
-Supports multiple types of importing through [method]
+Supports multiple types of importing through \code{method}
 }

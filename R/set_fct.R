@@ -35,12 +35,14 @@ set_fct <- function(.data, ..., first_level = NULL, order_fct = FALSE,  labels =
 set_fct.data.frame <- function(.data, ..., first_level = NULL, order_fct = FALSE,  labels = NULL,  max_levels = Inf){
 
   .data %>%
-    select_otherwise(..., otherwise = where(is.character)) -> nms
+    select_otherwise(..., otherwise = where(is.character), return_type = "names") -> nms
 
 
   if (!is.null(first_level)) {
     first_level <- as.character(first_level)
   }
+
+
 
   .data %>%
     dplyr::mutate(dplyr::across(tidyselect::any_of(nms),  .fns = ~set_fct(., first_level = first_level,
@@ -86,6 +88,10 @@ is_probability <- function(x){
 fct_or_prob <- function(x, first_level = NULL, order_fct = FALSE, labels = NULL, max_levels = Inf) {
   if(is_probability(x)){
     x <- ifelse(x > .5, 1, 0)
+  }
+
+  if(is.null(labels)){
+    labels <- as.character(unique(x))
   }
   x <-  forcats::fct_relevel(factor(x, ordered = order_fct, labels = labels), first_level) %>%
     forcats::fct_lump(n = max_levels, ties.method = "first")

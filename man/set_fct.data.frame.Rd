@@ -6,9 +6,23 @@
 \alias{set_fct.default}
 \title{set factor}
 \usage{
-set_fct(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf)
+set_fct(
+  .data,
+  ...,
+  first_level = NULL,
+  order_fct = FALSE,
+  labels = NULL,
+  max_levels = Inf
+)
 
-\method{set_fct}{data.frame}(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf)
+\method{set_fct}{data.frame}(
+  .data,
+  ...,
+  first_level = NULL,
+  order_fct = FALSE,
+  labels = NULL,
+  max_levels = Inf
+)
 
 \method{set_fct}{default}(.data, ...)
 }
@@ -21,7 +35,9 @@ set_fct(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf)
 
 \item{order_fct}{logical. ordered factor?}
 
-\item{max_levels}{uses \code{\link[forcats]{fct_lump_n}} to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other"}
+\item{labels}{chr vector of labels, length equal to factor levels}
+
+\item{max_levels}{integer. uses \code{\link[forcats]{fct_lump_n}} to limit the number of categories. Only the top \code{max_levels} are preserved, and the rest being lumped into "other"}
 }
 \value{
 tibble

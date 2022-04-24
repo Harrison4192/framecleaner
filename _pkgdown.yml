@@ -35,6 +35,11 @@ reference:
 - title: Clean Frame is a wrapper function combining multiple framecleaner operations
   contents:
   - '`clean_frame`'
+- title: manipulate dates
+  contents:
+  - '`date_yh`'
+  - '`date_yq`'
+  - '`date_ym`'
 - title: Misc utilites
   contents:
   - '`auto_setwd`'
