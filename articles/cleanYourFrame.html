@@ -25,6 +25,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -53,7 +55,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -70,13 +72,13 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/Harrison4192/framecleaner/">
+  <a href="https://github.com/Harrison4192/framecleaner/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://harrison4192.github.io/TidyConsultant/">TC</a>
+  <a href="https://harrison4192.github.io/TidyConsultant/" class="external-link">TC</a>
 </li>
       </ul>
 </div>
@@ -94,7 +96,7 @@
       <h1 data-toc-skip>cleanYourFrame</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/Harrison4192/framecleaner/blob/master/vignettes/cleanYourFrame.Rmd"><code>vignettes/cleanYourFrame.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/Harrison4192/framecleaner/blob/HEAD/vignettes/cleanYourFrame.Rmd" class="external-link"><code>vignettes/cleanYourFrame.Rmd</code></a></small>
       <div class="hidden name"><code>cleanYourFrame.Rmd</code></div>
 
     </div>
@@ -102,107 +104,107 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://harrison4192.github.io/framecleaner/">framecleaner</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://harrison4192.github.io/framecleaner/" class="external-link">framecleaner</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></code></pre></div>
 <p>Data imported from excel and csv in business situations can have messy characteristics and data formats. This package provides functions to tidy your data frame using the power of <code>tidyselect</code>.</p>
 <p><strong>create sample data</strong></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-  date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"20190101"</span>, <span class="st">"20190305"</span>, <span class="st">"20201012"</span><span class="op">)</span>,
-  numeric_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span>,
-  char_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"    val "</span>, <span class="st">"-"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
+  date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"20190101"</span>, <span class="st">"20190305"</span>, <span class="st">"20201012"</span><span class="op">)</span>,
+  numeric_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="cn">NA</span>, <span class="fl">5</span><span class="op">)</span>,
+  char_val <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"    val "</span>, <span class="st">"-"</span><span class="op">)</span>
 <span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sample_table</span>
 
 <span class="va">sample_table</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date     numeric_val char_val  
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;     
-## 1 20190101           1 ""        
-## 2 20190305          NA "    val "
-## 3 20201012           5 "-"</code></pre>
-<div id="set-nas" class="section level1">
-<h1 class="hasAnchor">
-<a href="#set-nas" class="anchor"></a>set nas</h1>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date     numeric_val char_val  </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20190101           1 <span style="color: #949494;">""</span>        </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20190305          <span style="color: #BB0000;">NA</span> <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20201012           5 <span style="color: #949494;">"</span>-<span style="color: #949494;">"</span></span></code></pre>
+<div class="section level2">
+<h2 id="set-nas">set nas<a class="anchor" aria-label="anchor" href="#set-nas"></a>
+</h2>
 <p>Data occasionally has different ways to represent NA values. <code>set_na</code> checks as default <code>c("-", "", " ", "null")</code> but any values can be supplied to automatically be set to NA. This is helpful when you want to check the NA profile of a data frame using <code>validata::diagnose</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/make_na.data.frame.html">make_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date     numeric_val char_val  
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;     
-## 1 20190101           1  &lt;NA&gt;     
-## 2 20190305          NA "    val "
-## 3 20201012           5  &lt;NA&gt;</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date     numeric_val char_val  </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20190101           1  <span style="color: #BB0000;">NA</span>       </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20190305          <span style="color: #BB0000;">NA</span> <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20201012           5  <span style="color: #BB0000;">NA</span></span></code></pre>
 </div>
-<div id="remove-whitespace" class="section level1">
-<h1 class="hasAnchor">
-<a href="#remove-whitespace" class="anchor"></a>remove whitespace</h1>
+<div class="section level2">
+<h2 id="remove-whitespace">remove whitespace<a class="anchor" aria-label="anchor" href="#remove-whitespace"></a>
+</h2>
 <p>remove whitespace from the ends of character variables that may be otherwise undetectable by inspection.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/remove_whitespace.html">remove_whitespace</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date     numeric_val char_val
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   
-## 1 20190101           1 ""      
-## 2 20190305          NA "val"   
-## 3 20201012           5 "-"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date     numeric_val char_val</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20190101           1 <span style="color: #949494;">""</span>      </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20190305          <span style="color: #BB0000;">NA</span> <span style="color: #949494;">"</span>val<span style="color: #949494;">"</span>   </span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20201012           5 <span style="color: #949494;">"</span>-<span style="color: #949494;">"</span></span></code></pre>
 </div>
-<div id="set-dates" class="section level1">
-<h1 class="hasAnchor">
-<a href="#set-dates" class="anchor"></a>set dates</h1>
+<div class="section level2">
+<h2 id="set-dates">set dates<a class="anchor" aria-label="anchor" href="#set-dates"></a>
+</h2>
 <p>automatically convert character columns that should be dates.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/set_date.html">set_date</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date       numeric_val char_val  
-##   &lt;date&gt;           &lt;dbl&gt; &lt;chr&gt;     
-## 1 2019-01-01           1 ""        
-## 2 2019-03-05          NA "    val "
-## 3 2020-10-12           5 "-"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date       numeric_val char_val  </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 2019-01-01           1 <span style="color: #949494;">""</span>        </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 2019-03-05          <span style="color: #BB0000;">NA</span> <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 2020-10-12           5 <span style="color: #949494;">"</span>-<span style="color: #949494;">"</span></span></code></pre>
 </div>
-<div id="relocate-all" class="section level1">
-<h1 class="hasAnchor">
-<a href="#relocate-all" class="anchor"></a>relocate all</h1>
+<div class="section level2">
+<h2 id="relocate-all">relocate all<a class="anchor" aria-label="anchor" href="#relocate-all"></a>
+</h2>
 <p>relocates an unorganized dataframe using heuristics such as putting character and date columns first, and organizing by alphabetical order.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/relocate_all.html">relocate_all</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date     char_val   numeric_val
-##   &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt;
-## 1 20190101 ""                   1
-## 2 20190305 "    val "          NA
-## 3 20201012 "-"                  5</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date     char_val   numeric_val</span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20190101 <span style="color: #949494;">""</span>                   1</span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20190305 <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span>          <span style="color: #BB0000;">NA</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20201012 <span style="color: #949494;">"</span>-<span style="color: #949494;">"</span>                  5</span></code></pre>
 </div>
-<div id="clean-frame" class="section level1">
-<h1 class="hasAnchor">
-<a href="#clean-frame" class="anchor"></a>clean frame</h1>
+<div class="section level2">
+<h2 id="clean-frame">clean frame<a class="anchor" aria-label="anchor" href="#clean-frame"></a>
+</h2>
 <p>Wrapper function to apply all cleaning operations to a data frame using sensible defaults.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/clean_frame.html">clean_frame</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##       DATE NUMERIC_VAL CHAR_VAL  
-##      &lt;int&gt;       &lt;int&gt; &lt;chr&gt;     
-## 1 20190101           1  &lt;NA&gt;     
-## 2 20190305          NA "    val "
-## 3 20201012           5  &lt;NA&gt;</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##       DATE NUMERIC_VAL CHAR_VAL  </span>
+<span class="co">##      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20<span style="text-decoration: underline;">190</span>101           1  <span style="color: #BB0000;">NA</span>       </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20<span style="text-decoration: underline;">190</span>305          <span style="color: #BB0000;">NA</span> <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20<span style="text-decoration: underline;">201</span>012           5  <span style="color: #BB0000;">NA</span></span></code></pre>
 </div>
-<div id="fill-nas" class="section level1">
-<h1 class="hasAnchor">
-<a href="#fill-nas" class="anchor"></a>fill nas</h1>
+<div class="section level2">
+<h2 id="fill-nas">fill nas<a class="anchor" aria-label="anchor" href="#fill-nas"></a>
+</h2>
 <p>use tidyselect to fill NAs with a single value</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/%&gt;%.html">%&gt;%</a></span> 
+<code class="sourceCode R"><span class="va">sample_table</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/fill_na.html">fill_na</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 3
-##   date     numeric_val char_val  
-##   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;     
-## 1 20190101           1 ""        
-## 2 20190305           0 "    val "
-## 3 20201012           5 "-"</code></pre>
+<pre><code><span class="co">## <span style="color: #949494;"># A tibble: 3 × 3</span></span>
+<span class="co">##   date     numeric_val char_val  </span>
+<span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">## <span style="color: #BCBCBC;">1</span> 20190101           1 <span style="color: #949494;">""</span>        </span>
+<span class="co">## <span style="color: #BCBCBC;">2</span> 20190305           0 <span style="color: #949494;">"</span>    val <span style="color: #949494;">"</span></span>
+<span class="co">## <span style="color: #BCBCBC;">3</span> 20201012           5 <span style="color: #949494;">"</span>-<span style="color: #949494;">"</span></span></code></pre>
 </div>
   </div>
 
@@ -217,11 +219,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Harrison Tietze.</p>
+  <p></p>
+<p>Developed by Harrison Tietze.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -229,6 +233,8 @@
 
   
 
+
+  
 
   </body>
 </html>
