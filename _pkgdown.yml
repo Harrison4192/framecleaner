@@ -46,6 +46,7 @@ reference:
   - '`import_tibble`'
   - '`import_dir`'
   - '`is_integerish_character`'
+  - '`as_integer16_or_64`'
   - '`select_otherwise`'
 articles:
 - title: All vignettes
