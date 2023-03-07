@@ -73,7 +73,7 @@ message(
 if(clean_names){
 
 
-  names(.data1)[dummy_ind] <- janitor::make_clean_names(names(.data1)[dummy_ind])
+  names(.data1)[dummy_ind] <- janitor::make_clean_names(names(.data1)[dummy_ind], ascii = F)
 
 }
 
