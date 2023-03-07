@@ -80,46 +80,67 @@ names, and to specify dummy cols using tidyselect.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">create_dummies</span><span class="op">(</span>
-  <span class="va">.data</span>,
-  <span class="va">...</span>,
-  append_col_name <span class="op">=</span> <span class="cn">TRUE</span>,
-  max_levels <span class="op">=</span> <span class="fl">10L</span>,
-  remove_first_dummy <span class="op">=</span> <span class="cn">FALSE</span>,
-  remove_most_frequent_dummy <span class="op">=</span> <span class="cn">FALSE</span>,
-  clean_names <span class="op">=</span> <span class="cn">TRUE</span>,
-  ignore_na <span class="op">=</span> <span class="cn">FALSE</span>,
-  split <span class="op">=</span> <span class="cn">NULL</span>,
-  remove_selected_columns <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_dummies</span><span class="op">(</span></span>
+<span>  <span class="va">.data</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  append_col_name <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  max_levels <span class="op">=</span> <span class="fl">10L</span>,</span>
+<span>  remove_first_dummy <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  remove_most_frequent_dummy <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  clean_names <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  ignore_na <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  split <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  remove_selected_columns <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>...</dt>
 <dd><p>tidyselect columns. default selection is all character or factor variables</p></dd>
+
+
 <dt>append_col_name</dt>
 <dd><p>logical, default TRUE. Appends original column name to dummy col name</p></dd>
+
+
 <dt>max_levels</dt>
 <dd><p>uses <code><a href="https://forcats.tidyverse.org/reference/fct_lump.html" class="external-link">fct_lump_n</a></code> to limit the number of categories. Only the top n levels are preserved, and the rest being lumped into "other". Default is set to 10 levels, to prevent accidental overload. Set value to <code>Inf</code> to use all levels</p></dd>
+
+
 <dt>remove_first_dummy</dt>
 <dd><p>logical, default FALSE.</p></dd>
+
+
 <dt>remove_most_frequent_dummy</dt>
 <dd><p>logical, default FALSE</p></dd>
+
+
 <dt>clean_names</dt>
-<dd><p>logical, default TRUE. apply  <code><a href="https://rdrr.io/pkg/janitor/man/clean_names.html" class="external-link">clean_names</a></code></p></dd>
+<dd><p>logical, default TRUE. apply  <code><a href="https://sfirke.github.io/janitor/reference/clean_names.html" class="external-link">clean_names</a></code></p></dd>
+
+
 <dt>ignore_na</dt>
 <dd><p>logical, default FALSE</p></dd>
+
+
 <dt>split</dt>
 <dd><p>NULL</p></dd>
+
+
 <dt>remove_selected_columns</dt>
 <dd><p>logical, default TRUE</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data frame</p>
+    
+
+<p>data frame</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -128,10 +149,10 @@ names, and to specify dummy cols using tidyselect.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">iris</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">create_dummies</span><span class="op">(</span><span class="va">Species</span>, append_col_name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">iris</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">create_dummies</span><span class="op">(</span><span class="va">Species</span>, append_col_name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 1 column(s) have become 3 dummy columns</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 150 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Sepal.Length Sepal.Width Petal.Length Petal.Width setosa versicolor virginica</span>
@@ -147,8 +168,8 @@ names, and to specify dummy cols using tidyselect.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>          4.4         2.9          1.4         0.2      1          0         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>          4.9         3.1          1.5         0.1      1          0         0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 140 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -163,7 +184,7 @@ names, and to specify dummy cols using tidyselect.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

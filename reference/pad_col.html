@@ -78,37 +78,48 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">pad_col</span><span class="op">(</span><span class="va">mdb</span>, <span class="va">...</span>, <span class="va">width</span>, pad <span class="op">=</span> <span class="st">"0"</span>, side <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pad_col</span><span class="op">(</span><span class="va">mdb</span>, <span class="va">...</span>, <span class="va">width</span>, pad <span class="op">=</span> <span class="st">"0"</span>, side <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>mdb</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>...</dt>
 <dd><p>tidyselect</p></dd>
+
+
 <dt>width</dt>
 <dd><p>str_pad width</p></dd>
+
+
 <dt>pad</dt>
 <dd><p>str_pad pad</p></dd>
+
+
 <dt>side</dt>
 <dd><p>str_pad side</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data frame</p>
+    
+
+<p>data frame</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"> <span class="co"># manually pad with 0's (or other value)</span></span>
-<span class="r-in"> <span class="co"># use case over [pad_auto()]: the desired width is greater than the widest element</span></span>
-<span class="r-in"></span>
-<span class="r-in"> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in"> ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">13</span>, <span class="fl">86</span>, <span class="fl">302</span><span class="op">)</span></span>
-<span class="r-in"> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"> <span class="fu">pad_col</span><span class="op">(</span><span class="va">ID</span>, width <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># manually pad with 0's (or other value)</span></span></span>
+<span class="r-in"><span> <span class="co"># use case over [pad_auto()]: the desired width is greater than the widest element</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span> ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">13</span>, <span class="fl">86</span>, <span class="fl">302</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span> <span class="fu">pad_col</span><span class="op">(</span><span class="va">ID</span>, width <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   ID   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -130,7 +141,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

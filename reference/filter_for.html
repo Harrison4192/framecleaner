@@ -78,35 +78,42 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">filter_for</span><span class="op">(</span><span class="va">.data</span>, <span class="va">what</span>, <span class="va">where</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_for</span><span class="op">(</span><span class="va">.data</span>, <span class="va">what</span>, <span class="va">where</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>what</dt>
 <dd><p>unquote col or vector of unquoted cols.</p></dd>
+
+
 <dt>where</dt>
 <dd><p>a logical condition used for filter</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data frame</p>
+    
+
+<p>data frame</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co"># An example using some time series data</span></span>
-<span class="r-in"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span> CLIENT_ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span>,</span>
-<span class="r-in"><span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span>, <span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span><span class="op">)</span>,</span>
-<span class="r-in">                YEAR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2019L</span>, <span class="fl">2019L</span>, <span class="fl">2019L</span>, <span class="fl">2020L</span>, <span class="fl">2020L</span>, <span class="fl">2020L</span>, <span class="fl">2021L</span>, <span class="fl">2021L</span>, <span class="fl">2021L</span><span class="op">)</span>,</span>
-<span class="r-in">                SALES <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3124</span>, <span class="fl">56424</span>, <span class="fl">3214132</span>, <span class="fl">65534</span>, <span class="fl">2342</span>, <span class="fl">6566</span>, <span class="fl">87654</span>, <span class="fl">2332</span>, <span class="fl">6565</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">CLIENT_ID</span>, <span class="va">YEAR</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sales_data</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">sales_data</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># An example using some time series data</span></span></span>
+<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span> CLIENT_ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span>,</span></span>
+<span class="r-in"><span><span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span>, <span class="st">"A1001"</span>, <span class="st">"B1001"</span>, <span class="st">"C1001"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                YEAR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2019L</span>, <span class="fl">2019L</span>, <span class="fl">2019L</span>, <span class="fl">2020L</span>, <span class="fl">2020L</span>, <span class="fl">2020L</span>, <span class="fl">2021L</span>, <span class="fl">2021L</span>, <span class="fl">2021L</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                SALES <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3124</span>, <span class="fl">56424</span>, <span class="fl">3214132</span>, <span class="fl">65534</span>, <span class="fl">2342</span>, <span class="fl">6566</span>, <span class="fl">87654</span>, <span class="fl">2332</span>, <span class="fl">6565</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">CLIENT_ID</span>, <span class="va">YEAR</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sales_data</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sales_data</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   CLIENT_ID  YEAR   SALES</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -119,12 +126,12 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> C1001      <span style="text-decoration: underline;">2</span>019 3<span style="text-decoration: underline;">214</span>132</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> C1001      <span style="text-decoration: underline;">2</span>020    <span style="text-decoration: underline;">6</span>566</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> C1001      <span style="text-decoration: underline;">2</span>021    <span style="text-decoration: underline;">6</span>565</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># filter for Clients that had sales greater than 4000 in the year 2019.</span></span>
-<span class="r-in"><span class="co"># this way we can see how the same clients sales looked in subsequent years</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">sales_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">filter_for</span><span class="op">(</span>what <span class="op">=</span> <span class="va">CLIENT_ID</span>, where <span class="op">=</span> <span class="va">YEAR</span> <span class="op">==</span> <span class="fl">2019</span> <span class="op">&amp;</span> <span class="va">SALES</span> <span class="op">&gt;</span> <span class="fl">4000L</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># filter for Clients that had sales greater than 4000 in the year 2019.</span></span></span>
+<span class="r-in"><span><span class="co"># this way we can see how the same clients sales looked in subsequent years</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">sales_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">filter_for</span><span class="op">(</span>what <span class="op">=</span> <span class="va">CLIENT_ID</span>, where <span class="op">=</span> <span class="va">YEAR</span> <span class="op">==</span> <span class="fl">2019</span> <span class="op">&amp;</span> <span class="va">SALES</span> <span class="op">&gt;</span> <span class="fl">4000L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   CLIENT_ID  YEAR   SALES</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -134,11 +141,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> C1001      <span style="text-decoration: underline;">2</span>019 3<span style="text-decoration: underline;">214</span>132</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> C1001      <span style="text-decoration: underline;">2</span>020    <span style="text-decoration: underline;">6</span>566</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> C1001      <span style="text-decoration: underline;">2</span>021    <span style="text-decoration: underline;">6</span>565</span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># filter for clients whose sales were less than 4000 in the year 2021</span></span>
-<span class="r-in"> <span class="va">sales_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">filter_for</span><span class="op">(</span>what <span class="op">=</span> <span class="va">CLIENT_ID</span>, where <span class="op">=</span> <span class="va">YEAR</span> <span class="op">==</span> <span class="fl">2021</span> <span class="op">&amp;</span> <span class="va">SALES</span> <span class="op">&lt;</span> <span class="fl">4000L</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># filter for clients whose sales were less than 4000 in the year 2021</span></span></span>
+<span class="r-in"><span> <span class="va">sales_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">filter_for</span><span class="op">(</span>what <span class="op">=</span> <span class="va">CLIENT_ID</span>, where <span class="op">=</span> <span class="va">YEAR</span> <span class="op">==</span> <span class="fl">2021</span> <span class="op">&amp;</span> <span class="va">SALES</span> <span class="op">&lt;</span> <span class="fl">4000L</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   CLIENT_ID  YEAR SALES</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
@@ -159,7 +166,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

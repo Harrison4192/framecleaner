@@ -82,33 +82,40 @@ Defaults to choosing all character columns.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for data.frame</span>
-<span class="fu">make_na</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">""</span>, <span class="st">" "</span>, <span class="st">"null"</span>, <span class="st">"NA"</span>, <span class="st">"NA_"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">make_na</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">""</span>, <span class="st">" "</span>, <span class="st">"null"</span>, <span class="st">"NA"</span>, <span class="st">"NA_"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="fu">make_na</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">""</span>, <span class="st">" "</span>, <span class="st">"null"</span>, <span class="st">"NA"</span>, <span class="st">"NA_"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">make_na</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, vec <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">""</span>, <span class="st">" "</span>, <span class="st">"null"</span>, <span class="st">"NA"</span>, <span class="st">"NA_"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>...</dt>
 <dd><p>tidyselect. Default selection: all chr cols</p></dd>
+
+
 <dt>vec</dt>
 <dd><p>vector of possible elements to replace with NA</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data frame</p>
+    
+
+<p>data frame</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="co"># easily set NA values. blank space and empty space are default options</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">""</span>, <span class="st">"d"</span>, <span class="st">" "</span>, <span class="st">""</span>, <span class="st">"e"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">   <span class="fu">make_na</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># easily set NA values. blank space and empty space are default options</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">""</span>, <span class="st">"d"</span>, <span class="st">" "</span>, <span class="st">""</span>, <span class="st">"e"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>   <span class="fu">make_na</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   x    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
@@ -119,7 +126,7 @@ Defaults to choosing all character columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> <span style="color: #BB0000;">NA</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> <span style="color: #BB0000;">NA</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> e    </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -134,7 +141,7 @@ Defaults to choosing all character columns.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

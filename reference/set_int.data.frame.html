@@ -78,76 +78,81 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for data.frame</span>
-<span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="co"># S3 method for grouped_df</span>
-<span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for data.frame</span></span>
+<span><span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for grouped_df</span></span>
+<span><span class="fu">set_int</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>dataframe</p></dd>
+
+
 <dt>...</dt>
 <dd><p>tidyselect. Default Selecton: integerish doubles or integerish characters</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>tibble</p>
+    
+
+<p>tibble</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">int_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"10"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span class="r-in">  chr_int <span class="op">=</span> <span class="va">int_vec</span>,</span>
-<span class="r-in">  dbl_int <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">5.0</span>, <span class="fl">20.0</span><span class="op">)</span>,</span>
-<span class="r-in">  chr_int64 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1033493932"</span>, <span class="st">"4432500065"</span>, <span class="st">"30303022192"</span><span class="op">)</span>,</span>
-<span class="r-in">  string_int <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SALES2020"</span>, <span class="st">"SALES2021"</span>, <span class="st">"SALES2022"</span><span class="op">)</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">tbl</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># automatically coerce integerish cols in a tibble</span></span>
-<span class="r-in"><span class="va">tbl</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">int_vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"10"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  chr_int <span class="op">=</span> <span class="va">int_vec</span>,</span></span>
+<span class="r-in"><span>  dbl_int <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.0</span>, <span class="fl">5.0</span>, <span class="fl">20.0</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  chr_int64 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1033493932"</span>, <span class="st">"4432500065"</span>, <span class="st">"30303022192"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  string_int <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"SALES2020"</span>, <span class="st">"SALES2021"</span>, <span class="st">"SALES2022"</span><span class="op">)</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">tbl</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># automatically coerce integerish cols in a tibble</span></span></span>
+<span class="r-in"><span><span class="va">tbl</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   chr_int dbl_int chr_int64   string_int</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1             1 1033493932  SALES2020 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 2             5 4432500065  SALES2021 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 10           20 30303022192 SALES2022 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># integerish doubles or chars will be detected for coercion automatically</span></span>
-<span class="r-in"><span class="va">tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">set_int</span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># integerish doubles or chars will be detected for coercion automatically</span></span></span>
+<span class="r-in"><span><span class="va">tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">set_int</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   chr_int dbl_int   chr_int64 string_int</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int64&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       1       1 <span style="text-decoration: underline;"> 1</span>033<span style="text-decoration: underline;">493</span>932 SALES2020 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       2       5 <span style="text-decoration: underline;"> 4</span>432<span style="text-decoration: underline;">500</span>065 SALES2021 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       1       1  <span style="text-decoration: underline;">1</span>033<span style="text-decoration: underline;">493</span>932 SALES2020 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       2       5  <span style="text-decoration: underline;">4</span>432<span style="text-decoration: underline;">500</span>065 SALES2021 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>      10      20 <span style="text-decoration: underline;">30</span>303<span style="text-decoration: underline;">022</span>192 SALES2022 </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># string_int requires parsing, so it must be specified directly for coercion</span></span>
-<span class="r-in"><span class="va">tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">set_int</span><span class="op">(</span><span class="fu">matches</span><span class="op">(</span><span class="st">"str|chr"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># string_int requires parsing, so it must be specified directly for coercion</span></span></span>
+<span class="r-in"><span><span class="va">tbl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">set_int</span><span class="op">(</span><span class="fu">matches</span><span class="op">(</span><span class="st">"str|chr"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> some elements containing non-numeric values have been parsed as integers</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   chr_int dbl_int   chr_int64 string_int</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int64&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       1       1 <span style="text-decoration: underline;"> 1</span>033<span style="text-decoration: underline;">493</span>932       <span style="text-decoration: underline;">2</span>020</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       2       5 <span style="text-decoration: underline;"> 4</span>432<span style="text-decoration: underline;">500</span>065       <span style="text-decoration: underline;">2</span>021</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>       1       1  <span style="text-decoration: underline;">1</span>033<span style="text-decoration: underline;">493</span>932       <span style="text-decoration: underline;">2</span>020</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>       2       5  <span style="text-decoration: underline;">4</span>432<span style="text-decoration: underline;">500</span>065       <span style="text-decoration: underline;">2</span>021</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span>      10      20 <span style="text-decoration: underline;">30</span>303<span style="text-decoration: underline;">022</span>192       <span style="text-decoration: underline;">2</span>022</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># s3 method works for vectors as well</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">int_vec</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># s3 method works for vectors as well</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">int_vec</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1"  "2"  "10"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">int_vec</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in"><span class="fu">set_int</span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">int_vec</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="fu">set_int</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  1  2 10</span>
 </code></pre></div>
     </div>
@@ -163,7 +168,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

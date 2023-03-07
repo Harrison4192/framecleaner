@@ -78,36 +78,47 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">create_flag</span><span class="op">(</span><span class="va">.data</span>, <span class="va">col</span>, <span class="va">flag</span>, full_name <span class="op">=</span> <span class="cn">FALSE</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">create_flag</span><span class="op">(</span><span class="va">.data</span>, <span class="va">col</span>, <span class="va">flag</span>, full_name <span class="op">=</span> <span class="cn">FALSE</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.data</dt>
 <dd><p>data frame</p></dd>
+
+
 <dt>col</dt>
 <dd><p>column</p></dd>
+
+
 <dt>flag</dt>
 <dd><p>column entry</p></dd>
+
+
 <dt>full_name</dt>
 <dd><p>Logical. default F. if T, new column name is original name + flag. other wise just flag</p></dd>
+
+
 <dt>drop</dt>
 <dd><p>logical. default F. If T, drop original column.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>data frame</p>
+    
+
+<p>data frame</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">iris</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">create_flag</span><span class="op">(</span></span>
-<span class="r-in">  col <span class="op">=</span> <span class="va">Species</span>,</span>
-<span class="r-in">  flag <span class="op">=</span> <span class="st">"versicolor"</span>,</span>
-<span class="r-in">  drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">iris</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">create_flag</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  col <span class="op">=</span> <span class="va">Species</span>,</span></span>
+<span class="r-in"><span>  flag <span class="op">=</span> <span class="st">"versicolor"</span>,</span></span>
+<span class="r-in"><span>  drop <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Sepal.Length Sepal.Width Petal.Length Petal.Width versicolor</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1          5.1         3.5          1.4         0.2          0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2          4.9         3.0          1.4         0.2          0</span>
@@ -115,7 +126,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4          4.6         3.1          1.5         0.2          0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5          5.0         3.6          1.4         0.2          0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6          5.4         3.9          1.7         0.4          0</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -130,7 +141,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
