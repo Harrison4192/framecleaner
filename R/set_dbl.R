@@ -48,6 +48,15 @@ set_dbl.numeric <- function(.data, ...){
     as.double()
 }
 
+#' @rdname set_dbl.data.frame
+#' @method set_dbl integer64
+#' @export
+set_dbl.integer64 <- function(.data, ...){
+
+  .data %>%
+    as.double()
+}
+
 #' set double
 #'
 #' @method set_dbl data.frame

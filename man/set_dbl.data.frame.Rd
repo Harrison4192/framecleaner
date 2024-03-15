@@ -6,6 +6,7 @@
 \alias{set_dbl.factor}
 \alias{set_dbl.Date}
 \alias{set_dbl.numeric}
+\alias{set_dbl.integer64}
 \alias{set_dbl.data.frame}
 \title{set double}
 \usage{
@@ -18,6 +19,8 @@ set_dbl(.data, ...)
 \method{set_dbl}{Date}(.data, ...)
 
 \method{set_dbl}{numeric}(.data, ...)
+
+\method{set_dbl}{integer64}(.data, ...)
 
 \method{set_dbl}{data.frame}(.data, ...)
 }

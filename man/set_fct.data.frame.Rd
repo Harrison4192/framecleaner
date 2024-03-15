@@ -17,7 +17,7 @@ set_fct(
 
 \method{set_fct}{data.frame}(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf)
 
-\method{set_fct}{default}(.data, first_level = NULL, order_fct = FALSE, max_levels = Inf)
+\method{set_fct}{default}(.data, ..., first_level = NULL, order_fct = FALSE, max_levels = Inf)
 }
 \arguments{
 \item{.data}{dataframe}

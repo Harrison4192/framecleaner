@@ -55,7 +55,7 @@ set_fct.data.frame <- function(.data, ..., first_level = NULL, order_fct = FALSE
 #' @rdname set_fct.data.frame
 #' @method set_fct default
 #' @export
-set_fct.default <- function(.data, first_level = NULL, order_fct = FALSE,  max_levels = Inf){
+set_fct.default <- function(.data, ..., first_level = NULL, order_fct = FALSE,  max_levels = Inf){
 
 
   .data %>%

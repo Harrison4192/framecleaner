@@ -110,11 +110,12 @@ usethis::use_github_actions()
 usethis::use_github_links()
 usethis::use_github_pages()
 
-usethis::use_version("minor")
+usethis::use_version("patch")
 p_load(available)
 available("validata")
 # build and check ---------------------------------------------------------
-
+devtools::find_rtools(T);Sys.getenv("PATH")
+pkgbuild::has_build_tools()
 devtools::document()
 devtools::build_readme()
 devtools::build_manual()
@@ -130,4 +131,3 @@ usethis::use_cran_comments(open = rlang::is_interactive())
 devtools::check_win_devel()
 devtools::check_rhub()
 devtools::submit_cran()
-
