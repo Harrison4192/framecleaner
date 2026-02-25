@@ -24,6 +24,10 @@
 #' # string_int requires parsing, so it must be specified directly for coercion
 #' tbl %>%
 #'   set_int(matches("str|chr"))
+#'   t1 <- tibble::tibble(dt = lubridate::ymd(20250201), dttm = lubridate::now(), intg = 5L, chr = "5",
+#' chr1 = "5L", chr2 = "L5")
+#'
+#' set_int(t1)
 #'
 #' # s3 method works for vectors as well
 #'

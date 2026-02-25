@@ -20,10 +20,10 @@ import_tibble <- function(path, ..., method = c("rio", "vroom", "vroom_jp", "rea
   rio::import(path, setclass = "tibble", ...) -> file
     }
   else if(method == "vroom"){
-    vroom::vroom(path, ...) %>% set_int() -> file
+    vroom::vroom(path, ...) -> file
   }
   else if(method == "vroom_jp"){
-    vroom::vroom(path, ..., locale = readr::locale(encoding = "shift-jis")) %>% set_int() -> file
+    vroom::vroom(path, ..., locale = readr::locale(encoding = "shift-jis")) -> file
   }
   else if(method == "read_csv"){
     readr::read_csv(path, ...) -> file

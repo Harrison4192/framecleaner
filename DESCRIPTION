@@ -30,12 +30,14 @@ Imports:
     fs,
     rlist,
     fastDummies
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
 Suggests: 
     knitr,
     rmarkdown,
     badger,
-    readxl
+    readxl,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://harrison4192.github.io/framecleaner/, https://github.com/Harrison4192/framecleaner
 BugReports: https://github.com/Harrison4192/framecleaner/issues
+Config/testthat/edition: 3

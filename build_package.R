@@ -109,6 +109,7 @@ usethis::use_github_action("pkgdown")
 usethis::use_github_actions()
 usethis::use_github_links()
 usethis::use_github_pages()
+usethis::use_testthat()
 
 usethis::use_version("patch")
 p_load(available)
